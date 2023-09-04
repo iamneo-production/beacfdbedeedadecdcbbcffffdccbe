@@ -5,7 +5,6 @@ import './Auth.css'; // You can create this CSS file for styling
 
 const LandingPage = () => {
   return (
-    <h1>Hello</h1>
     <Container className="landing-page" maxWidth="sm">
       <Typography variant="h3" component="h1" style={{ fontFamily: 'Poppins', textAlign: 'center',marginBottom: '10px'}}>
         Welcome to vacServ
