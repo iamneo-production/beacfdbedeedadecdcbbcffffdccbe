@@ -1,11 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Auth from './components/Auth/Auth';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello, world</h1>
+    // <Router>
+      <div className="App">
+        {/* <Routes> */}
+          {/* <Route path="/" element={<Auth />} /> */}
+        </Routes>
     </div>
+    <h1>hello, world</h1>
+    {/* </Router> */}
   );
 }
 
