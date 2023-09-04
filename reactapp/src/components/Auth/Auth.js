@@ -8,11 +8,12 @@ const LandingPage = () => {
       <p>Your Vacuum Cleaner Service Provider</p>
       <div className="buttons-container">
         {/* <Link to="/login" className="nav-link"> */}
-          <button className="login-button">Login</button>
+          <button className="login-button" onClick ={()=>nav()) >Login</button>
         {/* </Link> */}
         {/* <Link to="/register" className="nav-link"> */}
           <button className="register-button">Register</button>
         {/* </Link> */}
+      </div>
       </div>
     </div>
   );
