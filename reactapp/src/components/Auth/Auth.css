@@ -1,35 +1,41 @@
-/* LandingPage.css */
+/* Auth.css */
 .landing-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px;
   }
   
   .buttons-container {
     margin-top: 20px;
   }
   
-  .login-button,
-  .register-button {
-    padding: 10px 20px;
+  .nav-link {
+    text-decoration: none;
     margin: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
   }
   
   .login-button {
-    background-color: #3498db;
+    background-color: black;
     color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
   }
   
   .register-button {
-    background-color: #e74c3c;
-    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
   }
-
-
   
