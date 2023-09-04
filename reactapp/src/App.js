@@ -1,5 +1,5 @@
 import React from 'react';
-import Auth from './components/Auth'; // Use the relative path to Auth.js
+import Auth from './components/Auth/Auth'; 
 
 function App() {
   return (
