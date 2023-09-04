@@ -1,48 +1,30 @@
-// App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-
-// Home component
-const Home = () => (
-  <div>
-    <h2>Home Page</h2>
-    <p>Welcome to the Home page!</p>
-  </div>
-);
-
-// About component
-const About = () => (
-  <div>
-    <h2>About Page</h2>
-    <p>This is the About page.</p>
-  </div>
-);
+import Auth from './components/Auth/Auth';
+import Register from './components/Auth/Register/Register';
+import Login from './components/Auth/Login/Login';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+import Homepage from './components/Customer/Homepage';
+import AdminHomePage from './components/Admin/AdminHomePage';
+import AddCenter from './components/Admin/AddCenter';
+import Dashboard from './components/Customer/Dashboard';
 
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Auth />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/user/homepage" element={<Homepage />} />
+          <Route path="/admin" element={<AdminHomePage />} />
+          <Route path="/admin/addServiceCenter" element={<AddCenter />} />
+          <Route path="/user/dashboard/" element={<Dashboard />} />
+        </Routes>
       </div>
     </Router>
+  
   );
 }
 

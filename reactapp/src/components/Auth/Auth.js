@@ -1,27 +1,30 @@
 import React from 'react';
-import './Auth.css';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Button, Container, Typography } from '@mui/material';
+import './Auth.css'; // You can create this CSS file for styling
 
 const LandingPage = () => {
-  const navigate = useNavigate();
-  function nav(){
-    navigate("/");
-  }
   return (
-    <div className="landing-page">
-      <h1>Welcome to vacServ</h1>
-      <p>Your Vacuum Cleaner Service Provider</p>
-      <div className="buttons-container">
-        {/* <Link to="/login" className="nav-link"> */}
-          <button className="login-button" onClick ={()=>nav()}>Login</button>
-
-
-        {/* <Link to="/register" className="nav-link"> */}
-          <button className="register-button">Register</button>
-        {/* </Link> */}
+    <Container className="landing-page" maxWidth="sm">
+      <Typography variant="h3" component="h1" style={{ fontFamily: 'Poppins', textAlign: 'center',marginBottom: '10px'}}>
+        Welcome to vacServ
+      </Typography>
+      <Typography variant="subtitle1" component="p" style={{ fontFamily: 'Poppins', textAlign: 'center' }}>
+        Your Vacuum Cleaner Service Provider
+      </Typography>
+      <div className="buttons-container" style={{ textAlign: 'center' }}>
+        <Link to="/login" className="nav-link">
+          <Button variant="contained" color="primary" className="login-button" style={{ color: 'white', backgroundColor: 'black', fontFamily: 'Poppins' }}>
+            Login
+          </Button>
+        </Link>
+        <Link to="/register" className="nav-link">
+          <Button variant="contained" className="register-button" style={{ backgroundColor: 'black', fontFamily: 'Poppins' }}>
+            Register
+          </Button>
+        </Link>
       </div>
-      
-    </div>
+    </Container>
   );
 };
 
