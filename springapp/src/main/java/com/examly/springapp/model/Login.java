@@ -1,3 +1,3 @@
-public class LoginModel {
+public class Login {
     
 }

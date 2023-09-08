@@ -1,3 +1,3 @@
-public class AdminModel {
+public class Admin {
     
 }

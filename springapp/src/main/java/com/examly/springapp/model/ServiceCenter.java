@@ -1,3 +1,3 @@
-public class ServiceCenterModel {
+public class ServiceCenter {
     
 }

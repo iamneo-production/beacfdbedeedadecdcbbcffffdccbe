@@ -1,3 +1,3 @@
-public class ProductModel {
+public class Product {
     
 }
