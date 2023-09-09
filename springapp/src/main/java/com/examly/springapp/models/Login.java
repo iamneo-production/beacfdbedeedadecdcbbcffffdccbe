@@ -9,18 +9,9 @@ public class Login {
         // Default constructor
     }
 
-    public Login(String loginId, String email, String password) {
-        this.loginId = loginId;
+    public Login( String email, String password) {
         this.email = email;
         this.password = password;
-    }
-
-    public String getLoginId() {
-        return loginId;
-    }
-
-    public void setLoginId(String loginId) {
-        this.loginId = loginId;
     }
 
     public String getEmail() {
