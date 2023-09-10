@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
-@CrossOrigin
+@RequestMapping("/auth")
+@CrossOrigin(origins = "*")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/add")
+    @PostMapping("/user/signup")
     public String add(@RequestBody User user){
         userService.saveUser(user);
         return "New User has been added";
