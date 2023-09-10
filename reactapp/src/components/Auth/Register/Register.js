@@ -138,7 +138,7 @@ export default function Register() {
 
     if (isValid) {  
       console.log(formData);
-      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/admin/signup`, {
+      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
