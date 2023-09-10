@@ -1,42 +1,28 @@
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import com.examly.springapp.model.LoginModel;
-import com.examly.springapp.model.UserModel;
+package com.examly.springapp.controller;
+
+import com.examly.springapp.model.User;
 import com.examly.springapp.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/auth")
+@CrossOrigin
 public class AuthController {
-
     @Autowired
     private AuthService authService;
 
-    // Admin Login
-    @PostMapping("/login")
-    public ResponseEntity<Boolean> adminLogin(@RequestBody LoginModel loginData) {
-        boolean isAdminAuthenticated = authService.isAdminPresent(loginData);
-        return ResponseEntity.ok(isAdminAuthenticated);
-    }
-
-    // Admin SignUp
-    @PostMapping("/signup")
-    public ResponseEntity<String> adminSignUp(@RequestBody UserModel userData) {
-        String adminSignUpResult = authService.saveAdmin(userData);
-        return ResponseEntity.ok(adminSignUpResult);
-    }
-
-    // User Login
-    @PostMapping("/user/login")
-    public ResponseEntity<Boolean> userLogin(@RequestBody LoginModel loginData) {
-        boolean isUserAuthenticated = authService.isUserPresent(loginData);
-        return ResponseEntity.ok(isUserAuthenticated);
-    }
-
-    // User SignUp
     @PostMapping("/user/signup")
-    public ResponseEntity<String> userSignUp(@RequestBody UserModel userData) {
-        String userSignUpResult = authService.saveUser(userData);
-        return ResponseEntity.ok(userSignUpResult);
+    public String userSignUp(@RequestBody User userData) {
+        // User sign-up logic
+        authService.saveUser(userData);
+        return "New User has been added";
+    }
+
+    @PostMapping("/admin/signup")
+    public String adminSignUp(@RequestBody User adminData) {
+        // Admin sign-up logic
+        authService.saveAdmin(adminData);
+        return "New Admin has been added";
     }
 }
