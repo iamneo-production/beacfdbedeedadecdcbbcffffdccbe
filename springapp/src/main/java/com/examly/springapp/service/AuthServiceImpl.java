@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AuthServiceImpl implements AuthService{
+public abstract class AuthServiceImpl implements AuthService{
     @Autowired
     private AuthRepository authRepository;
     @Override
