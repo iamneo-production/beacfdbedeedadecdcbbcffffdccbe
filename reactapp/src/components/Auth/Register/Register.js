@@ -10,7 +10,7 @@ import Checkbox from "@mui/material/Checkbox";
 
 export default function Register() {
   const [formData, setFormData] = useState({
-    adminUser: "",
+    userRole: "",
     email: "",
     username: "",
     mobileNumber: "",
@@ -19,7 +19,7 @@ export default function Register() {
   });
 
   const [errors, setErrors] = useState({
-    adminUser: "",
+    userRole: "",
     email: "",
     username: "",
     mobileNumber: "",
@@ -46,22 +46,22 @@ export default function Register() {
 
     // Basic Validation Rules
     let isValid = true;
-    if (formData.adminUser.trim() === "") {
+    if (formData.userRole.trim() === "") {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        adminUser: "Please Select Admin/User",
+        userRole: "Please Select Admin/User",
       }));
       isValid = false;
     } 
     if (
-      formData.adminUser !== "admin" &&
-      formData.adminUser !== "user" &&
-      formData.adminUser !== "Admin" &&
-      formData.adminUser !== "User"
+      formData.userRole !== "admin" &&
+      formData.userRole !== "user" &&
+      formData.userRole !== "Admin" &&
+      formData.userRole !== "User"
     ) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        adminUser: "Please select either Admin or User",
+        userRole: "Please select either Admin or User",
       }));
       isValid = false;
     }
@@ -136,12 +136,31 @@ export default function Register() {
       isValid = false;
     }
 
-    if (isValid) {
-      // Handle form submission (e.g., send data to the server)
+    if (isValid) {  
       console.log(formData);
+      const apiUrl = formData.userRole === "admin"
+        ? "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/admin/signup"
+        : "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup";
+    
+      fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log("New User Added:", data);
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
     }
-  };
-
+  }
   return (
     <Container component="main" maxWidth="sm"
     sx={{
@@ -176,15 +195,15 @@ export default function Register() {
             margin="normal"
             required
             fullWidth
-            id="adminUser"
+            id="userRole"
             label="Enter Admin/User"
-            name="adminUser"
-            autoComplete="adminUser"
+            name="userRole"
+            autoComplete="userRole"
             autoFocus
-            value={formData.adminUser}
+            value={formData.userRole}
             onChange={handleChange}
-            error={!!errors.adminUser}
-            helperText={errors.adminUser}
+            error={!!errors.userRole}
+            helperText={errors.userRole}
           />
           <TextField
             margin="normal"
@@ -264,6 +283,7 @@ export default function Register() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
             style={{ backgroundColor: 'black'}}
+            onClick={handleSubmit}
           >
             Register
           </Button>
@@ -276,3 +296,4 @@ export default function Register() {
     </Container>
   );
 }
+
