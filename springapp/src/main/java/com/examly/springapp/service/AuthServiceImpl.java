@@ -23,7 +23,8 @@ public class AuthServiceImpl implements AuthService{
     }
     @Override
     public Optional<User> getUserByEmailAndPassword(String email, String password) {
-        return authRepository.findByEmailAndPassword(email, password);
+        return authRepository.findByEmailAndPasswordAndUserRole(email, password,"user");
+
     }
     @Override
     public Optional<User> getAdminByEmailAndPassword(String email, String password) {
