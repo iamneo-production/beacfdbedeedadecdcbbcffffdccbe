@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
@@ -7,8 +7,12 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import { Modal } from "@mui/material";
 
 export default function Register() {
+  const navigate = useNavigate();
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     userRole: "",
     email: "",
@@ -41,7 +45,49 @@ export default function Register() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleConfirmation = () => {
+    console.log("handleConfirmation called");
+    setSuccessModalOpen(true);
+    setTimeout(() => {
+      setSuccessModalOpen(false);
+      navigate("/login");
+    }, 3500); // Close the modal and navigate after 5 seconds
+  };
+
+  const sendDataToDatabase = async () => {
+    let apiUrl = "";
+
+    if (formData.userRole === "admin") {
+      apiUrl =
+        "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/admin/signup";
+    } else if (formData.userRole === "user") {
+      apiUrl =
+        "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup";
+    }
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        console.error(`HTTP error! Status: ${response.status}`);
+        const responseText = await response.text();
+        console.error("Response Text:", responseText);
+        return;
+      }
+
+      const data = await response.json();
+      console.log("New User Added:", data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    console.log("handleSubmit called");
     event.preventDefault();
 
     // Basic Validation Rules
@@ -52,7 +98,7 @@ export default function Register() {
         userRole: "Please Select Admin/User",
       }));
       isValid = false;
-    } 
+    }
     if (
       formData.userRole !== "admin" &&
       formData.userRole !== "user" &&
@@ -135,39 +181,28 @@ export default function Register() {
       }));
       isValid = false;
     }
+    if (isValid) {
+      handleConfirmation(); // Show confirmation modal immediately
 
-    if (isValid) {  
-      console.log(formData);
-      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log("New User Added:", data);
-        })
-        .catch(error => {
-          console.error("Error:", error);
-        });
+      // Send the data to the database in the background
+      sendDataToDatabase();
     }
-  }
+  };
+
   return (
-    <Container component="main" maxWidth="sm"
-    sx={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      minHeight: "110vh",
-      height: "85vh", // Set the container height to fill the viewport
-      marginTop: "auto", // Move the container to the top of the viewport
-    }}>
+    <Container
+      component="main"
+      maxWidth="sm"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "110vh",
+        height: "85vh", // Set the container height to fill the viewport
+        marginTop: "auto", // Move the container to the top of the viewport
+      }}
+    >
       <Box
         sx={{
           // marginTop: 1,
@@ -186,7 +221,7 @@ export default function Register() {
             overflowY: "auto", // Enable vertical scrolling
           }}
         ></div>
-        <form onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <form noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
@@ -272,24 +307,50 @@ export default function Register() {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <RouterLink to="/login" className="nav-link">
           <Button
             type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-            style={{ backgroundColor: 'black'}}
+            style={{ backgroundColor: "black" }}
             onClick={handleSubmit}
           >
             Register
           </Button>
-          </RouterLink>
+
           <RouterLink to="/login">
             Already have an account? Login here
           </RouterLink>
         </form>
+        {/* Success Modal */}
+        <Modal
+          open={successModalOpen}
+          onClose={() => setSuccessModalOpen(false)}
+          aria-labelledby="successful-registration-modal"
+          aria-describedby="successful-registration-description"
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              bgcolor: "white",
+              boxShadow: 24,
+              p: 4,
+              maxWidth: "80%",
+              textAlign: "center",
+            }}
+          >
+            <Typography id="successful-registration-modal" variant="h6">
+              Successful Registration
+            </Typography>
+            <Typography id="successful-registration-description" sx={{ mt: 2 }}>
+              You have been successfully registered. Redirecting to login page...
+            </Typography>
+          </Box>
+        </Modal>
       </Box>
     </Container>
   );
 }
-
