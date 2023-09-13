@@ -223,7 +223,7 @@ export default function Login() {
           <Grid container>
             <Grid item xs></Grid>
             <Grid item>
-              <MuiLink component={RouterLink} to="/register" variant="body2">
+              <MuiLink component={RouterLink} to="/signUp" variant="body2">
                 Don't have an account? Register
               </MuiLink>
             </Grid>

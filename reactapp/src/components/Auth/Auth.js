@@ -18,7 +18,7 @@ const LandingPage = () => {
             Login
           </Button>
         </Link>
-        <Link to="/register" className="nav-link">
+        <Link to="/signUp" className="nav-link">
           <Button variant="contained" className="register-button" style={{ backgroundColor: 'black', fontFamily: 'Poppins' }}>
             Register
           </Button>
