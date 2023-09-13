@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface AuthRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmailAndPasswordAndUserRole(String email,String password, String userRole);
     Optional<User> findByEmailAndPassword(String email, String password);
+    Optional<User> findByEmail(String email);
 }

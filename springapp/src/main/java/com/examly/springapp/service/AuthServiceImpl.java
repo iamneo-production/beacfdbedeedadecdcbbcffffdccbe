@@ -32,8 +32,10 @@ public class AuthServiceImpl implements AuthService{
     }
     @Override
     public Optional<User> getUserByEmail(String email) {
-        return Optional.empty();
+        // Implement the logic to retrieve a user by email from your database
+        return authRepository.findByEmail(email);
     }
+
     @Override
     public List<User> getAllUsers(){
         return authRepository.findAll();
