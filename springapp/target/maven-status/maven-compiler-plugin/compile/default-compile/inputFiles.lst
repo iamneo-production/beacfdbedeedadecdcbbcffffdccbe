@@ -3,5 +3,5 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/AuthController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/AuthRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/User.java
-/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/config/CorsConfig.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
