@@ -31,6 +31,10 @@ public class AuthServiceImpl implements AuthService{
         return authRepository.findByEmailAndPasswordAndUserRole(email, password, "admin");
     }
     @Override
+    public Optional<User> getUserByEmail(String email) {
+        return Optional.empty();
+    }
+    @Override
     public List<User> getAllUsers(){
         return authRepository.findAll();
     }
