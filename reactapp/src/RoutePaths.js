@@ -1,5 +1,5 @@
 import Auth from './components/Auth/Auth';
-import Register from './components/Auth/Register/Register';
+import SignUp from './components/Auth/SignUp/SignUp';
 import Login from './components/Auth/Login/Login';
 import Homepage from './components/Customer/Homepage';
 import AdminHomePage from './components/Admin/AdminHomePage';
@@ -15,7 +15,7 @@ import AdminAppointmentView from './components/Admin/AdminAppointmentView';
 export const routes = [
   { path: '/', element: <Auth /> },
   { path: '/login', element: <Login /> },
-  { path: '/register', element: <Register /> },
+  { path: '/signup', element: <SignUp /> },
   { path: '/user/homepage', element: <Homepage /> },
   { path: '/admin', element: <AdminHomePage /> },
   { path: '/admin/addServiceCenter', element: <AddCenter /> },
