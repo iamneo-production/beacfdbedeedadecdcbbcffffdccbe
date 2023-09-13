@@ -111,7 +111,25 @@ function AddCenter() {
     }
     if (isValid) {
       console.log("No Errors");
-      navigate("/admin/AdminHomePage");
+
+      const formData = {
+        serviceCenterName: centerData.addName,
+        serviceCenterPhone: centerData.addPhoneNumber,
+        serviceCenterAddress: centerData.addAddress,
+        serviceCenterPrice: centerData.addPrice,
+        serviceCenterImageUrl: centerData.addImageUrl,
+        serviceCenterEmailId: centerData.addEmail,
+        serviceCenterDescription: centerData.addDescription,
+        serviceCenterTimings: centerData.addTimings, // Map the timing field
+      };
+      console.log(formData);
+      fetch ("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/addServiceCenter",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(centerData)
+      }).then(() => {
+        console.log("New Center Added");
+      });
     }
   };
 
@@ -211,12 +229,10 @@ function AddCenter() {
               <TextField
                 fullWidth
                 label="Timings"
-                name="addTimings" // Provide a unique name
-                value={centerData.addTimings} // Use the appropriate value from your state
-                onChange={(newValue) =>
-                  handleDateChange("addTimings", newValue)
-                } // Handle date and time changes
-                // Add any other properties you need
+                name="addTimings"
+                value={centerData.addTimings}
+                onChange={handleInputChange}
+                // Rest of your properties
               />
             </Grid>
             <Grid item xs={12}>
