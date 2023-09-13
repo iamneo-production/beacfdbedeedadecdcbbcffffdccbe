@@ -13,13 +13,13 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/auth")
 @CrossOrigin("*")
 public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @PostMapping("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup")
+    @PostMapping("/user/signup")
     public String userSignUp(@RequestBody User user) {
         // User sign-up logic
         authService.saveUser(user);
