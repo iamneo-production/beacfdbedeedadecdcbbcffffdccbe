@@ -126,7 +126,7 @@ function AddCenter() {
       fetch ("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/addServiceCenter",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(centerData)
+        body:JSON.stringify(formData)
       }).then(() => {
         console.log("New Center Added");
       });
