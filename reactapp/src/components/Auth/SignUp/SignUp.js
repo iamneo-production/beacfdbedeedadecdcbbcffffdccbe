@@ -60,7 +60,7 @@ export default function SignUp() {
     if (formData.userRole === "admin") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/admin/signup";
-    } else if (formData.userRole === "user") {
+    }if (formData.userRole === "user") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup";
     }
