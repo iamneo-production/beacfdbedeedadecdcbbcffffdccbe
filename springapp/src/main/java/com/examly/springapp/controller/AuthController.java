@@ -20,10 +20,16 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/user/signup")
-    public String userSignUp(@RequestBody User user) {
-        // User sign-up logic
-        authService.saveUser(user);
-        return "New User has been added";
+    public ResponseEntity<String> signup(@RequestBody User user) {
+        //Check if the email already exists in the user table
+        if (authService.getUserByEmail(user.getEmail()).isPresent()) {
+            return ResponseEntity.ok("Email already exists");
+        }
+        // If the email doesn't exist, proceed with user registration
+        else{
+            authService.saveUser(user);
+            return ResponseEntity.ok("New User has been added");
+        }
     }
 
     @PostMapping("/admin/signup")
