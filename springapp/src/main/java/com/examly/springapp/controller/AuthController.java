@@ -33,11 +33,19 @@ public class AuthController {
     }
 
     @PostMapping("/admin/signup")
-    public String adminSignUp(@RequestBody User adminUser) {
-        // Admin sign-up logic
+    public ResponseEntity<String> adminSignUp(@RequestBody User adminUser) {
+    // Check if an admin with the same email already exists in the database
+    Optional<User> existingAdmin = authService.getUserByEmail(adminUser.getEmail());
+
+    if (existingAdmin.isPresent()) {
+        // An admin with the same email already exists, return an error response
+        return ResponseEntity.badRequest().body("Admin with the same email already exists.");
+    } else {
+        // No admin with the same email exists, proceed with saving the new admin user
         authService.saveAdmin(adminUser);
-        return "New Admin has been added";
+        return ResponseEntity.ok("New Admin has been added");
     }
+}
 
     @PostMapping("/user/login")
     public ResponseEntity<Map<String, String>> userLogin(@RequestBody User loginUser){
