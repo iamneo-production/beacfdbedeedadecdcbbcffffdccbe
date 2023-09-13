@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -51,7 +51,7 @@ export default function Register() {
     setTimeout(() => {
       setSuccessModalOpen(false);
       navigate("/login");
-    }, 3500); // Close the modal and navigate after 5 seconds
+    }, 3500); // Close the modal and navigate after 3.5 seconds
   };
 
   const sendDataToDatabase = async () => {
@@ -117,42 +117,41 @@ export default function Register() {
         email: "Email is required",
       }));
       isValid = false;
-    } 
-    else if (!formData.email.includes("@")) {
+    } else if (!formData.email.includes("@")) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         email: "Invalid email address",
       }));
       isValid = false;
-    } 
+    }
     if (formData.username.trim() === "") {
       setErrors((prevErrors) => ({
         ...prevErrors,
         username: "Username is required",
       }));
       isValid = false;
-    } 
+    }
     if (formData.mobileNumber.trim() === "") {
       setErrors((prevErrors) => ({
         ...prevErrors,
         mobileNumber: "Mobile Number is required",
       }));
       isValid = false;
-    } 
+    }
     if (formData.mobileNumber.length < 10) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         mobileNumber: "Incorrect Mobile Number. Please enter 10 digits",
       }));
       isValid = false;
-    } 
+    }
     if (formData.password.trim() === "") {
       setErrors((prevErrors) => ({
         ...prevErrors,
         password: "Password is required",
       }));
       isValid = false;
-    } 
+    }
     if (formData.password.length < 6) {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -166,14 +165,14 @@ export default function Register() {
         confirmPassword: "Please retype your Password",
       }));
       isValid = false;
-    } 
+    }
     if (formData.confirmPassword !== formData.password) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         confirmPassword: "Please re-enter the password",
       }));
       isValid = false;
-    } 
+    }
     if (formData.confirmPassword.length < 6) {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -182,9 +181,7 @@ export default function Register() {
       isValid = false;
     }
     if (isValid) {
-      handleConfirmation(); // Show confirmation modal immediately
-
-      // Send the data to the database in the background
+      handleConfirmation();
       sendDataToDatabase();
     }
   };
@@ -340,13 +337,19 @@ export default function Register() {
               p: 4,
               maxWidth: "80%",
               textAlign: "center",
+              display: "flex",
+              flexDirection: "column", // Ensure the content is stacked vertically
+              alignItems: "center", // Center the content horizontally
+              color:"white",
+              backgroundColor: '#79e63e', // Change 'your-color-here' to the color you want
             }}
           >
-            <Typography id="successful-registration-modal" variant="h6">
-              Successful Registration
+            <Typography id="successful-registration-modal" variant="h4">
+              <strong>Successful Registration</strong>
             </Typography>
             <Typography id="successful-registration-description" sx={{ mt: 2 }}>
-              You have been successfully registered. Redirecting to login page...
+              <strong>You have been successfully registered. Redirecting to login
+              page...</strong>
             </Typography>
           </Box>
         </Modal>

@@ -13,10 +13,9 @@ import {
 import AdminNavbar from "./AdminNavBar";
 import { Link, useNavigate } from "react-router-dom";
 
-
 function AddCenter() {
   const [openDialog, setOpenDialog] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [centerData, setCenterData] = useState({
     addName: "",
@@ -47,6 +46,13 @@ function AddCenter() {
       ...errors,
       [name]: "",
     });
+  };
+
+  const handleDateChange = (name, newValue) => {
+    setCenterData((prevUserData) => ({
+      ...prevUserData,
+      [name]: newValue,
+    }));
   };
 
   const handleFormSubmit = (event) => {
@@ -189,7 +195,7 @@ function AddCenter() {
                 helperText={errors.addImageUrl}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label="Email Address"
@@ -199,6 +205,18 @@ function AddCenter() {
                 required
                 error={!!errors.addEmail}
                 helperText={errors.addEmail}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                fullWidth
+                label="Timings"
+                name="addTimings" // Provide a unique name
+                value={centerData.addTimings} // Use the appropriate value from your state
+                onChange={(newValue) =>
+                  handleDateChange("addTimings", newValue)
+                } // Handle date and time changes
+                // Add any other properties you need
               />
             </Grid>
             <Grid item xs={12}>
