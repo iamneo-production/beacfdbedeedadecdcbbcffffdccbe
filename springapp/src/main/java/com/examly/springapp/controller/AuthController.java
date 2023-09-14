@@ -2,6 +2,7 @@ package com.examly.springapp.controller;
 
 import com.examly.springapp.model.User;
 import com.examly.springapp.repository.ServiceCenterRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.examly.springapp.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
