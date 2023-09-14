@@ -21,6 +21,14 @@ public class ServiceCenterController {
     public String add(@RequestBody ServiceCenter serviceCenter){
         serviceCenterService.saveServiceCenter(serviceCenter);
         return "New Service Center Created";
+    }
 
+    @DeleteMapping("/cancelappointment/{id}")
+    public ResponseEntity<String> deleteAppointmentById(@PathVariable Long id) {
+        if (productService.deleteAppointmentById(id)) {
+            return ResponseEntity.ok("Appointment deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
