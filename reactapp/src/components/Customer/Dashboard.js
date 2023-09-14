@@ -130,18 +130,19 @@ export default function Dashboard() {
       const formData = {
         productName: userData.enterProductName,
         productModelNo: userData.enterModelNo,
-        dateOfPurchase: userData.enterDateOfPurchase: 
-        enterContactNumber: "",
-        enterProblem: "",
-        enterAppointmentDate: "",
-         userData.addPhoneNumber,
-        dateOfPurchase: userData.addAddress,
-        mobileNumber: userData.addPrice,
-        productDescription: userData.addImageUrl,
-        availableSlots: userData.addEmail,
-        productDescription: userData.addDescription,
-        productTimings: userData.addTimings, // Map the timing field
+        dateOfPurchase: userData.enterDateOfPurchase,
+        mobileNumber: userData.enterContactNumber,
+        productDescription: userData.enterProblem,
+        availableSlots: userData.enterAppointmentDate,
       };
+      console.log(formData);
+      fetch ("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/addServiceCenter",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(formData)
+      }).then(() => {
+        console.log("New Appointment Added");
+      });
     }
   };
 

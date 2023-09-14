@@ -111,7 +111,6 @@ function AddCenter() {
     }
     if (isValid) {
       console.log("No Errors");
-
       const formData = {
         serviceCenterName: centerData.addName,
         serviceCenterPhone: centerData.addPhoneNumber,
