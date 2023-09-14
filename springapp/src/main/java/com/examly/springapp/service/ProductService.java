@@ -14,4 +14,6 @@ public interface ProductService {
     public List<Product> getAllAppointments();
     public Optional <Product> findById(Long id);
     public boolean deleteAppointmentById(Long id);
+
+    public void insertMultipleProducts();
 }
