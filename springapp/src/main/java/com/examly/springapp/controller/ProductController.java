@@ -21,6 +21,14 @@ public class ProductController {
     public String add(@RequestBody Product product){
         productService.saveProduct(product);
         return "New Product Appointment created";
+    }
 
+    @DeleteMapping("/cancelappointment/{id}")
+    public ResponseEntity<String> deleteAppointmentById(@PathVariable Long id) {
+        if (productService.deleteAppointmentById(id)) {
+            return ResponseEntity.ok("Appointment deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
