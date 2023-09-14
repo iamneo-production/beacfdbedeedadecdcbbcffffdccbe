@@ -30,4 +30,21 @@ public class ServiceCenterController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping("/editServiceCenter/{id}")
+    public ResponseEntity<ServiceCenter> updateServiceCenter(@PathVariable Long id, @RequestBody ServiceCenter updatedServiceCenter) {
+    ServiceCenter serviceCenter = serviceCenterService.getServiceCenterById(id);
+    
+    if (serviceCenter == null) {
+        return ResponseEntity.notFound().build();
+    }
+    
+    // Update the serviceCenter object with the new data
+    serviceCenter.setName(updatedServiceCenter.getName());
+    serviceCenter.setAddress(updatedServiceCenter.getAddress());
+    // Update other fields as needed
+    
+    ServiceCenter updatedCenter = serviceCenterService.saveServiceCenter(serviceCenter);
+    return ResponseEntity.ok(updatedCenter);
+}
 }
