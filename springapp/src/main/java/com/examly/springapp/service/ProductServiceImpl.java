@@ -35,4 +35,19 @@ public class ProductServiceImpl implements ProductService{
     public Optional < Product > findById(Long id) {
         return productRepository.findById(id);
     }
+
+    @Override
+    public void insertMultipleProducts() {
+        for (int i = 0; i < 10; i++) {
+            Product product = new Product();
+            product.setProductName("Product " + i);
+            product.setProductModelNo("Model " + i);
+            product.setDateOfPurchase("2023-09-15");
+            product.setMobileNumber("123456789" + i);
+            product.setProductDescription("Description " + i);
+            product.setAvailableSlots("1");
+
+            productRepository.save(product);
+        }
+
 }
