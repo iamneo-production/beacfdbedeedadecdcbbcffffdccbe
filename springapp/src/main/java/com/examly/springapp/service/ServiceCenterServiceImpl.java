@@ -8,16 +8,30 @@ import java.util.*;
 
 @Service
 public class ServiceCenterServiceImpl implements ServiceCenterService{
+    
     @Autowired
     private ServiceCenterRepository serviceCenterRepository;
+    
     @Override
     public ServiceCenter saveServiceCenter(ServiceCenter serviceCenter){
         return serviceCenterRepository.save(serviceCenter);
     }
+    
     @Override
     public List<ServiceCenter> getAllServiceCenters() {
         return serviceCenterRepository.findAll();
+    
     }
+    
+    public boolean deleteServiceCenterById(Long id) {
+        Optional<ServiceCenter> serviceCenterOptional = serviceCenterRepository.findById(id);
+        if (serviceCenterOptional.isPresent()) {
+            serviceCenterRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+    
     @Override
     public Optional < ServiceCenter > findById(Long id) {
         return serviceCenterRepository.findById(id);

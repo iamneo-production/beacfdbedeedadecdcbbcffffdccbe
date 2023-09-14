@@ -10,4 +10,5 @@ public interface ServiceCenterService {
     public ServiceCenter saveServiceCenter(ServiceCenter serviceCenter);
     public List<ServiceCenter> getAllServiceCenters();
     public Optional <ServiceCenter> findById(Long id);
+    public boolean deleteServiceCenterById(Long id);
 }
