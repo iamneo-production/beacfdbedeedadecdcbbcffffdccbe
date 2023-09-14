@@ -5,6 +5,8 @@ import com.examly.springapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.*;
+import javax.persistence.*;
 
 
 @RestController
@@ -27,11 +29,5 @@ public class ProductController {
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
-
-    @PostMapping("/insert-multiple-products")
-    public ResponseEntity<String> insertMultipleProducts() {
-        productService.insertMultipleProducts();
-        return ResponseEntity.ok("Multiple products inserted successfully.");
     }
 }
