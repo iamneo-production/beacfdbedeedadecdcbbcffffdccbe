@@ -39,8 +39,8 @@ public class ServiceCenterController {
         return ResponseEntity.notFound().build();
     }
     // Update the serviceCenter object with the new data
-    serviceCenter.setName(updatedServiceCenter.getName());
-    serviceCenter.setAddress(updatedServiceCenter.getAddress());
+    serviceCenter.setServiceCenterName(updatedServiceCenter.getName());
+    serviceCenter.setServiceCenterAddress(updatedServiceCenter.getAddress());
     serviceCenter
     // Update other fields as needed
     
