@@ -9,7 +9,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Modal } from "@mui/material";
 
-export default function SignUp() {
+export default function Register() {
   const navigate = useNavigate();
   const [successModalOpen, setSuccessModalOpen] = useState(false);
 
@@ -60,7 +60,7 @@ export default function SignUp() {
     if (formData.userRole === "admin") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/admin/signup";
-    }if (formData.userRole === "user") {
+    } else if (formData.userRole === "user") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup";
     }

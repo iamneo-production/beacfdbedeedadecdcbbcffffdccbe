@@ -13,8 +13,6 @@ import { useLocation } from "react-router-dom";
 import { CardMedia } from "@mui/material";
 import ConfirmationModal from "./ConfirmationModal";
 import { useState } from "react";
-import { useEffect } from "react";
-
 
 const defaultTheme = createTheme();
 
@@ -129,22 +127,6 @@ export default function Dashboard() {
     if (isValid) {
       setIsConfirmationModalOpen(true);
       console.log("No Errors");
-      const formData = {
-        productName: userData.enterProductName,
-        productModelNo: userData.enterModelNo,
-        dateOfPurchase: userData.enterDateOfPurchase,
-        mobileNumber: userData.enterContactNumber,
-        productDescription: userData.enterProblem,
-        availableSlots: userData.enterAppointmentDate,
-      };
-      console.log(formData);
-      fetch ("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/addServiceCenter",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(formData)
-      }).then(() => {
-        console.log("New Appointment Added");
-      });
     }
   };
 
