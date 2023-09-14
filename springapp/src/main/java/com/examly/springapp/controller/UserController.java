@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/user")
 public class UserController{

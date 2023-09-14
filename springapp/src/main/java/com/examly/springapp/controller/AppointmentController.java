@@ -1,3 +1,4 @@
+@CrossOrigin("*")
 public class AppointmentController {
     
 }
