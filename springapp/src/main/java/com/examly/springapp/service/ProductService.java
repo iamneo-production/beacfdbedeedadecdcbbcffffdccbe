@@ -13,4 +13,5 @@ public interface ProductService {
     public Product saveProduct(Product product);
     public List<Product> getAllAppointments();
     public Optional <Product> findById(Long id);
+    public boolean deleteAppointmentById(Long id);
 }

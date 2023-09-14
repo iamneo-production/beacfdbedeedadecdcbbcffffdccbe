@@ -9,14 +9,26 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService{
+
     @Autowired
     private ProductRepository productRepository;
+
     @Override
     public Product saveProduct(Product product){
         return productRepository.save(product);
     }
+
     public List<Product> getAllAppointments() {
         return productRepository.findAll();
+    }
+
+    public boolean deleteAppointmentById(Long id) {
+        Optional<Product> productOptional = productRepository.findById(id);
+        if (productOptional.isPresent()) {
+            productRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     @Override
