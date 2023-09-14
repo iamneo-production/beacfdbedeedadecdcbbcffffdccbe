@@ -39,9 +39,14 @@ public class ServiceCenterController {
         return ResponseEntity.notFound().build();
     }
     // Update the serviceCenter object with the new data
-    serviceCenter.setServiceCenterName(updatedServiceCenter.getName());
-    serviceCenter.setServiceCenterAddress(updatedServiceCenter.getAddress());
-    serviceCenter
+    existingServiceCenter.setServiceCenterName(updatedServiceCenter.getServiceCenterName());
+        existingServiceCenter.setServiceCenterPhone(updatedServiceCenter.getServiceCenterPhone());
+        existingServiceCenter.setServiceCenterAddress(updatedServiceCenter.getServiceCenterAddress());
+        existingServiceCenter.setServiceCenterImageUrl(updatedServiceCenter.getServiceCenterImageUrl());
+        existingServiceCenter.setServiceCenterPrice(updatedServiceCenter.getServiceCenterPrice());
+        existingServiceCenter.setServiceCenterTimings(updatedServiceCenter.getServiceCenterTimings());
+        existingServiceCenter.setServiceCenterEmailId(updatedServiceCenter.getServiceCenterEmailId());
+        existingServiceCenter.setServiceCenterDescription(updatedServiceCenter.getServiceCenterDescription());
     // Update other fields as needed
     
     ServiceCenter updatedCenter = serviceCenterService.saveServiceCenter(serviceCenter);
