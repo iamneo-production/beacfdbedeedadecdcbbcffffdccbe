@@ -1,9 +1,6 @@
 package com.examly.springapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -16,6 +13,14 @@ public class Product {
     private String mobileNumber;
     private String productDescription;
     private String availableSlots;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "service_center_id")
+    private ServiceCenter serviceCenter;
 
     public Product(){
         //TODO document why the constructor

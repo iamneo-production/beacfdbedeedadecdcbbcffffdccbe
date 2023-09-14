@@ -3,6 +3,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
 
 @Entity
 public class User {
@@ -19,6 +21,13 @@ public class User {
     public User(){
         // TODO document why this constructor is empty
     }
+
+    // @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    // private Login login;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Admin admin;
+
 
     public Long getUserId() {
         return UserId;

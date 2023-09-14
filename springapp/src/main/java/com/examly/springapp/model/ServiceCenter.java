@@ -21,7 +21,7 @@ public class ServiceCenter {
     private String serviceCenterDescription;
 
     public ServiceCenter(){
-        //Todo
+
     }
 
     public Long getServiceCenterId() {

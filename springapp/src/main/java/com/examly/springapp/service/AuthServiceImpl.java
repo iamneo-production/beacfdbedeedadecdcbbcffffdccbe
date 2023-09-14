@@ -12,7 +12,6 @@ import java.util.Optional;
 public class AuthServiceImpl implements AuthService{
     @Autowired
     private AuthRepository authRepository;
-
     @Override
     public User saveUser(User user){
         return authRepository.save(user);

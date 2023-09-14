@@ -13,6 +13,8 @@ import { useLocation } from "react-router-dom";
 import { CardMedia } from "@mui/material";
 import ConfirmationModal from "./ConfirmationModal";
 import { useState } from "react";
+import { useEffect } from "react";
+
 
 const defaultTheme = createTheme();
 

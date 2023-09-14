@@ -16,7 +16,6 @@ public class ServiceCenterController {
 
     @PostMapping("/addServiceCenter")
     public String add(@RequestBody ServiceCenter serviceCenter){
-        // Map the request data to your entity
         serviceCenterService.saveServiceCenter(serviceCenter);
         return "New Service Center Created";
 
