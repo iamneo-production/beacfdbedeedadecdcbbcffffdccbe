@@ -9,7 +9,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Modal } from "@mui/material";
 
-export default function Register() {
+export default function SignUp() {
   const navigate = useNavigate();
   const [successModalOpen, setSuccessModalOpen] = useState(false);
 
