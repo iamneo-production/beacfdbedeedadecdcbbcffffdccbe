@@ -127,6 +127,21 @@ export default function Dashboard() {
     if (isValid) {
       setIsConfirmationModalOpen(true);
       console.log("No Errors");
+      const formData = {
+        productName: userData.enterProductName,
+        productModelNo: userData.enterModelNo,
+        dateOfPurchase: userData.enterDateOfPurchase: 
+        enterContactNumber: "",
+        enterProblem: "",
+        enterAppointmentDate: "",
+         userData.addPhoneNumber,
+        dateOfPurchase: userData.addAddress,
+        mobileNumber: userData.addPrice,
+        productDescription: userData.addImageUrl,
+        availableSlots: userData.addEmail,
+        productDescription: userData.addDescription,
+        productTimings: userData.addTimings, // Map the timing field
+      };
     }
   };
 
