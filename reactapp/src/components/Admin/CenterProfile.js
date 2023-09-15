@@ -8,6 +8,8 @@ import Searchbar from '../Searchbar'
 
 function CenterProfile() {
     const [searchTerm, setSearchTerm] = useState("");
+    const [serviceCenters, setServiceCenters] = useState([]);
+
 
     const handleSearchChange = (value) => {
         setSearchTerm(value);
