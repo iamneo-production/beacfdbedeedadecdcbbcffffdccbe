@@ -104,8 +104,8 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
   };
 
   // Filter the cards based on the search term
-  const filteredCards = serviceCenters.filter((serviceCenters) =>
-    serviceCenters.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredCards = serviceCenters.filter((center) =>
+    center.serviceCenterName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const sortedCards = [...filteredCards].sort((a, b) => {
@@ -147,17 +147,17 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
                         // 16:9
                         pt: '56.25%',
                       }}
-                      image={serviceCenters.imageUrl}
+                      image={serviceCenters.serviceCenterImageUrl}
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography gutterBottom variant="h5" component="h2">
                         {serviceCenters.title}
                       </Typography>
                       <Typography>
-                        <strong>Place: </strong>{serviceCenters.place}
+                        <strong>Place: </strong>{serviceCenters.serviceCenterPlace}
                       </Typography>
                       <Typography>
-                        <strong>Timing: </strong>{serviceCenters.timings}
+                        <strong>Timing: </strong>{serviceCenters.serviceCenterTimings}
                       </Typography>
                       <Typography>
                         <strong>Rating: </strong>{serviceCenters.rating}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Navbar from "../Navbar";
 import SearchBar from "../Searchbar";
 import GridCard from "../GridCards";
@@ -26,7 +26,7 @@ function HomePage() {
   const handleSortChange = (event) => {
     setSortOrder(event.target.value); // Step 3: Update sortOrder state
   };
-  
+
   useEffect(() => {
     // Make an API request to fetch service center data
     fetch('https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/service-center')
