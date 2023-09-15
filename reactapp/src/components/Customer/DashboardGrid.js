@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from "../Navbar";
 import SearchBar from "../Searchbar";
+import { Grid, Button, TextField, MenuItem } from "@mui/material"; // Import MenuItem
 import GridCardsWithoutHero from "../GridCardsWithoutHero"; // Import the modified component
 import { Container } from "@mui/material"; // Import Container without destructuring it
 import Footer from "../Footer";
