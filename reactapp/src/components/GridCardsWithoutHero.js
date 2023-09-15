@@ -21,8 +21,8 @@ export default function GridCardsWithoutHero({serviceCenters}) {
     <ThemeProvider theme={defaultTheme}>
       <Container sx={{ py: 8 }} maxWidth="lg">
         <Grid container spacing={4}>
-          {cards.map((card) => (
-            <Grid item key={card} xs={12} sm={6} md={4}>
+          {sortedCards.map((serviceCenters) => (
+            <Grid item key={serviceCenters.id} xs={12} sm={6} md={4}>
               {/* Wrap the Card with a Link component */}
               <Link
                 to={`/user/dashboard/${serviceCenters.id}`} // Use string concatenation to include card.id
@@ -43,22 +43,22 @@ export default function GridCardsWithoutHero({serviceCenters}) {
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {card.title}
+                      {serviceCenters.serviceCenterName}
                     </Typography>
                     <Typography>
-                      <strong>Description: </strong>{card.description}
+                      <strong>Description: </strong>{serviceCenters.serviceCenterDescription}
                     </Typography>
                     <Typography>
-                      <strong>Address: </strong>{card.address}
+                      <strong>Address: </strong>{serviceCenters.serviceCenterAddress}
                     </Typography>
                     <Typography>
-                      <strong>Phone Number: </strong>{card.phoneNumber}
+                      <strong>Phone Number: </strong>{serviceCenters.serviceCenterPhone}
                     </Typography>
                     <Typography>
-                      <strong>Timing: </strong>{card.timings}
+                      <strong>Timing: </strong>{serviceCenters.serviceCenterTimings}
                     </Typography>
                     <Typography>
-                      <strong>Rating: </strong>{card.rating}
+                      <strong>Price: </strong>{serviceCenters.serviceCenterPrice}
                     </Typography>
                   </CardContent>
                 </Card>
