@@ -48,7 +48,9 @@ function CenterProfile() {
       </Container>
       </Box>
       <Searchbar onSearchChange={handleSearchChange} />
-      <GridCardsAdmin serviceCenters={serviceCenters} searchTerm={searchTerm} /> {/* Pass the sortOrder */}
+      {serviceCenters.length > 0 && (
+          <GridCardsAdmin serviceCenters={serviceCenters} searchTerm={searchTerm} />
+)}
       
     </div>
   )

@@ -22,6 +22,7 @@ function AddCenter() {
     addPhoneNumber: "",
     addAddress: "",
     addImageUrl: "",
+    addTimings: "",
     addEmail: "",
     addDescription: "",
     addPrice: "",
@@ -32,6 +33,7 @@ function AddCenter() {
     addAddress: "",
     addImageUrl: "",
     addEmail: "",
+    addTimings: "",
     addDescription: "",
     addPrice: "",
   });
