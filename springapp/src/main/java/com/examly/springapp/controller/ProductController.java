@@ -33,7 +33,7 @@ public class ProductController {
 
     @PutMapping("/editappointment/{id}")
     public ResponseEntity<Product> editAppointment(@PathVariable Long id, @RequestBody Product updatedProduct) {
-        Product existingProduct = ProductService.getProductById(id);
+        Product existingProduct = productService.getProductById(id);
         if (existingProduct == null) {
             return ResponseEntity.notFound().build();
         }
