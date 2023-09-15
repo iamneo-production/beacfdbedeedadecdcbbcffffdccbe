@@ -117,6 +117,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
   const handleCardClick = (card) => {
     console.log("Clicked Card:", card);
   };
+  const { serviceCenters, searchTerm } = props;
 
   // Filter the cards based on the search term
   const filteredCards = serviceCenters.filter((center) =>
