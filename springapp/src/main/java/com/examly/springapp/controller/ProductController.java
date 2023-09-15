@@ -33,11 +33,11 @@ public class ProductController {
         existingProduct.setProductModelNo(updatedProduct.getProductModelNo());
         existingProduct.setDateOfPurchase(updatedProduct.getDateOfPurchase());
         existingProduct.setMobileNumber(updatedProduct.getMobileNumber());
-        existingProduct.set(updatedProduct.get());
-        existingProduct.set(updatedProduct.get());
+        existingProduct.setproductDescription(updatedProduct.getProductDescription());
+        existingProduct.setAvailableSlots(updatedProduct.getAvailableSlots());
         // Update other fields as needed
-        Appointment updatedAppointmentData = appointmentService.saveAppointment(appointment);
-        return ResponseEntity.ok(updatedAppointmentData);
+        Product updatedProductInfo = productService.saveProduct(existingProduct);
+        return ResponseEntity.ok(updatedProductInfo);
     }
 
     @DeleteMapping("/cancelappointment/{id}")

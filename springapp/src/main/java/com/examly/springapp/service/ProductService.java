@@ -12,6 +12,7 @@ import java.util.Optional;
 public interface ProductService {
     public Product saveProduct(Product product);
     public List<Product> getAllAppointments();
+    public Product getProductById(Long id);
     public Optional <Product> findById(Long id);
     public boolean deleteAppointmentById(Long id);
 }
