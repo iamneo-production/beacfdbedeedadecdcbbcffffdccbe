@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
-export default function GridCardsWithoutHero({serviceCenters}) {
+export default function GridCardsWithoutHero({ searchTerm, sortOrder, serviceCenters}) {
   const handleCardClick = (serviceCenters) => {
     console.log("Clicked Card:", serviceCenters);
   };
