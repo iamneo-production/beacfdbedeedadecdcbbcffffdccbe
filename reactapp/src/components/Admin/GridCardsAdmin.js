@@ -27,7 +27,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
 
   // Filter the cards based on the search term
   const filteredCards = serviceCenters.filter((center) =>
-  center.title.toLowerCase().includes(searchTerm.toLowerCase())
+  center.serviceCenterName.toLowerCase().includes(searchTerm.toLowerCase())
 );
 
   const sortedCards = [...filteredCards].sort((a, b) => {
