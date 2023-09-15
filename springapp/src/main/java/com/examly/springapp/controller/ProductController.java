@@ -22,6 +22,24 @@ public class ProductController {
         return "New Product Appointment created";
     }
 
+    @PutMapping("/editappointment/{id}")
+    public ResponseEntity<Appointment> editAppointment(@PathVariable Long id, @RequestBody Appointment updatedAppointment) {
+        Appointment appointment = appointmentService.getAppointmentById(id);
+
+        if (appointment == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        // Update the appointment object with the new data
+        appointment.setAppointmentDate(updatedAppointment.getAppointmentDate());
+        appointment.setAppointmentTime(updatedAppointment.getAppointmentTime());
+        appointment.setAppointmentDescription(updatedAppointment.getAppointmentDescription());
+        // Update other fields as needed
+
+        Appointment updatedAppointmentData = appointmentService.saveAppointment(appointment);
+        return ResponseEntity.ok(updatedAppointmentData);
+    }
+
     @DeleteMapping("/cancelappointment/{id}")
     public ResponseEntity<String> deleteAppointmentById(@PathVariable Long id) {
         if (productService.deleteAppointmentById(id)) {
