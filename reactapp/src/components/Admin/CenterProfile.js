@@ -10,10 +10,23 @@ function CenterProfile() {
     const [searchTerm, setSearchTerm] = useState("");
     const [serviceCenters, setServiceCenters] = useState([]);
 
-
     const handleSearchChange = (value) => {
         setSearchTerm(value);
       };
+      
+      useEffect(() => {
+        // Make an API request to fetch service center data
+        fetch("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/service-center")
+          .then((response) => response.json())
+          .then((data) => {
+            setServiceCenters(data); // Update the state with the fetched data
+          })
+          .catch((error) => {
+            console.error("Error fetching service centers:", error);
+          });
+      }, []); 
+
+
   return (
     <div>
         <AdminNavbar />
@@ -35,7 +48,7 @@ function CenterProfile() {
       </Container>
       </Box>
       <Searchbar onSearchChange={handleSearchChange} />
-      <GridCardsAdmin searchTerm={searchTerm} /> {/* Pass the sortOrder */}
+      <GridCardsAdmin serviceCenters={serviceCenters} searchTerm={searchTerm} /> {/* Pass the sortOrder */}
       
     </div>
   )
