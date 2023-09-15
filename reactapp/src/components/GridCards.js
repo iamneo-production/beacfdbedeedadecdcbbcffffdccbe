@@ -154,13 +154,13 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
                         {serviceCenters.title}
                       </Typography>
                       <Typography>
-                        <strong>Place: </strong>{serviceCenters.serviceCenterPlace}
+                        <strong>Place: </strong>{serviceCenters.serviceCenterAddress}
                       </Typography>
                       <Typography>
                         <strong>Timing: </strong>{serviceCenters.serviceCenterTimings}
                       </Typography>
                       <Typography>
-                        <strong>Rating: </strong>{serviceCenters.rating}
+                        <strong>Rating: </strong>{serviceCenters.serviceCenterRating}
                       </Typography>
                     </CardContent>
                   </Card>
