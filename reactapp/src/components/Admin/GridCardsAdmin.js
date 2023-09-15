@@ -111,7 +111,7 @@ export const cards = [
 
 const defaultTheme = createTheme();
 
-export default function GridCardsAdmin({ searchTerm, sortOrder }) {
+export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }) {
   const navigate = useNavigate();
   console.log("Search Term in GridCards:", searchTerm);
   const handleCardClick = (card) => {
