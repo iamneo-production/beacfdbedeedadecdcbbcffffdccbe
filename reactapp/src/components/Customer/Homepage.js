@@ -12,7 +12,8 @@ import { Link } from 'react-router-dom';
 function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterLocation, setFilterLocation] = useState("");
-  const [sortOrder, setSortOrder] = useState("ascending"); // Step 1: Add sortOrder state
+  const [sortOrder, setSortOrder] = useState("ascending"); // Step 1: Add sortOrder state'
+  const [serviceCenters, setServiceCenters] = useState([]);
 
   const handleSearchChange = (value) => {
     setSearchTerm(value);
@@ -25,6 +26,18 @@ function HomePage() {
   const handleSortChange = (event) => {
     setSortOrder(event.target.value); // Step 3: Update sortOrder state
   };
+  
+  useEffect(() => {
+    // Make an API request to fetch service center data
+    fetch('https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/service-center')
+      .then((response) => response.json())
+      .then((data) => {
+        setServiceCenters(data); // Update the state with the fetched data
+      })
+      .catch((error) => {
+        console.error('Error fetching service centers:', error);
+      });
+  }, []);
 
   return (
     <div>
@@ -104,7 +117,7 @@ function HomePage() {
           Filter
         </Button>
       </Container>
-        <GridCard searchTerm={searchTerm} sortOrder={sortOrder} /> {/* Pass the sortOrder */}
+        <GridCard searchTerm={searchTerm} sortOrder={sortOrder} serviceCenters={serviceCenters} /> {/* Pass the sortOrder */}
       <div>
         <Footer />
       </div>
