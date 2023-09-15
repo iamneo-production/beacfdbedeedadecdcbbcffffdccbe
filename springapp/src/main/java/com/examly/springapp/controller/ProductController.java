@@ -23,8 +23,8 @@ public class ProductController {
     }
 
     @PutMapping("/editappointment/{id}")
-    public ResponseEntity<Appointment> editAppointment(@PathVariable Long id, @RequestBody Appointment updatedAppointment) {
-        Appointment appointment = appointmentService.getAppointmentById(id);
+    public ResponseEntity<Product> editAppointment(@PathVariable Long id, @RequestBody Product updatedProduct) {
+        Product product = ProductService.getAppointmentById(id);
         if (appointment == null) {
             return ResponseEntity.notFound().build();
         }
