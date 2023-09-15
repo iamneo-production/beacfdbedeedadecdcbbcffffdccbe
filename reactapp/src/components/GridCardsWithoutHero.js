@@ -12,9 +12,27 @@ import { Link } from 'react-router-dom';
 const defaultTheme = createTheme();
 
 export default function GridCardsWithoutHero({ searchTerm, sortOrder, serviceCenters}) {
+  console.log("Search Term in GridCards:", searchTerm); 
   const handleCardClick = (serviceCenters) => {
     console.log("Clicked Card:", serviceCenters);
   };
+
+  const filteredCards = serviceCenters.filter((center) =>
+    center.serviceCenterName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const sortedCards = [...filteredCards].sort((a, b) => {
+    const priceA = parseInt(a.price);
+    const priceB = parseInt(b.price);
+
+    if (sortOrder === 'ascending') {
+      return priceA - priceB;
+    } else if (sortOrder === 'descending') {
+      return priceB - priceA;
+    }
+
+    return 0;
+  });
 
 
   return (
