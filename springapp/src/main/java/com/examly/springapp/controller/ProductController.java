@@ -22,6 +22,15 @@ public class ProductController {
         return "New Product Appointment created";
     }
 
+    @DeleteMapping("/cancelappointment/{id}")
+    public ResponseEntity<String> deleteAppointmentById(@PathVariable Long id) {
+        if (productService.deleteAppointmentById(id)) {
+            return ResponseEntity.ok("Appointment deleted successfully");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PutMapping("/editappointment/{id}")
     public ResponseEntity<Product> editAppointment(@PathVariable Long id, @RequestBody Product updatedProduct) {
         Product existingProduct = ProductService.getProductById(id);
@@ -38,14 +47,5 @@ public class ProductController {
         // Update other fields as needed
         Product updatedProductInfo = productService.saveProduct(existingProduct);
         return ResponseEntity.ok(updatedProductInfo);
-    }
-
-    @DeleteMapping("/cancelappointment/{id}")
-    public ResponseEntity<String> deleteAppointmentById(@PathVariable Long id) {
-        if (productService.deleteAppointmentById(id)) {
-            return ResponseEntity.ok("Appointment deleted successfully");
-        } else {
-            return ResponseEntity.notFound().build();
-        }
     }
 }

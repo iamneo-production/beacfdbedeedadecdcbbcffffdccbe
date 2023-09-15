@@ -17,15 +17,14 @@ public class ProductServiceImpl implements ProductService{
     public Product saveProduct(Product product){
         return productRepository.save(product);
     }
-    @Override
-    public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
-    }
 
     public List<Product> getAllAppointments() {
         return productRepository.findAll();
     }
-
+    @Override
+    public Product getProductById(Long id) {
+        return productRepository.findById(id).orElse(null);
+    }
     public boolean deleteAppointmentById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
         if (productOptional.isPresent()) {
