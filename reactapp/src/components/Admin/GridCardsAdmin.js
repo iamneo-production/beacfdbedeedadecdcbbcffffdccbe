@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -110,20 +111,21 @@ export const cards = [
 
 const defaultTheme = createTheme();
 
-export default function GridCardsAdmin({ searchTerm, sortOrder }) {
+export default function GridCardsAdmin({ location }) {
   const navigate = useNavigate();
-  console.log("Search Term in GridCards:", searchTerm);
+  const [cards, setCards] = useState([]);
+  useEffect(() => {
+    // Check if location state has cardData and add it to the cards array
+    if (location.state && location.state.cardData) {
+      setCards((prevCards) => [...prevCards, location.state.cardData]);
+    }
+  }, [location.state]);
+  // console.log("Search Term in GridCards:", searchTerm);
   const handleCardClick = (card) => {
     console.log("Clicked Card:", card);
   };
 
   // Filter the cards based on the search term
-  const filteredCards = cards.filter(
-    (card) =>
-      card.title && card.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-);
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -132,7 +134,6 @@ export default function GridCardsAdmin({ searchTerm, sortOrder }) {
         <Container sx={{ py: 8 }} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {sortedCards.map((card) => (
               <Grid item key={card.id} xs={12} sm={6} md={4}>
                 {/* Wrap the Card with a Link component */}
                 <Link
@@ -196,7 +197,6 @@ export default function GridCardsAdmin({ searchTerm, sortOrder }) {
                   </Card>
                 </Link>
               </Grid>
-            ))}
           </Grid>
         </Container>
       </main>
