@@ -8,6 +8,9 @@ import { Typography } from "@mui/material";
 
 
 function DashboardGrid() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterLocation, setFilterLocation] = useState("");
+  const [sortOrder, setSortOrder] = useState("ascending"); // Step 1: Add sortOrder state'
   const [serviceCenters, setServiceCenters] = useState([]);
 
   useEffect(() => {
@@ -35,7 +38,7 @@ function DashboardGrid() {
             >
               Welcome to the Dashboard
               </Typography>
-        <GridCardsWithoutHero serviceCenters={serviceCenters}/> {/* Use the modified GridCardsWithoutHero component */}
+        <GridCardsWithoutHero searchTerm={searchTerm} sortOrder={sortOrder} serviceCenters={serviceCenters}/> {/* Use the modified GridCardsWithoutHero component */}
       </Container>
       <Footer />
     </div>
