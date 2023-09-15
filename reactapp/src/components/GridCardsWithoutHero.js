@@ -25,13 +25,13 @@ export default function GridCardsWithoutHero({serviceCenters}) {
             <Grid item key={card} xs={12} sm={6} md={4}>
               {/* Wrap the Card with a Link component */}
               <Link
-                to={`/user/dashboard/${card.id}`} // Use string concatenation to include card.id
-                state={{ cardData: card }}
+                to={`/user/dashboard/${serviceCenters.id}`} // Use string concatenation to include card.id
+                state={{ cardData: serviceCenters }}
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                  onClick={() => handleCardClick(card)}
+                  onClick={() => handleCardClick(serviceCenters)}
                 >
                   <CardMedia
                     component="div"
@@ -39,7 +39,7 @@ export default function GridCardsWithoutHero({serviceCenters}) {
                       // 16:9
                       pt: '56.25%',
                     }}
-                    image={card.imageUrl}
+                    image={serviceCenters.serviceCenterImageUrl}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
