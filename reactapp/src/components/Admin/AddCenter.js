@@ -129,6 +129,7 @@ function AddCenter() {
         body:JSON.stringify(formData)
       }).then(() => {
         console.log("New Center Added");
+        navigate("/admin/GridCardsAdmin", { state: { cardData: formData } });
       });
     }
   };

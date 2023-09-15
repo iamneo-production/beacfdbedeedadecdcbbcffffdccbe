@@ -122,19 +122,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder }) {
     (card) =>
       card.title && card.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const sortedCards = [...filteredCards].sort((a, b) => {
-    const priceA = parseInt(a.price);
-    const priceB = parseInt(b.price);
-
-    if (sortOrder === "ascending") {
-      return priceA - priceB;
-    } else if (sortOrder === "descending") {
-      return priceB - priceA;
-    }
-
-    return 0;
-  });
+);
 
   return (
     <ThemeProvider theme={defaultTheme}>
