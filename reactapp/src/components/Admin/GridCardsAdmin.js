@@ -73,23 +73,23 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                         // 16:9
                         pt: "56.25%",
                       }}
-                      image={serviceCenters.imageUrl}
+                      image={serviceCenters.serviceCenterImageUrl}
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography gutterBottom variant="h5" component="h2">
-                        {serviceCenters.title}
+                        {serviceCenters.serviceCenterName}
                       </Typography>
                       <Typography>
                         <strong>Place: </strong>
-                        {serviceCenters.place}
+                        {serviceCenters.serviceCenterAddress}
                       </Typography>
                       <Typography>
                         <strong>Timing: </strong>
-                        {serviceCenters.timings}
+                        {serviceCenters.ServiceCenterTimings}
                       </Typography>
                       <Typography>
                         <strong>Rating: </strong>
-                        {serviceCenters.rating}
+                        {serviceCenters.serviceCenterDescription}
                       </Typography>
                     </CardContent>
                     <CardActions>
