@@ -31,25 +31,25 @@ public class ServiceCenterController {
         }
     }
 
-    @PutMapping("/editServiceCenter/{id}")
-    public ResponseEntity<ServiceCenter> updateServiceCenter(@PathVariable Long id, @RequestBody ServiceCenter updatedServiceCenter) {
-    ServiceCenter serviceCenter = serviceCenterService.getServiceCenterById(id);
+//     @PutMapping("/editServiceCenter/{id}")
+//     public ResponseEntity<ServiceCenter> updateServiceCenter(@PathVariable Long id, @RequestBody ServiceCenter updatedServiceCenter) {
+//     ServiceCenter serviceCenter = serviceCenterService.getServiceCenterById(id);
     
-    if (serviceCenter == null) {
-        return ResponseEntity.notFound().build();
-    }
-    // Update the serviceCenter object with the new data
-        ServiceCenter.setServiceCenterName(updatedServiceCenter.getServiceCenterName());
-        ServiceCenter.setServiceCenterPhone(updatedServiceCenter.getServiceCenterPhone());
-        ServiceCenter.setServiceCenterAddress(updatedServiceCenter.getServiceCenterAddress());
-        ServiceCenter.setServiceCenterImageUrl(updatedServiceCenter.getServiceCenterImageUrl());
-        ServiceCenter.setServiceCenterPrice(updatedServiceCenter.getServiceCenterPrice());
-        ServiceCenter.setServiceCenterTimings(updatedServiceCenter.getServiceCenterTimings());
-        ServiceCenter.setServiceCenterEmailId(updatedServiceCenter.getServiceCenterEmailId());
-        ServiceCenter.setServiceCenterDescription(updatedServiceCenter.getServiceCenterDescription());
-    // Update other fields as needed
+//     if (serviceCenter == null) {
+//         return ResponseEntity.notFound().build();
+//     }
+//     // Update the serviceCenter object with the new data
+//         ServiceCenter.setServiceCenterName(updatedServiceCenter.getServiceCenterName());
+//         ServiceCenter.setServiceCenterPhone(updatedServiceCenter.getServiceCenterPhone());
+//         ServiceCenter.setServiceCenterAddress(updatedServiceCenter.getServiceCenterAddress());
+//         ServiceCenter.setServiceCenterImageUrl(updatedServiceCenter.getServiceCenterImageUrl());
+//         ServiceCenter.setServiceCenterPrice(updatedServiceCenter.getServiceCenterPrice());
+//         ServiceCenter.setServiceCenterTimings(updatedServiceCenter.getServiceCenterTimings());
+//         ServiceCenter.setServiceCenterEmailId(updatedServiceCenter.getServiceCenterEmailId());
+//         ServiceCenter.setServiceCenterDescription(updatedServiceCenter.getServiceCenterDescription());
+//     // Update other fields as needed
     
-    ServiceCenter updatedCenter = serviceCenterService.saveServiceCenter(serviceCenter);
-    return ResponseEntity.ok(updatedCenter);
-}
+//     ServiceCenter updatedCenter = serviceCenterService.saveServiceCenter(serviceCenter);
+//     return ResponseEntity.ok(updatedCenter);
+// }
 }

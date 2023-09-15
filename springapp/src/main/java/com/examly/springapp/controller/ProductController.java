@@ -24,7 +24,7 @@ public class ProductController {
 
     @PutMapping("/editappointment/{id}")
     public ResponseEntity<Product> editAppointment(@PathVariable Long id, @RequestBody Product updatedProduct) {
-        Product existingProduct = ProductService.getProductById(productId);
+        Product existingProduct = ProductService.getProductById(id);
         if (existingProduct == null) {
             return ResponseEntity.notFound().build();
         }
@@ -33,7 +33,7 @@ public class ProductController {
         existingProduct.setProductModelNo(updatedProduct.getProductModelNo());
         existingProduct.setDateOfPurchase(updatedProduct.getDateOfPurchase());
         existingProduct.setMobileNumber(updatedProduct.getMobileNumber());
-        existingProduct.setproductDescription(updatedProduct.getProductDescription());
+        existingProduct.setProductDescription(updatedProduct.getProductDescription());
         existingProduct.setAvailableSlots(updatedProduct.getAvailableSlots());
         // Update other fields as needed
         Product updatedProductInfo = productService.saveProduct(existingProduct);
