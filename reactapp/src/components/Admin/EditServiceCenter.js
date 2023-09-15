@@ -16,8 +16,6 @@ import AdminNavbar from "./AdminNavBar";
 
 const defaultTheme = createTheme();
 
-// ...imports...
-
 export default function EditServiceCenter() {
     const { cardId } = useParams();
     const location = useLocation();
