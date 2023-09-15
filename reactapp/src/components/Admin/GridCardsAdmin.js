@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import SearchBar from "../Searchbar";
 import { useNavigate } from "react-router-dom";
+import CenterProfile from "./CenterProfile";
 
 export const cards = [
   {
