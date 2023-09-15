@@ -55,7 +55,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
               <Grid item key={serviceCenters.id} xs={12} sm={6} md={4}>
                 {/* Wrap the Card with a Link component */}
                 <Link
-                  to={`/admin/editServiceCenter/${serviceCenters.id}`} // Use string concatenation to include card.id
+                  to={`/admin/editServiceCenter/${serviceCenters.id}`}
                   state={{ cardData: serviceCenters }}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
