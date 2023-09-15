@@ -49,6 +49,6 @@ public class ServiceCenterController {
      // Update other fields as needed
     
      ServiceCenter updatedServiceCenterInfo = serviceCenterService.saveServiceCenter(existingServiceCenter);
-     return ResponseEntity.ok(updatedCenter);
-// }
+     return ResponseEntity.ok(updatedServiceCenterInfo);
+ }
 }

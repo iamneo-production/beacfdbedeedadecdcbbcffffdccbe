@@ -33,8 +33,7 @@ public class ServiceCenterServiceImpl implements ServiceCenterService{
     }
     @Override
     public ServiceCenter getServiceCenterById(Long id) {
-        Optional<ServiceCenter> serviceCenter = serviceCenterRepository.findById(id);
-        return serviceCenter.orElse(null);
+        return serviceCenterRepository.findById(id).orElse(null);
     }
     
     @Override
