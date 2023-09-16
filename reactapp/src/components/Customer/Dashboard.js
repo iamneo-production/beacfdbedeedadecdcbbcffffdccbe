@@ -146,37 +146,36 @@ export default function Dashboard() {
               <Card style={{ marginTop: "20%", marginRight: "20%" }}>
                 <CardMedia
                   component="img"
-                  alt={cardData ? cardData.serviceCenterName : "No Card Selected"}
+                  alt={cardData ? cardData.title : "No Card Selected"}
                   height="140"
                   image={cardData ? cardData.imageUrl : ""}
                 />
                 <CardContent>
-                console.log("cardData in Dashboard:", cardData);
                   {/* Content of your card */}
-                  <h2>{cardData ? cardData.serviceCenterName : "No Card Selected"}</h2>
+                  <h2>{cardData ? cardData.title : "No Card Selected"}</h2>
                   <p>
                     <strong>Description: </strong>
-                    {cardData ? cardData.serviceCenterDescription : ""}
+                    {cardData ? cardData.description : ""}
                   </p>
                   <p>
                     <strong>Address: </strong>
-                    {cardData ? cardData.serviceCenterAddress : ""}
+                    {cardData ? cardData.address : ""}
                   </p>
                   <p>
                     <strong>Phone Number: </strong>
-                    {cardData ? cardData.serviceCenterPhone : ""}
+                    {cardData ? cardData.phoneNumber : ""}
                   </p>
                   <p>
                     <strong>Email ID: </strong>
-                    {cardData ? cardData.serviceCenterMail : ""}
+                    {cardData ? cardData.emailId : ""}
                   </p>
                   <p>
                     <strong>Timings: </strong>
-                    {cardData ? cardData.serviceCenterTimings : ""}
+                    {cardData ? cardData.timings : ""}
                   </p>
                   <p>
                     <strong>Rating: </strong>
-                    {cardData ? cardData.serviceCenterPrice : ""}
+                    {cardData ? cardData.rating : ""}
                   </p>
                 </CardContent>
               </Card>
