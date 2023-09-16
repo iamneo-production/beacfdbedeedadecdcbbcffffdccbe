@@ -18,6 +18,8 @@ const defaultTheme = createTheme();
 
 export default function EditServiceCenter() {
     const { cardId } = useParams();
+    const params = useParams();
+    console.log('Params:', params);
     const location = useLocation();
     const cardData = location.state.cardData;
   

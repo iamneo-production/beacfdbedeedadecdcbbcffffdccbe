@@ -36,9 +36,9 @@ const styles = {
 
 function AdminHomePage() {
   const params = useParams();
-console.log('Params:', params);
-const { id } = params; // Use "id" instead of "userId"
-console.log('User ID:', id);
+  console.log('Params:', params);
+  const { id } = params; // Use "id" instead of "userId"
+  console.log('User ID:', id);
   const numberOfCustomers = 100; // Replace with your actual data
   const numberOfServices = 50; // Replace with your actual data
 
