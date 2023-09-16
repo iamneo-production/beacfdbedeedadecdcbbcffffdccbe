@@ -72,7 +72,7 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Typography gutterBottom variant="h5" component="h2">
-                        {serviceCenters.title}
+                        {serviceCenters.serviceCenterName}
                       </Typography>
                       <Typography>
                         <strong>Place: </strong>{serviceCenters.serviceCenterAddress}
