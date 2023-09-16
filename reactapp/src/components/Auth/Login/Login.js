@@ -99,7 +99,7 @@ export default function Login() {
             else { 
               
               userId = response.data.userId;
-              navigate(`/admin?userId=${userId}`);
+              navigate(`/admin/{userId}`);
   
             }          
           })
@@ -108,23 +108,20 @@ export default function Login() {
           });
       }
       if (formData.userRole === "user") {
+        // User login
         const apiEndpoint = 'https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/login';
         axios
           .post(apiEndpoint, formData)
           .then((response) => {
             console.log(response.data.userId);
-            if(response.data.userId==="Not Found")  alert("User not Found")
-            else{
+            let userId = response.data.userId; // Declare userId here
+            if (userId === "Not Found") alert("User not Found");
+            else {
               navigate(`/user/homepage?userId=${userId}`);
-  
             }
-            // Set the userId based o`n the response
-            
-            
           })
           .catch((error) => {
             console.error(error); // Handle error
-  
           });
       }
     }
