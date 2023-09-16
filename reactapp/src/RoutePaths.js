@@ -20,10 +20,10 @@ export const routes = [
   { path: '/admin/:id', element: <AdminHomePage /> },
   { path: '/admin/addServiceCenter/:id', element: <AddCenter /> },
   { path: '/user/dashboard/:id', element: <Dashboard /> },
-  { path: '/user/dashboardGrid/id', element: <DashboardGrid /> },
-  { path: '/user/appointment/id', element: <Appointment /> },
+  { path: '/user/dashboardGrid/:id', element: <DashboardGrid /> },
+  { path: '/user/appointment/:id', element: <Appointment /> },
   { path: '/admin/CenterProfile/:id', element: <CenterProfile />},
   { path: '/admin/editServiceCenter/:id', element: <EditServiceCenter />},
-  { path: '/admin/AdminAppointmentView/id', element: <AdminAppointmentView />},
-  { path: '/admin/AdminHomePage/id', element: <AdminHomePage />}
+  { path: '/admin/AdminAppointmentView/:id', element: <AdminAppointmentView />},
+  { path: '/admin/AdminHomePage/:id', element: <AdminHomePage />}
 ];
