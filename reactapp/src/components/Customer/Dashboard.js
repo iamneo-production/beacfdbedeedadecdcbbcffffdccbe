@@ -151,6 +151,7 @@ export default function Dashboard() {
                   image={cardData ? cardData.imageUrl : ""}
                 />
                 <CardContent>
+                console.log("cardData in Dashboard:", cardData);
                   {/* Content of your card */}
                   <h2>{cardData ? cardData.title : "No Card Selected"}</h2>
                   <p>
