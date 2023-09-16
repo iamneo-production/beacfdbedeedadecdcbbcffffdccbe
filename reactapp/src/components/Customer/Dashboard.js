@@ -153,30 +153,30 @@ export default function Dashboard() {
                 <CardContent>
                 console.log("cardData in Dashboard:", cardData);
                   {/* Content of your card */}
-                  <h2>{cardData ? cardData.title : "No Card Selected"}</h2>
+                  <h2>{cardData ? cardData.serviceCenterName : "No Card Selected"}</h2>
                   <p>
                     <strong>Description: </strong>
-                    {cardData ? cardData.description : ""}
+                    {cardData ? cardData.serviceCenterDescription : ""}
                   </p>
                   <p>
                     <strong>Address: </strong>
-                    {cardData ? cardData.address : ""}
+                    {cardData ? cardData.serviceCenterAddress : ""}
                   </p>
                   <p>
                     <strong>Phone Number: </strong>
-                    {cardData ? cardData.phoneNumber : ""}
+                    {cardData ? cardData.serviceCenterPhone : ""}
                   </p>
                   <p>
                     <strong>Email ID: </strong>
-                    {cardData ? cardData.emailId : ""}
+                    {cardData ? cardData.serviceCenterMail : ""}
                   </p>
                   <p>
                     <strong>Timings: </strong>
-                    {cardData ? cardData.timings : ""}
+                    {cardData ? cardData.serviceCenterTimings : ""}
                   </p>
                   <p>
                     <strong>Rating: </strong>
-                    {cardData ? cardData.rating : ""}
+                    {cardData ? cardData.serviceCenterPrice : ""}
                   </p>
                 </CardContent>
               </Card>
