@@ -19,7 +19,7 @@ const defaultTheme = createTheme();
 export default function Dashboard() {
   const { cardId } = useParams();
   const location = useLocation();
-  const cardData = location.state.cardData;
+  const cardData = location.state;
 
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 

@@ -53,7 +53,7 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
                 {/* Wrap the Card with a Link component */}
                 <Link
                   to={`/user/dashboard/${serviceCenters.id}`} // Use string concatenation to include card.id
-                  state={{ cardData: serviceCenters }}
+                  state={{serviceCenters}}
                   style={{ textDecoration: 'none', color: 'inherit' }}
                 >
                   <Card
