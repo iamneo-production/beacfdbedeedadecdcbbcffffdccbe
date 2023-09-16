@@ -101,7 +101,7 @@ export default function Login() {
             else { 
               
               userId = response.data.userId;
-              navigate(`/admin/${userId}`);
+              navigate(`/admin/AdminHomePage/${userId}`);
   
             }          
           })
