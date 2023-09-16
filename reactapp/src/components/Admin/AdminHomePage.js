@@ -35,6 +35,8 @@ const styles = {
 
 
 function AdminHomePage() {
+  const params = useParams();
+console.log('Params:', params);
   const { userId } = useParams();
   console.log('User ID:', userId);
   const numberOfCustomers = 100; // Replace with your actual data
