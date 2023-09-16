@@ -165,7 +165,7 @@ export default function Dashboard() {
                   </p>
                   <p>
                     <strong>Phone Number: </strong>
-                    {cardData ? cardData.phoneNumber : ""}
+                    {cardData ? cardData.serviceCenterPhone : ""}
                   </p>
                   <p>
                     <strong>Email ID: </strong>
