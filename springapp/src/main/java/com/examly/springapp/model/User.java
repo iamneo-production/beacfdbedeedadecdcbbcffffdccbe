@@ -18,16 +18,12 @@ public class User {
     private String mobileNumber;
     private String userRole;
 
+    @OneToMany(mappedBy = "user")
+    private List<Product> products;
+
     public User(){
         // TODO document why this constructor is empty
     }
-
-    // @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    // private Login login;
-
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Admin admin;
-
 
     public Long getUserId() {
         return UserId;

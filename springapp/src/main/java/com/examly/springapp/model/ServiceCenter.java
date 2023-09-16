@@ -20,6 +20,9 @@ public class ServiceCenter {
     private String serviceCenterEmailId;
     private String serviceCenterDescription;
 
+    @OneToMany(mappedBy = "serviceCenter")
+    private List<Product> products;
+
     public ServiceCenter(){
 
     }
