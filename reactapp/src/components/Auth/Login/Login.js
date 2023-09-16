@@ -17,7 +17,7 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 
 export default function Login() {
-  const { userId, serviceCenterId } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     userRole: "user", // Default to "User"
