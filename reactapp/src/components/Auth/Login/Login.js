@@ -99,7 +99,7 @@ export default function Login() {
             else { 
               
               userId = response.data.userId;
-              navigate(`/admin/{userId}`);
+              navigate(`/admin/${userId}`);
   
             }          
           })
@@ -117,7 +117,7 @@ export default function Login() {
             let userId = response.data.userId; // Declare userId here
             if (userId === "Not Found") alert("User not Found");
             else {
-              navigate(`/user/homepage?userId=${userId}`);
+              navigate(`/user/homepage/${userId}`);
             }
           })
           .catch((error) => {
