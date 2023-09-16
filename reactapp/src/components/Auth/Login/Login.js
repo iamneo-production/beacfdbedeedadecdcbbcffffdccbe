@@ -14,8 +14,10 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import axios from 'axios';
+import { useParams } from "react-router-dom";
 
 export default function Login() {
+  const { userId, serviceCenterId } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     userRole: "user", // Default to "User"
