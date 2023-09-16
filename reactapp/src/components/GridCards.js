@@ -20,6 +20,7 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
   console.log("Search Term in GridCards:", searchTerm); 
   const handleCardClick = (serviceCenters) => {
     console.log("Clicked Card:", serviceCenters);
+    console.log("Service Centers Data:", serviceCenters);
   };
 
   // Filter the cards based on the search term
