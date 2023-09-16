@@ -99,7 +99,7 @@ export default function Login() {
             else { 
               
               userId = response.data.userId;
-              navigate(`/admin`);
+              navigate(`/admin?userId=${userId}`);
   
             }          
           })
@@ -115,7 +115,7 @@ export default function Login() {
             console.log(response.data.userId);
             if(response.data.userId==="Not Found")  alert("User not Found")
             else{
-              navigate(`/user/homepage`);
+              navigate(`/user/homepage?userId=${userId}`);
   
             }
             // Set the userId based o`n the response
