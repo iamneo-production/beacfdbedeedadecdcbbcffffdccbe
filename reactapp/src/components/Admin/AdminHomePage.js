@@ -4,6 +4,8 @@ import AdminNavbar from "./AdminNavBar";
 import CenterCard from "./CenterProfile";
 import { Route, Routes } from "react-router-dom"; 
 import AddCenter from "./AddCenter";
+import { useParams } from "react-router-dom";
+
 
 const styles = {
   container: {
@@ -31,7 +33,10 @@ const styles = {
   },
 };
 
+
 function AdminHomePage() {
+  const { userId } = useParams();
+  console.log('User ID:', userId);
   const numberOfCustomers = 100; // Replace with your actual data
   const numberOfServices = 50; // Replace with your actual data
 
