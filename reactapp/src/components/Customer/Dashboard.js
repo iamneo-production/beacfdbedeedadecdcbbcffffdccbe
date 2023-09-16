@@ -16,7 +16,7 @@ import { useState } from "react";
 
 const defaultTheme = createTheme();
 
-export default function Dashboard() {
+export default function Dashboard({ serviceCenterDetails }) {
   const { cardId } = useParams();
   const location = useLocation();
   const cardData = location.state.cardData;
@@ -146,7 +146,7 @@ export default function Dashboard() {
               <Card style={{ marginTop: "20%", marginRight: "20%" }}>
                 <CardMedia
                   component="img"
-                  alt={cardData ? cardData.serviceCenterName : "No Card Selected"}
+                  alt={serviceCenterDetails ? serviceCenterDetails.serviceCenterName : "No Card Selected"}
                   height="140"
                   image={cardData ? cardData.imageUrl : ""}
                 />

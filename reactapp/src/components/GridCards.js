@@ -17,10 +17,19 @@ import SearchBar from './Searchbar';
 const defaultTheme = createTheme();
 
 export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
-  console.log("Search Term in GridCards:", searchTerm); 
+  console.log("Search Term in GridCards:", searchTerm);
+
   const handleCardClick = (serviceCenters) => {
     console.log("Clicked Card:", serviceCenters);
-  };
+    fetch(`https://your-api-url/service-center/${serviceCenter.serviceCenterId}`)
+    .then((response) => response.json())
+    .then((data) => {
+      setServiceCenterDetails(data);
+  })
+  .catch((error) => {
+    console.error('Error fetching ServiceCenter details:', error);
+  });
+};
 
   // Filter the cards based on the search term
   const filteredCards = serviceCenters.filter((center) =>
@@ -54,7 +63,7 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
                 <Link
                   to={{
                     pathname: `/user/dashboard/${serviceCenters.serviceCenterId}`,
-                    state: { cardData: serviceCenters }, // Pass serviceCenters as cardData
+                    state: { serviceCenterDetails: serviceCenters }, // Pass serviceCenters as cardData
                   }}
                   style={{ textDecoration: 'none', color: 'inherit' }}
                 >
