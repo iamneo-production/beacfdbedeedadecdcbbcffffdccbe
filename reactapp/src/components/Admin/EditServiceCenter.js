@@ -140,19 +140,19 @@ export default function EditServiceCenter() {
               <Card style={{ marginTop: '20%', marginLeft: '5%', marginRight: '5%' }}>
                 <CardMedia
                   component="img"
-                  alt={cardData ? cardData.title : "No Card Selected"}
+                  alt={cardData ? cardData.serviceCenterName : "No Card Selected"}
                   height="140"
-                  image={cardData ? cardData.imageUrl : ""}
+                  image={cardData ? cardData.serviceCenterImageUrl : ""}
                 />
                 <CardContent>
                   {/* Content of your card */}
-                  <h2>{cardData ? cardData.title : "No Card Selected"}</h2>
-                  <p><strong>Description: </strong>{cardData ? cardData.description : ""}</p>
-                  <p><strong>Price: </strong>{cardData ? cardData.price : ""}</p>
-                  <p><strong>Address: </strong>{cardData ? cardData.address : ""}</p>
-                  <p><strong>Phone Number: </strong>{cardData ? cardData.phoneNumber : ""}</p>
-                  <p><strong>Email ID: </strong>{cardData ? cardData.emailId : ""}</p>
-                  <p><strong>Timings: </strong>{cardData ? cardData.timings : ""}</p>
+                  <h2>{cardData ? cardData.serviceCenterName : "No Card Selected"}</h2>
+                  <p><strong>Description: </strong>{cardData ? cardData.serviceCenterDescription : ""}</p>
+                  <p><strong>Price: </strong>{cardData ? cardData.serviceCenterPrice : ""}</p>
+                  <p><strong>Address: </strong>{cardData ? cardData.serviceCenterAddress : ""}</p>
+                  <p><strong>Phone Number: </strong>{cardData ? cardData.serviceCenterPhone : ""}</p>
+                  <p><strong>Email ID: </strong>{cardData ? cardData.serviceCenterEmailId : ""}</p>
+                  <p><strong>Timings: </strong>{cardData ? cardData.serviceCenterTimings : ""}</p>
                   <p><strong>Rating: </strong>{cardData ? cardData.rating : ""}</p>
                 </CardContent>
               </Card>
