@@ -144,6 +144,8 @@ export default function Dashboard() {
             {/* Card on the left */}
             <Grid item xs={12} md={4}>
               <Card style={{ marginTop: "20%", marginRight: "20%" }}>
+              console.log("cardData in Dashboard:", cardData);
+
                 <CardMedia
                   component="img"
                   alt={cardData ? cardData.title : "No Card Selected"}
