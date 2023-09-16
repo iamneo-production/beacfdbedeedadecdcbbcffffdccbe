@@ -143,25 +143,25 @@ export default function Dashboard() {
           <Grid container spacing={3}>
             {/* Card on the left */}
             <Grid item xs={12} md={4}>
-              <Card style={{ marginTop: "20%", marginRight: "20%" }}>
-              console.log("cardData in Dashboard:", cardData);
+              <Card style={{ marginTop: "20%", marginRight: "10%" }}>
+              {/* console.log("cardData in Dashboard:", cardData); */}
 
                 <CardMedia
                   component="img"
-                  alt={cardData ? cardData.title : "No Card Selected"}
+                  alt={cardData ? cardData.serviceCenterName : "No Card Selected"}
                   height="140"
-                  image={cardData ? cardData.imageUrl : ""}
+                  image={cardData ? cardData.serviceCenterImageUrl : ""}
                 />
                 <CardContent>
                   {/* Content of your card */}
-                  <h2>{cardData ? cardData.title : "No Card Selected"}</h2>
+                  <h2>{cardData ? cardData.serviceCenterName : "No Card Selected"}</h2>
                   <p>
                     <strong>Description: </strong>
-                    {cardData ? cardData.description : ""}
+                    {cardData ? cardData.serviceCenterDescription : ""}
                   </p>
                   <p>
                     <strong>Address: </strong>
-                    {cardData ? cardData.address : ""}
+                    {cardData ? cardData.serviceCenterAddress : ""}
                   </p>
                   <p>
                     <strong>Phone Number: </strong>
@@ -169,15 +169,15 @@ export default function Dashboard() {
                   </p>
                   <p>
                     <strong>Email ID: </strong>
-                    {cardData ? cardData.emailId : ""}
+                    {cardData ? cardData.serviceCenterEmailId : ""}
                   </p>
                   <p>
                     <strong>Timings: </strong>
-                    {cardData ? cardData.timings : ""}
+                    {cardData ? cardData.serviceCenterTimings : ""}
                   </p>
                   <p>
-                    <strong>Rating: </strong>
-                    {cardData ? cardData.rating : ""}
+                    <strong>Price: </strong>
+                    {cardData ? cardData.serviceCenterPrice : ""}
                   </p>
                 </CardContent>
               </Card>
