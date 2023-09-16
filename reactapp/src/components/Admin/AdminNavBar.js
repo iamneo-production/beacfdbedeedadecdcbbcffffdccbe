@@ -15,8 +15,8 @@ import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 
 export default function AdminNavbar() {
-  const { id } = useParams();
-  console.log('User ID:', id);
+  const { userId } = useParams();
+  console.log('User ID:', userId);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
   const toggleDrawer = () => {
@@ -56,14 +56,14 @@ export default function AdminNavbar() {
                 <Button color="inherit" style={{ color: "white" }}>Home</Button>
                 </Link>
                   
-                  <Link to={`/admin/addServiceCenter/${id}`} className="nav-link">
+                  <Link to={`/admin/addServiceCenter/${userId}`} className="nav-link">
                     <Button color="inherit" style={{ color: "white" }}>Add Center</Button>
                   </Link>
                   
-                  <Link to={`/admin/CenterProfile/${id}`} className="nav-link">
+                  <Link to={`/admin/CenterProfile/${userId}`} className="nav-link">
                   <Button color="inherit" style={{ color: "white" }}>Center Profile</Button>
                   </Link>
-                  <Link to={`/admin/AdminAppointmentView/${id}`} className="nav-link">
+                  <Link to={`/admin/AdminAppointmentView/${userId}`} className="nav-link">
                   <Button color="inherit" style={{ color: "white" }}>Appointments</Button>
                   </Link>
                 </>
