@@ -146,7 +146,7 @@ export default function Dashboard() {
               <Card style={{ marginTop: "20%", marginRight: "20%" }}>
                 <CardMedia
                   component="img"
-                  alt={cardData ? cardData.title : "No Card Selected"}
+                  alt={cardData ? cardData.serviceCenterName : "No Card Selected"}
                   height="140"
                   image={cardData ? cardData.imageUrl : ""}
                 />

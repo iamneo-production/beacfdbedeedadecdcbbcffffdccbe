@@ -54,7 +54,7 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
                 <Link
                   to={{
                     pathname: `/user/dashboard/${serviceCenters.serviceCenterId}`,
-                    state: { cardData: serviceCenters },
+                    state: { cardData: serviceCenters }, // Pass serviceCenters as cardData
                   }}
                   style={{ textDecoration: 'none', color: 'inherit' }}
                 >
