@@ -8,8 +8,12 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
 
 function HomePage() {
+  const { userId } = useParams();
+  console.log('User ID:', userId);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterLocation, setFilterLocation] = useState("");
   const [sortOrder, setSortOrder] = useState("ascending"); // Step 1: Add sortOrder state'
@@ -50,7 +54,6 @@ function HomePage() {
           }}
         >
           <Container maxWidth="md">
-            console.log(userId);
             <Typography
               component="h1"
               variant="h2"
