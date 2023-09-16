@@ -50,6 +50,7 @@ function HomePage() {
           }}
         >
           <Container maxWidth="md">
+            console.log(userId);
             <Typography
               component="h1"
               variant="h2"
