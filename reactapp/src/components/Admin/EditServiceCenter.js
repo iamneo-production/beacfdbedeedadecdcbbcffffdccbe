@@ -17,9 +17,10 @@ import AdminNavbar from "./AdminNavBar";
 const defaultTheme = createTheme();
 
 export default function EditServiceCenter() {
-    const { cardId } = useParams();
-    const params = useParams();
-    console.log('Params:', params);
+   const params = useParams();
+   const { userId, serviceCenterId } = useParams(); // Use serviceCenterId instead of cardId
+   console.log('User ID:', userId);
+   console.log('Service Center ID:', serviceCenterId);
     const location = useLocation();
     const cardData = location.state.cardData;
   
