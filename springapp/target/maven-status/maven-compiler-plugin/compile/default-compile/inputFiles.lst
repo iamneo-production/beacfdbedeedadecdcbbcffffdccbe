@@ -6,8 +6,8 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/LoginRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/service/ServiceCenterServiceImpl.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/AuthRepository.java
-/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/config/CorsConfig.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Login.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Product.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/service/ProductService.java
