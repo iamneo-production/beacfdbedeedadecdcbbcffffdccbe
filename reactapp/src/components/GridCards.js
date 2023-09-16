@@ -52,10 +52,12 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
               <Grid item key={serviceCenters.id} xs={12} sm={6} md={4}>
                 {/* Wrap the Card with a Link component */}
                 <Link
-  to={`/user/dashboard/${serviceCenters.serviceCenterId}`}
-  state={{ cardData: serviceCenters }}
-  style={{ textDecoration: 'none', color: 'inherit' }}
->
+                  to={{
+                    pathname: `/user/dashboard/${serviceCenters.serviceCenterId}`,
+                    state: { cardData: serviceCenters },
+                  }}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
                   <Card
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                     onClick={() => handleCardClick(serviceCenters)}
