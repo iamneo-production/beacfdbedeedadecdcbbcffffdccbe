@@ -18,11 +18,11 @@ export const routes = [
   { path: '/signup', element: <SignUp /> },
   { path: '/user/homepage/:id', element: <Homepage /> },
   { path: '/admin/:id', element: <AdminHomePage /> },
-  { path: '/admin/addServiceCenter', element: <AddCenter /> },
+  { path: '/admin/addServiceCenter/:id', element: <AddCenter /> },
   { path: '/user/dashboard/:id', element: <Dashboard /> },
   { path: '/user/dashboardGrid', element: <DashboardGrid /> },
   { path: '/user/appointment', element: <Appointment /> },
-  { path: '/admin/CenterProfile', element: <CenterProfile />},
+  { path: '/admin/CenterProfile/:id', element: <CenterProfile />},
   { path: '/admin/editServiceCenter/:id', element: <EditServiceCenter />},
   { path: '/admin/AdminAppointmentView', element: <AdminAppointmentView />},
   { path: '/admin/AdminHomePage', element: <AdminHomePage />}
