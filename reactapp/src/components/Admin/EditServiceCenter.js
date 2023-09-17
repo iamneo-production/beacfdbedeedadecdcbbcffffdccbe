@@ -126,6 +126,17 @@ export default function EditServiceCenter() {
       if (isValid) {
         setIsEditConfirmationModalOpen(true);
         console.log("No Errors");
+        const updatedServiceCenter{
+          serviceCenterName: adminData.editCenterName,
+          serviceCenterPhone: adminData.editCenterPhoneNumber,
+          serviceCenterAddress: adminData.editCenterAddress,
+          serviceCenterImageUrl: adminData.editCenterImageUrl,
+          serviceCenterPrice: adminData.editCenterPrice,
+          serviceCenterTimings: adminData.editCenterTimings,
+          serviceCenterEmailId: adminData.editCenterMailId,
+          serviceCenterDescription: adminData.editCenterDescription,
+        };
+
       }
     };
   
