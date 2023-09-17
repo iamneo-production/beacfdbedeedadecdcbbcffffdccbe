@@ -297,7 +297,7 @@ export default function EditServiceCenter() {
                         size="large"
                         fullWidth
                         style={{ backgroundColor: "black" }}
-                         /* Added type attribute */
+                        type="submit" /* Added type attribute */
                       >
                         Submit
                       </Button>
