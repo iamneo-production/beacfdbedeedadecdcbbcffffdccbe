@@ -22,8 +22,9 @@ const defaultTheme = createTheme();
 export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }) {
   const navigate = useNavigate();
   const params = useParams();
-   const { userId } = useParams(); // Use serviceCenterId instead of cardId
+   const { userId, serviceCenterId } = useParams(); // Use serviceCenterId instead of cardId
    console.log('User ID:', userId);
+   console.log('ServiceCenter ID:' , serviceCenterId);
   console.log("Search Term in GridCards:", searchTerm);
   
   const handleCardClick = (serviceCenters) => {
@@ -143,7 +144,10 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                           marginLeft: "auto",
                           fontSize: "16px",
                         }}
-                        onClick={openDeleteConfirmationModal}
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent the click event from propagating
+                          openDeleteConfirmationModal();
+                        }}
                       >
                         Delete
                       </Button>
