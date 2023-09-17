@@ -41,7 +41,9 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
   };
 
   const handleDelete = () => {
-    fetch(`/admin/deleteServiceCenter/${serviceCenterId}`, {
+    console.log('User ID check:', userId);
+    console.log('Service Center ID check:', serviceCenterId);
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/editServiceCenter/${serviceCenterId}`, {
       method: "DELETE",
     })
     .then((response) => {
@@ -140,8 +142,8 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                           color: "red",
                           marginLeft: "auto",
                           fontSize: "16px",
-                          onClick={openDeleteConfirmationModal}
                         }}
+                        onClick={openDeleteConfirmationModal}
                       >
                         Delete
                       </Button>
@@ -161,7 +163,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
             <div className="modal-buttons">
               <Button
                 variant="contained"
-                color="error"
+                color="#f44336"
                 onClick={handleDelete}
               >
                 Confirm Delete

@@ -22,9 +22,9 @@ public class ServiceCenterController {
         return "New Service Center Created";
     }
 
-    @DeleteMapping("/deleteServiceCenter/{userId}")
-    public ResponseEntity<String> deleteServiceCenterById(@PathVariable Long userId) {
-        if (serviceCenterService.deleteServiceCenterById(userId)) {
+    @DeleteMapping("/deleteServiceCenter/{id}")
+    public ResponseEntity<String> deleteServiceCenterById(@PathVariable Long id) {
+        if (serviceCenterService.deleteServiceCenterById(id)) {
             return ResponseEntity.ok("Service Center deleted successfully");
         } else {
             return ResponseEntity.notFound().build();
