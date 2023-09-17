@@ -18,9 +18,9 @@ const defaultTheme = createTheme();
 
 export default function EditServiceCenter() {
    const params = useParams();
-   const { userId, serviceCenterId } = useParams(); // Use serviceCenterId instead of cardId
+   const { userId, serviceCenters } = useParams(); // Use serviceCenterId instead of cardId
    console.log('User ID:', userId);
-   console.log('Service Center ID:', serviceCenterId);
+   console.log('Service Center ID:', serviceCenter);
     const location = useLocation();
     const cardData = location.state.cardData;
   
@@ -137,8 +137,8 @@ export default function EditServiceCenter() {
           serviceCenterDescription: adminData.editCenterDescription,
         };
         console.log('User ID check:', userId);
-        console.log('Service Center ID check:', serviceCenterId);
-        fetch(`/admin/editServiceCenter/${userId}/${serviceCenterId}`,{
+        console.log('Service Center ID check:', serviceCenters.serviceCenterId);
+        fetch(`/admin/editServiceCenter/${userId}/${serviceCenters.serviceCenterId}`,{
           method: "PUT",
       headers: {
         "Content-Type": "application/json",
