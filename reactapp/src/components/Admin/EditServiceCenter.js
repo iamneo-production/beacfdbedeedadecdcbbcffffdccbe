@@ -136,7 +136,7 @@ export default function EditServiceCenter() {
           serviceCenterEmailId: adminData.editCenterMailId,
           serviceCenterDescription: adminData.editCenterDescription,
         };
-        fetch(`/admin/editServiceCenter/${userId}`,{
+        fetch(`/admin/editServiceCenter/${userId}/${serviceCenterId}`,{
           method: "PUT",
       headers: {
         "Content-Type": "application/json",
