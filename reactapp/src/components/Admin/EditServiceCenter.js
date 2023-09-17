@@ -138,7 +138,7 @@ export default function EditServiceCenter() {
         };
         console.log('User ID check:', userId);
         console.log('Service Center ID check:', serviceCenterId);
-        fetch(`/admin/editServiceCenter/${serviceCenterId}`,{
+        fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/editServiceCenter/${serviceCenterId}`,{
           method: "PUT",
       headers: {
         "Content-Type": "application/json",
