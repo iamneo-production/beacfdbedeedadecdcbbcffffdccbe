@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -30,10 +30,27 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
     console.log("Clicked Card:", serviceCenters);
   };
 
+  const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] = useState(false);
+
+  const openDeleteConfirmationModal = () => {
+    setIsDeleteConfirmationModalOpen(true);
+  };
+
+  const closeDeleteConfirmationModal = () => {
+    setIsDeleteConfirmationModalOpen(false);
+  };
+
+  const handleDelete = () => {
+    fetch(`/admin/deleteServiceCenter/${serviceCenterId}`, {
+      method: "DELETE",
+    })
+    .then((response) => {
+
+
   // Filter the cards based on the search term
   const filteredCards = serviceCenters.filter((center) =>
   center.serviceCenterName.toLowerCase().includes(searchTerm.toLowerCase())
-);
+  );
 
   const sortedCards = [...filteredCards].sort((a, b) => {
     const priceA = parseInt(a.price);
