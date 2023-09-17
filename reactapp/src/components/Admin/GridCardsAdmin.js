@@ -46,8 +46,8 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
   }
 
   const handleDelete = () => {
-    console.log('User ID check:', userId);
-    console.log('Service Center ID check:', serviceCenterId);
+    console.log('HANDLE DELETE User ID check:', userId);
+    console.log(' HANDLE DELETE Service Center ID check:', serviceCenterId);
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/deleteServiceCenter/{serviceCenterId}`, {
       method: "DELETE",
     })
