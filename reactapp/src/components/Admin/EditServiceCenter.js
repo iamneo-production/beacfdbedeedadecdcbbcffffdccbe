@@ -136,6 +136,8 @@ export default function EditServiceCenter() {
           serviceCenterEmailId: adminData.editCenterMailId,
           serviceCenterDescription: adminData.editCenterDescription,
         };
+        console.log('User ID check:', userId);
+        console.log('Service Center ID check:', serviceCenterId);
         fetch(`/admin/editServiceCenter/${userId}/${serviceCenterId}`,{
           method: "PUT",
       headers: {
