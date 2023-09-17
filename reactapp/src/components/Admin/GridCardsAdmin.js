@@ -40,6 +40,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
   const closeDeleteConfirmationModal = () => {
     setIsDeleteConfirmationModalOpen(false);
   };
+  
 
   const handleDelete = () => {
     console.log('User ID check:', userId);
