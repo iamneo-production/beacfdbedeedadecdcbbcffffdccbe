@@ -193,7 +193,7 @@ export default function EditServiceCenter() {
                   <CardContent>
                     {/* Input fields */}
                     <h2><center>Edit the Details</center></h2>
-                    <form onSubmit={handleFormSubmit}> {/* Added onSubmit */}
+                    <form> {/* Added onSubmit */}
                       <TextField
                         fullWidth
                         label="Edit Name"
@@ -296,6 +296,7 @@ export default function EditServiceCenter() {
                         color="primary"
                         size="large"
                         fullWidth
+                        onSubmit={handleFormSubmit}
                         style={{ backgroundColor: "black" }}
                         type="submit" /* Added type attribute */
                       >
