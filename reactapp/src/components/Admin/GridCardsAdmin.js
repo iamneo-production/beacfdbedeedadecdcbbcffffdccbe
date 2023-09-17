@@ -137,7 +137,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                           <Button
                             size="small"
                             style={{ color: "black", fontSize: "16px" }}
-                            onClick={() => handleCardClick(serviceCenter.serviceCenterId)}
+                            onClick={() => handleCardClick(serviceCenters.serviceCenterId)}
                           >
                             Edit
                           </Button>
@@ -149,7 +149,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                           marginLeft: "auto",
                           fontSize: "16px",
                         }}
-                        onClick={() => handleDelete(serviceCenter.serviceCenterId)}
+                        onClick={() => handleDelete(serviceCenters.serviceCenterId)}
                       >
                         Delete
                       </Button>
