@@ -25,9 +25,33 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
    const { userId } = useParams(); // Use serviceCenterId instead of cardId
    console.log('User ID:', userId);
   console.log("Search Term in GridCards:", searchTerm);
+
   const handleCardClick = (serviceCenters) => {
     console.log("Clicked Card:", serviceCenters);
   };
+
+  const handleDeleteClick = (serviceCenterId) => {
+    // Send a DELETE request to the server to delete the service center
+    fetch(`/admin/deleteServiceCenter/${serviceCenterId}`, {
+      method: "DELETE",
+    })
+    .then((response) => {
+      if (response.ok) {
+        // Remove the deleted service center from the local state
+        setServiceCenters((prevServiceCenters) =>
+          prevServiceCenters.filter(
+            (center) => center.serviceCenterId !== serviceCenterId
+          )
+        );
+        console.log("Service Center deleted successfully");
+      } else {
+        console.error("Error deleting service center");
+      }
+    })
+    .catch((error) => {
+      console.error("Error deleting service center:", error);
+    });
+};
 
   // Filter the cards based on the search term
   const filteredCards = serviceCenters.filter((center) =>
@@ -112,6 +136,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                           marginLeft: "auto",
                           fontSize: "16px",
                         }}
+                        onClick={() => handleDeleteClick(serviceCenter.serviceCenterId)}
                       >
                         Delete
                       </Button>
