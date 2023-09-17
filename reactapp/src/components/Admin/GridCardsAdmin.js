@@ -15,11 +15,15 @@ import { Link } from "react-router-dom";
 import SearchBar from "../Searchbar";
 import { useNavigate } from "react-router-dom";
 import CenterProfile from "./CenterProfile";
+import { useParams } from "react-router-dom";
 
 const defaultTheme = createTheme();
 
 export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }) {
   const navigate = useNavigate();
+  const params = useParams();
+   const { userId } = useParams(); // Use serviceCenterId instead of cardId
+   console.log('User ID:', userId);
   console.log("Search Term in GridCards:", searchTerm);
   const handleCardClick = (serviceCenters) => {
     console.log("Clicked Card:", serviceCenters);
@@ -55,7 +59,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
               <Grid item key={serviceCenters.id} xs={12} sm={6} md={4}>
                 {/* Wrap the Card with a Link component */}
                 <Link
-                  to={`/admin/editServiceCenter/${id}/${serviceCenters.serviceCenterId}`}
+                  to={`/admin/editServiceCenter/${userId}/${serviceCenters.serviceCenterId}`}
                   state={{ cardData: serviceCenters }}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
