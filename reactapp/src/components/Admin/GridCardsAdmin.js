@@ -56,7 +56,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
       console.error("Error deleting service center:", error);
       closeDeleteConfirmationModal();
     });
-
+  };
 
   // Filter the cards based on the search term
   const filteredCards = serviceCenters.filter((center) =>
@@ -153,7 +153,30 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
           </Grid>
         </Container>
       </main>
-      
+      {isDeleteConfirmationModalOpen && (
+        <div className="delete-confirmation-modal">
+          <div className="modal-content">
+            <h2>Delete Confirmation</h2>
+            <p>Are you sure you want to delete this service center?</p>
+            <div className="modal-buttons">
+              <Button
+                variant="contained"
+                color="error"
+                onClick={handleDelete}
+              >
+                Confirm Delete
+              </Button>
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={closeDeleteConfirmationModal}
+              >
+                Cancel
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </ThemeProvider>
   );
 }
