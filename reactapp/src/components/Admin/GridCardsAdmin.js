@@ -45,8 +45,19 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
       method: "DELETE",
     })
     .then((response) => {
+      if (response.ok) {
+        console.log("Service Center Deleted Successfully");
+      } else {
+        console.error("Error deleting service center");
+      }
+      closeDeleteConfirmationModal();
+    })
+    .catch((error) => {
+      console.error("Error deleting service center:", error);
+      closeDeleteConfirmationModal();
+    });
 
-
+    
   // Filter the cards based on the search term
   const filteredCards = serviceCenters.filter((center) =>
   center.serviceCenterName.toLowerCase().includes(searchTerm.toLowerCase())
