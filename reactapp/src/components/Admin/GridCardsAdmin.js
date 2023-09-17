@@ -57,7 +57,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
       closeDeleteConfirmationModal();
     });
 
-    
+
   // Filter the cards based on the search term
   const filteredCards = serviceCenters.filter((center) =>
   center.serviceCenterName.toLowerCase().includes(searchTerm.toLowerCase())
@@ -140,6 +140,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                           color: "red",
                           marginLeft: "auto",
                           fontSize: "16px",
+                          onClick={openDeleteConfirmationModal}
                         }}
                       >
                         Delete
@@ -152,6 +153,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
           </Grid>
         </Container>
       </main>
+      
     </ThemeProvider>
   );
 }
