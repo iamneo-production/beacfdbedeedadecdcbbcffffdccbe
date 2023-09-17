@@ -138,7 +138,7 @@ export default function EditServiceCenter() {
         };
         console.log('User ID check:', userId);
         console.log('Service Center ID check:', serviceCenterId);
-        fetch(`/admin/editServiceCenter/${userId}/${serviceCenterId}`,{
+        fetch(`/admin/editServiceCenter//${serviceCenterId}`,{
           method: "PUT",
       headers: {
         "Content-Type": "application/json",
