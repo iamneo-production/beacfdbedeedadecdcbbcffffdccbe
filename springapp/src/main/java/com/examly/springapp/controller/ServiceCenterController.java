@@ -31,7 +31,7 @@ public class ServiceCenterController {
         }
     }
 
-    @PutMapping("/editServiceCenter/{id}")
+    @PutMapping("/editServiceCenter/{id}/{serviceCenterId}")
     public ResponseEntity<ServiceCenter> editServiceCenter(@PathVariable Long id, @RequestBody ServiceCenter updatedServiceCenter) {
     ServiceCenter existingServiceCenter = serviceCenterService.getServiceCenterById(id);
         if (existingServiceCenter == null) {
