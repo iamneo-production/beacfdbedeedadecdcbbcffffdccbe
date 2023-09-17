@@ -126,7 +126,7 @@ export default function EditServiceCenter() {
       if (isValid) {
         setIsEditConfirmationModalOpen(true);
         console.log("No Errors");
-        const updatedServiceCenter{
+        const updatedServiceCenter = {
           serviceCenterName: adminData.editCenterName,
           serviceCenterPhone: adminData.editCenterPhoneNumber,
           serviceCenterAddress: adminData.editCenterAddress,
@@ -136,7 +136,23 @@ export default function EditServiceCenter() {
           serviceCenterEmailId: adminData.editCenterMailId,
           serviceCenterDescription: adminData.editCenterDescription,
         };
-
+        fetch(`/admin/editServiceCenter/${userId}`,{
+          method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedServiceCenter),
+    }).then((response) => {
+      if(response.ok){
+        setIsEditConfirmationModalOpen(true);
+        console.log("Service Center Updated Successfully");
+      } else {
+        console.error("Error updating service center");
+      }
+    })
+    .catch((error) => {
+      console.error("Error updating service center:", error);
+        });
       }
     };
   
