@@ -40,7 +40,10 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
   const closeDeleteConfirmationModal = () => {
     setIsDeleteConfirmationModalOpen(false);
   };
-  
+
+  const handleEditCardClick = (serviceCenterId) => {
+    navigate(`/admin/editServiceCenter/${userId}/${serviceCenters.serviceCenterId}`);
+  }
 
   const handleDelete = () => {
     console.log('User ID check:', userId);
@@ -91,11 +94,11 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
             {sortedCards.map((serviceCenters) => (
               <Grid item key={serviceCenters.id} xs={12} sm={6} md={4}>
                 {/* Wrap the Card with a Link component */}
-                <Link
+                {/* <Link
                   to={`/admin/editServiceCenter/${userId}/${serviceCenters.serviceCenterId}`}
                   state={{ cardData: serviceCenters }}
                   style={{ textDecoration: "none", color: "inherit" }}
-                >
+                > */}
                   <Card
                     sx={{
                       height: "100%",
@@ -134,6 +137,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                           <Button
                             size="small"
                             style={{ color: "black", fontSize: "16px" }}
+                            onClick={() => handleCardClick(serviceCenter.serviceCenterId)}
                           >
                             Edit
                           </Button>
@@ -145,16 +149,13 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                           marginLeft: "auto",
                           fontSize: "16px",
                         }}
-                        onClick={(e) => {
-                          e.stopPropagation(); // Prevent the click event from propagating
-                          openDeleteConfirmationModal();
-                        }}
+                        onClick={() => handleDelete(serviceCenter.serviceCenterId)}
                       >
                         Delete
                       </Button>
                     </CardActions>
                   </Card>
-                </Link>
+                {/* </Link> */}
               </Grid>
             ))}
           </Grid>
