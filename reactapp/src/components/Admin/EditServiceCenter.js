@@ -140,11 +140,11 @@ export default function EditServiceCenter() {
         console.log('Service Center ID check:', serviceCenterId);
         fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/editServiceCenter/${serviceCenterId}`,{
           method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedServiceCenter),
-    }).then((response) => {
+          headers: {
+                      "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedServiceCenter),
+          }).then((response) => {
       if(response.ok){
         setIsEditConfirmationModalOpen(true);
         console.log("Service Center Updated Successfully");
