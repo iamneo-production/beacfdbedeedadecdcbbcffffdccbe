@@ -22,18 +22,18 @@ public class ServiceCenterController {
         return "New Service Center Created";
     }
 
-    @DeleteMapping("/deleteServiceCenter/{id}")
-    public ResponseEntity<String> deleteServiceCenterById(@PathVariable Long id) {
-        if (serviceCenterService.deleteServiceCenterById(id)) {
+    @DeleteMapping("/deleteServiceCenter/{userId}")
+    public ResponseEntity<String> deleteServiceCenterById(@PathVariable Long userId) {
+        if (serviceCenterService.deleteServiceCenterById(userId)) {
             return ResponseEntity.ok("Service Center deleted successfully");
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
-    @PutMapping("/editServiceCenter/{id}/{serviceCenterId}")
-    public ResponseEntity<ServiceCenter> editServiceCenter(@PathVariable Long id, @RequestBody ServiceCenter updatedServiceCenter) {
-    ServiceCenter existingServiceCenter = serviceCenterService.getServiceCenterById(id);
+    @PutMapping("/editServiceCenter/{userId}/{serviceCenterId}")
+    public ResponseEntity<ServiceCenter> editServiceCenter(@PathVariable Long userId, @RequestBody ServiceCenter updatedServiceCenter) {
+    ServiceCenter existingServiceCenter = serviceCenterService.getServiceCenterById(userId);
         if (existingServiceCenter == null) {
              return ResponseEntity.notFound().build();
         }

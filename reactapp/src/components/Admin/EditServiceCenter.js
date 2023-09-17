@@ -45,7 +45,7 @@ export default function EditServiceCenter() {
         editCenterPrice: "",
         editCenterImageUrl: "",
         editCenterMailId: "",
-        edidCenterDescription: "",
+        editCenterDescription: "",
     });
   
     const handleInputChange = (event) => {
