@@ -23,8 +23,12 @@ export default function EditServiceCenter() {
    console.log('Service Center ID:', serviceCenterId);
     const location = useLocation();
     const cardData = location.state.cardData;
+
   
-    const [isEditConfirmationModalOpen, setIsEditConfirmationModalOpen] = useState(false);
+    const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+
+    const openConfirmationModal = () => { setIsConfirmationModalOpen(true); };
+    const closeConfirmationModal = () => { setIsConfirmationModalOpen(false); };
   
     const [adminData, setAdminData] = useState({
       editCenterName: "",
@@ -298,6 +302,7 @@ export default function EditServiceCenter() {
                         fullWidth
                         style={{ backgroundColor: "black" }}
                         type="submit" /* Added type attribute */
+                        onClick={openConfirmationModal}
                       >
                         Submit
                       </Button>
