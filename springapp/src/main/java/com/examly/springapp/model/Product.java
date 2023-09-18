@@ -81,4 +81,9 @@ public class Product {
     public void setAvailableSlots(String availableSlots) {
         this.availableSlots = availableSlots;
     }
+    p
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

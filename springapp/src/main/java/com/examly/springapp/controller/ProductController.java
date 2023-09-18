@@ -1,9 +1,11 @@
 package com.examly.springapp.controller;
 
 import com.examly.springapp.model.Product;
+import com.examly.springapp.model.User;
 import com.examly.springapp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import com.examly.springapp.repository.*;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import javax.persistence.*;
@@ -15,19 +17,20 @@ import javax.persistence.*;
 public class ProductController {
     @Autowired
     private ProductService productService;
+    @Autowired
+    private AuthRepository authRepository;
 
     @PostMapping("/appointment")
     public String add(@RequestBody Product product, @RequestParam Long userId){
-        User user = userRepository.findById(userId).orElse(null);
+        User user = authRepository.findById(userId).orElse(null);
         if(user != null){
             product.setUser(user);
             // Save the Product
             productService.saveProduct(product);
-
-        return ResponseEntity.ok("New Product Appointment created");
+            return ResponseEntity.ok("New Product Appointment created");
+        } else {
+            return ResponseEntity.badRequest().body("User not found.");
         }
-        productService.saveProduct(product);
-        return "New Product Appointment created";
     }
 
     @DeleteMapping("/cancelappointment/{id}")
