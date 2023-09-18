@@ -8,7 +8,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -23,16 +22,6 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
     console.log("Clicked Card:", serviceCenter);
   };
 
-  const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] = useState(false);
-
-  const openDeleteConfirmationModal = () => {
-    setIsDeleteConfirmationModalOpen(true);
-  };
-
-  const closeDeleteConfirmationModal = () => {
-    setIsDeleteConfirmationModalOpen(false);
-  };
-
   const handleEditCardClick = (serviceCenterId) => {
     console.log('Navigating to edit page with userId:', userId);
     console.log('ServiceCenter ID:', serviceCenterId);
@@ -45,24 +34,21 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
   }
 
   const handleDelete = (serviceCenterId) => {
-    openDeleteConfirmationModal();
     console.log('HANDLE DELETE User ID check:', userId);
     console.log(' HANDLE DELETE Service Center ID check:', serviceCenterId);
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/deleteServiceCenter/${serviceCenterId}`, {
-    method: "DELETE",
-  })
-    .then((response) => {
-      if (response.ok) {
-        console.log("Service Center Deleted Successfully");
-      } else {
-        console.error("Error deleting service center");
-      }
-      closeDeleteConfirmationModal();
+      method: "DELETE",
     })
-    .catch((error) => {
-      console.error("Error deleting service center:", error);
-      closeDeleteConfirmationModal();
-    });
+      .then((response) => {
+        if (response.ok) {
+          console.log("Service Center Deleted Successfully");
+        } else {
+          console.error("Error deleting service center");
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting service center:", error);
+      });
   };
 
   // Filter the cards based on the search term
@@ -147,43 +133,6 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
           ))}
         </Grid>
       </Container>
-    {isDeleteConfirmationModalOpen && (
-      <div className="delete-confirmation-modal"
-      style={{
-        position: "fixed",
-        top: "0",
-        left: "0",
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-      }}
-      >
-        <div className="modal-content"style={{ backgroundColor: "white" }}>
-          <h2>Delete Confirmation</h2>
-          <p>Are you sure you want to delete this service center?</p>
-          <div className="modal-buttons">
-            <Button
-              variant="contained"
-              style={{ backgroundColor: "#f44336" }}
-              onClick={handleDelete}
-            >
-              Confirm Delete
-            </Button>
-            <Button
-              variant="outlined"
-              style={{ color: "#00cf00" }}
-              onClick={closeDeleteConfirmationModal}
-            >
-              Cancel
-            </Button>
-          </div>
-        </div>
-      </div>
-    )}
     </main>
   );
 }
-  

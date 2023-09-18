@@ -9,8 +9,6 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-
-
 export default function ConfirmationModal({
   open,
   handleClose,
