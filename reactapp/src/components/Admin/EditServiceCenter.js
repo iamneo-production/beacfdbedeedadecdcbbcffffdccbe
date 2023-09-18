@@ -311,8 +311,31 @@ export default function EditServiceCenter() {
                       </Button>
                       {console.log('isConfirmationModalOpen:', isConfirmationModalOpen)}
                       {isConfirmationModalOpen && (
-                        <div className="confirmation-modal">
-                        <div className="modal-content">
+                        <div 
+                          className="confirmation-modal"
+                          style={{
+                            position: "fixed",
+                            top: "0",
+                            left: "0",
+                            width: "100%",
+                            height: "100%",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            backgroundColor: "rgba(0, 0, 0, 0.5)",
+                            zIndex: "999",
+                          }}
+                        >
+                        <div 
+                          className="modal-content"
+                          style={{
+                            background: "#fff",
+                            padding: "20px",
+                            borderRadius: "5px",
+                            maxWidth: "400px",
+                            width: "100%",
+                          }}
+                        >
                           <h2>Confirmation</h2>
                           <p>Do you wish to update service center {serviceCenterId} details?</p>
                           <h3>Updated Details:</h3>
@@ -320,7 +343,14 @@ export default function EditServiceCenter() {
                           <p><strong>Phone Number:</strong> {adminData.editCenterPhoneNumber}</p>
                           <p><strong>Address:</strong> {adminData.editCenterAddress}</p>
                           {/* Add more details here as needed */}
-                          <div className="modal-buttons">
+                          <div 
+                            className="modal-buttons"
+                            style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: "20px",
+                            }}
+                          >
                             <Button
                               variant="contained"
                               color="primary"
