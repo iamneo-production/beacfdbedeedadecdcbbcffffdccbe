@@ -12,8 +12,9 @@ import { useParams } from 'react-router-dom';
 
 
 function HomePage() {
-  const { userId } = useParams();
+  const { userId, serviceCenterId } = useParams();
   console.log('User ID:', userId);
+  console.log('Service Center ID:' , serviceCenterId);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterLocation, setFilterLocation] = useState("");
   const [sortOrder, setSortOrder] = useState("ascending"); // Step 1: Add sortOrder state'
