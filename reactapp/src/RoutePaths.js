@@ -25,5 +25,5 @@ export const routes = [
   { path: '/admin/CenterProfile', element: <CenterProfile />},
   { path: '/admin/editServiceCenter/:id', element: <EditServiceCenter />},
   { path: '/admin/AdminAppointmentView', element: <AdminAppointmentView />},
-  { path: '/admin/AdminHomePage/:id', element: <AdminHomePage />}
+  { path: '/admin/AdminHomePage/:userId', element: <AdminHomePage />}
 ];
