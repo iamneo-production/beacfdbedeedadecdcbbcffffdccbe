@@ -15,7 +15,6 @@ import ReviewModal from "./ReviewModal";
 import { generatePDF } from "./BillGenerator";
 import { useParams } from "react-router-dom";
 
-const [userAppointments, setUserAppointments] = useState([]);
 const tableContainerStyle = {
   marginTop: "50px",
   marginBottom: "20px", // If you want some margin at the bottom
@@ -41,8 +40,12 @@ const handleGenerateBillClick = () => {
 };
 
 export default function Appointment() {
+  const params= useParams();
+  const { userId, serviceCenterId } = useParams();
+  console.log('User ID:', userId);
   const [open, setOpen] = useState(false);
   const [reviewOpen, setReviewOpen] = useState(false);
+  const [userAppointments, setUserAppointments] = useState([]);
 
   const handleOpen = () => {
     setOpen(true);

@@ -12,8 +12,12 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function Navbar() {
+  const params= useParams();
+  const { userId, serviceCenterId } = useParams();
+  console.log('User ID:', userId);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
   const toggleDrawer = () => {
@@ -54,12 +58,12 @@ export default function Navbar() {
                       Home
                     </Button>
                   </Link>
-                  <Link to="/user/dashboardGrid/:userId" className="nav-link">
+                  <Link to={`/user/dashboardGrid/${userId`} className="nav-link">
                     <Button color="inherit" id="dashboardButton" style={{ color: "white" }}>
                       Dashboard
                     </Button>
                   </Link>
-                  <Link to="/user/appointment/:userId" className="nav-link">
+                  <Link to={`/user/appointment/${userId}`} className="nav-link">
                   <Button color="inherit" id="myBookingButton" style={{ color: "white" }}>
                     My Bookings
                   </Button>
