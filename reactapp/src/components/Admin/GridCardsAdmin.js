@@ -148,7 +148,18 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
         </Grid>
       </Container>
     {isDeleteConfirmationModalOpen && (
-      <div className="delete-confirmation-modal">
+      <div className="delete-confirmation-modal"
+      style={{
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+      }}>
         <div className="modal-content">
           <h2>Delete Confirmation</h2>
           <p>Are you sure you want to delete this service center?</p>
