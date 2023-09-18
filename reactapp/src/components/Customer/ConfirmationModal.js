@@ -29,7 +29,7 @@ export default function ConfirmationModal({
     };
     console.log("User ID inside confirmation:", userId);
     console.log(requestData);
-    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment`, {
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment?userId=${userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
