@@ -53,12 +53,12 @@ export default function Navbar() {
               {/* Conditionally render buttons based on drawer state */}
               {!isDrawerOpen && (
                 <>
-                  <Link to="/user/homepage/:userId" className="nav-link" style={{ color: "white" }}>
+                  <Link to={`/user/homepage/${userId}`} className="nav-link" style={{ color: "white" }}>
                     <Button color="inherit" id="homeButton">
                       Home
                     </Button>
                   </Link>
-                  <Link to={`/user/dashboardGrid/${userId`} className="nav-link">
+                  <Link to={`/user/dashboardGrid/${userId}`} className="nav-link">
                     <Button color="inherit" id="dashboardButton" style={{ color: "white" }}>
                       Dashboard
                     </Button>
