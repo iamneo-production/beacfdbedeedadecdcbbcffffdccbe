@@ -24,6 +24,6 @@ export const routes = [
   { path: '/user/appointment', element: <Appointment /> },
   { path: '/admin/CenterProfile/:userId', element: <CenterProfile />},
   { path: '/admin/editServiceCenter/:userId/:serviceCenterId', element: <EditServiceCenter />},
-  { path: '/admin/AdminAppointmentView', element: <AdminAppointmentView />},
+  { path: '/admin/AdminAppointmentView/:userId', element: <AdminAppointmentView />},
   { path: '/admin/AdminHomePage/:userId', element: <AdminHomePage />}
 ];

@@ -159,8 +159,9 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "rgba(0, 0, 0, 0.5)",
-      }}>
-        <div className="modal-content">
+      }}
+      >
+        <div className="modal-content"style={{ backgroundColor: "white" }}>
           <h2>Delete Confirmation</h2>
           <p>Are you sure you want to delete this service center?</p>
           <div className="modal-buttons">
