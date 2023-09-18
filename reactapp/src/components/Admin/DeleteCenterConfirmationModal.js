@@ -28,7 +28,7 @@ export default function DeleteCenterConfirmationModal({
         <Button onClick={handleClose} color="primary">
           Cancel
         </Button>
-        <Button onClick={handleConfirmation} color="primary">
+        <Button onClick={handleClose} color="primary">
           Confirm Delete
         </Button>
       </DialogActions>
