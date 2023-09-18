@@ -289,6 +289,7 @@ export default function Dashboard() {
                       open={isConfirmationModalOpen}
                       handleClose={handleConfirmationModalClose}
                       userData={userData}
+                      userId={userId}
                     />
                   </form>
                 </CardContent>

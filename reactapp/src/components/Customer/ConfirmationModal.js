@@ -13,6 +13,7 @@ export default function ConfirmationModal({
   open,
   handleClose,
   userData, // This should be an object containing the user's entered data
+  userId 
 }) {
   const navigate = useNavigate(); // Initialize useHistory
 
@@ -37,8 +38,7 @@ export default function ConfirmationModal({
         if (response.ok) {
           console.log("Product Appointment created successfully");
           handleClose(); // Close the confirmation modal
-          // Navigate to the appointments page
-          navigate("/user/appointment/${userId");
+          navigate(`/user/appointment/${userId}`);
         } else {
           console.error("Error creating product appointment");
         }
@@ -49,7 +49,6 @@ export default function ConfirmationModal({
     // Handle appointment confirmation and bill generation here
     handleClose();
     // Navigate to the appointments page
-    navigate("/user/appointment");
   };
   return (
     <Dialog open={open} onClose={handleClose}>
