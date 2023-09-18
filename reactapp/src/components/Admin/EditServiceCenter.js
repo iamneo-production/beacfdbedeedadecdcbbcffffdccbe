@@ -128,7 +128,7 @@ export default function EditServiceCenter() {
       // Add more validation rules for other fields as needed...
   
       if (isValid) {
-        setIsEditConfirmationModalOpen(true);
+        setIsConfirmationModalOpen(true);
         console.log("No Errors");
         const updatedServiceCenter = {
           serviceCenterName: adminData.editCenterName,
@@ -150,7 +150,7 @@ export default function EditServiceCenter() {
           body: JSON.stringify(updatedServiceCenter),
           }).then((response) => {
       if(response.ok){
-        setIsEditConfirmationModalOpen(true);
+        setIsConfirmationModalOpen(true);
         console.log("Service Center Updated Successfully");
       } else {
         console.error("Error updating service center");
@@ -306,6 +306,39 @@ export default function EditServiceCenter() {
                       >
                         Submit
                       </Button>
+                      {isConfirmationModalOpen && (
+                        <div className="confirmation-modal">
+                        <div className="modal-content">
+                          <h2>Confirmation</h2>
+                          <p>Do you wish to update service center {serviceCenterId} details?</p>
+                          <h3>Updated Details:</h3>
+                          <p><strong>Name:</strong> {adminData.editCenterName}</p>
+                          <p><strong>Phone Number:</strong> {adminData.editCenterPhoneNumber}</p>
+                          <p><strong>Address:</strong> {adminData.editCenterAddress}</p>
+                          {/* Add more details here as needed */}
+                          <div className="modal-buttons">
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              onClick={() => {
+                                // Handle the confirmation action (e.g., send the update request)
+                                // Close the modal after confirmation
+                                closeConfirmationModal();
+                              }}
+                            >
+                              Confirm
+                            </Button>
+                            <Button
+                              variant="outlined"
+                              color="primary"
+                              onClick={closeConfirmationModal}
+                            >
+                              Cancel
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    )}                        
                     </form> {/* Closed the form */}
                   </CardContent>
                 </Card>
