@@ -161,6 +161,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                       >
                         Delete
                       </Button>
+                      
                     </CardActions>
                   </Card>
                 {/* </Link> */}
@@ -184,7 +185,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
               </Button>
               <Button
                 variant="outlined"
-                color="primary"
+                color="00cf00"
                 onClick={closeDeleteConfirmationModal}
               >
                 Cancel
