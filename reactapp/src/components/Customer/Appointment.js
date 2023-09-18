@@ -63,7 +63,7 @@ export default function Appointment() {
 
   useEffect(() => {
     // Fetch appointments by userId
-    fetch(`your-api-endpoint/user/appointment/${userId}`)
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment/${userId}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -112,11 +112,11 @@ export default function Appointment() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>{row.date}</TableCell>
-                <TableCell>{row.timings}</TableCell>
+            {userAppointments.map((appointment) => (
+              <TableRow key={appointment.id}>
+                <TableCell>{appointment.name}</TableCell>
+                <TableCell>{appointment.date}</TableCell>
+                <TableCell>{appointment.timings}</TableCell>
                 <TableCell>
                   <Button
                     variant="outlined"
@@ -140,14 +140,14 @@ export default function Appointment() {
                     style={{
                       color: "black",
                       borderColor: "black",
-                      pointerEvents: isDateValid(row.date) ? "auto" : "auto",
-                      backgroundColor: isDateValid(row.date)
+                      pointerEvents: isDateValid(appointment.date) ? "auto" : "auto",
+                      backgroundColor: isDateValid(appointment.date)
                         ? "white"
                         : "#c4c4c4", // Change the background color
                     }}
-                    disabled={!isDateValid(row.date)}
+                    disabled={!isDateValid(appointment.date)}
                     title={
-                      isDateValid(row.date)
+                      isDateValid(appointment.date)
                         ? "Click to Generate Bill"
                         : "Generated bill will be provided only after service"
                     }
@@ -161,14 +161,14 @@ export default function Appointment() {
                     variant="contained"
                     style={{
                       borderColor: "#fcde32",
-                      backgroundColor: isDateValid(row.date)
+                      backgroundColor: isDateValid(appointment.date)
                         ? "#fcde32"
                         : "#c4c4c4",
                     }}
                     onClick={handleReviewOpen}
-                    disabled={!isDateValid(row.date)}
+                    disabled={!isDateValid(appointment.date)}
                     title={
-                      isDateValid(row.date)
+                      isDateValid(appointment.date)
                         ? "Click to Generate Bill"
                         : "Generated bill will be provided only after service"
                     }
