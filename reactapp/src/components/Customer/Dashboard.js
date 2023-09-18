@@ -17,7 +17,10 @@ import { useState } from "react";
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
-  const { cardId } = useParams();
+  const params= useParams();
+  const { userId, serviceCenterId } = useParams();
+  console.log('User ID:', userId);
+  console.log('Service Center ID: ', serviceCenterId);
   const location = useLocation();
   const cardData = location.state.cardData;
 
