@@ -17,7 +17,15 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/appointment")
-    public String add(@RequestBody Product product){
+    public String add(@RequestBody Product product, @RequestParam Long userId){
+        User user = userRepository.findById(userId).orElse(null);
+        if(user != null){
+            product.setUser(user);
+            // Save the Product
+            productService.saveProduct(product);
+
+        return ResponseEntity.ok("New Product Appointment created");
+        }
         productService.saveProduct(product);
         return "New Product Appointment created";
     }
