@@ -20,11 +20,12 @@ public class ProductController {
     @Autowired
     private AuthRepository authRepository;
 
-    @PostMapping("/appointment")
+    @PostMapping("/appointment/{id}")
     public ResponseEntity<String> add(@RequestBody Product product, @RequestParam Long userId){
         User user = authRepository.findById(userId).orElse(null);
         if(user != null){
             product.setUser(user);
+            System.out.println("Received Product Data: " + product.toString());
             // Save the Product
             productService.saveProduct(product);
             return ResponseEntity.ok("New Product Appointment created");
