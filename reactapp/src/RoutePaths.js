@@ -23,7 +23,7 @@ export const routes = [
   { path: '/user/dashboardGrid', element: <DashboardGrid /> },
   { path: '/user/appointment', element: <Appointment /> },
   { path: '/admin/CenterProfile/:userId', element: <CenterProfile />},
-  { path: '/admin/editServiceCenter/:id', element: <EditServiceCenter />},
+  { path: '/admin/editServiceCenter/:userId/:serviceCenterId', element: <EditServiceCenter />},
   { path: '/admin/AdminAppointmentView', element: <AdminAppointmentView />},
   { path: '/admin/AdminHomePage/:userId', element: <AdminHomePage />}
 ];
