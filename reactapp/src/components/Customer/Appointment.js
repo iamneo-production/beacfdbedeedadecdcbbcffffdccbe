@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Table,
   TableBody,
@@ -14,21 +14,8 @@ import EditBookingModal from "./EditBookingModal";
 import ReviewModal from "./ReviewModal";
 import { generatePDF } from "./BillGenerator";
 
-const rows = [
-  {
-    id: 1,
-    name: "John Doe",
-    date: "2023-08-15",
-    timings: "10:00 AM - 11:00 AM",
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    date: "2023-09-16",
-    timings: "2:00 PM - 3:00 PM",
-  },
-  // Add more rows as needed
-];
+const [userAppointments, setUserAppointments] = useState([]);
+
 
 const tableContainerStyle = {
   marginTop: "50px",
@@ -73,6 +60,25 @@ export default function Appointment() {
   const handleReviewClose = () => {
     setReviewOpen(false);
   };
+
+  useEffect(() => {
+    // Fetch appointments by userId
+    fetch(`your-api-endpoint/user/appointment/${userId}`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Failed to fetch appointments');
+        }
+      })
+      .then((data) => {
+        setUserAppointments(data); // Set the fetched appointments in state
+      })
+      .catch((error) => {
+        console.error('Error fetching appointments:', error);
+      });
+  }, [userId]); // Add userId as a dependency
+  
 
   // Function to check if a date is greater than or equal to the current date
   const isDateValid = (dateStr) => {
