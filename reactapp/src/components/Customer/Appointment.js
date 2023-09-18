@@ -13,10 +13,9 @@ import Navbar from "../Navbar";
 import EditBookingModal from "./EditBookingModal";
 import ReviewModal from "./ReviewModal";
 import { generatePDF } from "./BillGenerator";
+import { useParams } from "react-router-dom";
 
 const [userAppointments, setUserAppointments] = useState([]);
-
-
 const tableContainerStyle = {
   marginTop: "50px",
   marginBottom: "20px", // If you want some margin at the bottom
@@ -72,6 +71,7 @@ export default function Appointment() {
         }
       })
       .then((data) => {
+        console.log(data);
         setUserAppointments(data); // Set the fetched appointments in state
       })
       .catch((error) => {
