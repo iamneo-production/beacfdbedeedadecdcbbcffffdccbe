@@ -152,16 +152,12 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                       </div>
                       <Button
                         size="small"
-                        style={{
-                          color: "ff0000",
-                          marginLeft: "auto",
-                          fontSize: "16px",
-                        }}
+                        style={{ color: "black", fontSize: "16px" }}
                         onClick={() => handleDelete(serviceCenters.serviceCenterId)}
                       >
                         Delete
                       </Button>
-                      
+
                     </CardActions>
                   </Card>
                 {/* </Link> */}
