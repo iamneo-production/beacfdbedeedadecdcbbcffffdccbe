@@ -7,7 +7,7 @@ import { Container } from "@mui/material"; // Import Container without destructu
 import Footer from "../Footer";
 import { Typography } from "@mui/material";
 import { useParams } from 'react-router-dom';
-import GridCardsAdmin;
+import GridCardsAdmin from "./GridCardsAdmin";
 
 
 function CenterProfile() {
