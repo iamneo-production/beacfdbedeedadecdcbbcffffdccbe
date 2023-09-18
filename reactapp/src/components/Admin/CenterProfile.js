@@ -35,7 +35,7 @@ function CenterProfile() {
 
   useEffect(() => {
     // Make an API request to fetch service center data
-    fetch('https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/editServiceCenter/${serviceCenterId}')
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/editServiceCenter/${serviceCenterId}`)
       .then((response) => response.json())
       .then((data) => {
         setServiceCenters(data); // Update the state with the fetched data
