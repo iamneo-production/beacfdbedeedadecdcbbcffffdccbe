@@ -58,7 +58,6 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
       .catch((error) => {
         console.error("Error deleting service center:", error);
       });
-      window.location.reload();
   };
 
   // Filter the cards based on the search term
