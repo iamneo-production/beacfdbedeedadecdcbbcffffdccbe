@@ -6,9 +6,15 @@ import GridCardsWithoutHero from "../GridCardsWithoutHero"; // Import the modifi
 import { Container } from "@mui/material"; // Import Container without destructuring it
 import Footer from "../Footer";
 import { Typography } from "@mui/material";
+import { useParams } from 'react-router-dom';
+import GridCardsAdmin;
 
 
-function DashboardGrid() {
+function CenterProfile() {
+  const params = useParams();
+  console.log('Params:', params);
+  const { userId } = params; // Use "id" instead of "userId"
+  console.log('User ID:', userId);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterLocation, setFilterLocation] = useState("");
   const [sortOrder, setSortOrder] = useState("ascending"); // Step 1: Add sortOrder state'
@@ -29,7 +35,7 @@ function DashboardGrid() {
 
   useEffect(() => {
     // Make an API request to fetch service center data
-    fetch('https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/service-center')
+    fetch('https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/editServiceCenter/${serviceCenterId}')
       .then((response) => response.json())
       .then((data) => {
         setServiceCenters(data); // Update the state with the fetched data
@@ -50,7 +56,7 @@ function DashboardGrid() {
               color="text.primary"
               gutterBottom
             >
-              Welcome to the Dashboard
+              Center Profile
               </Typography>
               <SearchBar onSearchChange={handleSearchChange} />
               <Container maxWidth="sm" style={{ textAlign: "left", display: "flex", alignItems: "center"}}>
@@ -86,11 +92,11 @@ function DashboardGrid() {
           Filter
         </Button>
       </Container>
-        <GridCardsWithoutHero searchTerm={searchTerm} sortOrder={sortOrder} serviceCenters={serviceCenters}/> {/* Use the modified GridCardsWithoutHero component */}
+        <GridCardsAdmin searchTerm={searchTerm} sortOrder={sortOrder} serviceCenters={serviceCenters}/> {/* Use the modified GridCardsWithoutHero component */}
       </Container>
       <Footer />
     </div>
   );
 }
 
-export default DashboardGrid;
+export default CenterProfile;
