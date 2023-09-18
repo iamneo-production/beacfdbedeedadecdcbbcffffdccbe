@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.examly.springapp.SpringappApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.281 s - in com.examly.springapp.SpringappApplicationTests
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.178 s <<< FAILURE! - in com.examly.springapp.SpringappApplicationTests
+test_case2  Time elapsed: 0.008 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.examly.springapp.SpringappApplicationTests.test_case2(SpringappApplicationTests.java:86)
+
