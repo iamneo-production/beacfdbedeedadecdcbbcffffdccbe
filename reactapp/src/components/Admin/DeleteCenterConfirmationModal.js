@@ -5,16 +5,16 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { useNavigate } from "react-router-dom";
 
 export default function DeleteCenterConfirmationModal({
   open,
   handleClose,
+  onConfirmDelete,
 }) {
-
-    const handleConfirmation = () => {
-        handleClose();
-    }
+  const handleConfirmation = () => {
+    onConfirmDelete(); // Call the onConfirmDelete function
+    handleClose(); // Close the modal
+  };
 
   return (
     <Dialog open={open} onClose={handleClose}>
@@ -25,16 +25,10 @@ export default function DeleteCenterConfirmationModal({
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} color="primary">
+        <Button onClick={handleClose} color="primary">
           Cancel
         </Button>
-        <Button
-          onClick={() => {
-            onConfirmDelete();
-            onClose();
-          }}
-          color="primary"
-        >
+        <Button onClick={handleConfirmation} color="primary">
           Confirm Delete
         </Button>
       </DialogActions>

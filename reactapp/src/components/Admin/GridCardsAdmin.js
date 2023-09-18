@@ -139,6 +139,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                   <DeleteCenterConfirmationModal
                       open={isConfirmationModalOpen}
                       handleClose={handleConfirmationModalClose}
+                      onConfirmDelete={handleDelete}
                     />
                 </CardActions>
               </Card>
