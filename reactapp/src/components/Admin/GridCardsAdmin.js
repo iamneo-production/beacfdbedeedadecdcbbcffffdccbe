@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import DeleteCenterConfirmationModal from "./DeleteCenterConfirmationModal";
 
 export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }) {
   const navigate = useNavigate();
@@ -17,6 +18,8 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
   console.log('Params:', params);
   const { userId } = params; // Use "id" instead of "userId"
   console.log('User ID:', userId);
+
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
   const handleCardClick = (serviceCenter) => {
     console.log("Clicked Card:", serviceCenter);
@@ -36,6 +39,8 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
   const handleDelete = (serviceCenterId) => {
     console.log('HANDLE DELETE User ID check:', userId);
     console.log(' HANDLE DELETE Service Center ID check:', serviceCenterId);
+    setIsConfirmationModalOpen(true);
+    console.log("No Errors");
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/deleteServiceCenter/${serviceCenterId}`, {
       method: "DELETE",
     })
