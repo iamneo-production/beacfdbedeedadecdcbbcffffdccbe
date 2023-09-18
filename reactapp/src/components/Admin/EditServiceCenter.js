@@ -128,7 +128,6 @@ export default function EditServiceCenter() {
       // Add more validation rules for other fields as needed...
   
       if (isValid) {
-        setIsConfirmationModalOpen(true);
         console.log("No Errors");
         const updatedServiceCenter = {
           serviceCenterName: adminData.editCenterName,
@@ -150,7 +149,8 @@ export default function EditServiceCenter() {
           body: JSON.stringify(updatedServiceCenter),
           }).then((response) => {
       if(response.ok){
-        setIsConfirmationModalOpen(true);
+        console.log("confirmation model");
+        openConfirmationModal(true);
         console.log("Service Center Updated Successfully");
       } else {
         console.error("Error updating service center");
