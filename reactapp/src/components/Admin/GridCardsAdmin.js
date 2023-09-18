@@ -152,7 +152,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                       </div>
                       <Button
                         size="small"
-                        sx={{
+                        style={{
                           color: "red",
                           marginLeft: "auto",
                           fontSize: "16px",
