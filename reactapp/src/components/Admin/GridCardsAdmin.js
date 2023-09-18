@@ -10,9 +10,14 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }) {
   const navigate = useNavigate();
+  const params = useParams();
+  console.log('Params:', params);
+  const { userId } = params; // Use "id" instead of "userId"
+  console.log('User ID:', userId);
 
   const handleCardClick = (serviceCenter) => {
     console.log("Clicked Card:", serviceCenter);
