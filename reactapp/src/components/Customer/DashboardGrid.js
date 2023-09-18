@@ -6,9 +6,14 @@ import GridCardsWithoutHero from "../GridCardsWithoutHero"; // Import the modifi
 import { Container } from "@mui/material"; // Import Container without destructuring it
 import Footer from "../Footer";
 import { Typography } from "@mui/material";
+import { useParams } from 'react-router-dom';
 
 
 function DashboardGrid() {
+  const params= useParams();
+  const { userId, serviceCenterId } = useParams();
+  console.log('User ID:', userId);
+  console.log('Service Center ID: ', serviceCenterId);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterLocation, setFilterLocation] = useState("");
   const [sortOrder, setSortOrder] = useState("ascending"); // Step 1: Add sortOrder state'
@@ -86,7 +91,7 @@ function DashboardGrid() {
           Filter
         </Button>
       </Container>
-        <GridCardsWithoutHero searchTerm={searchTerm} sortOrder={sortOrder} serviceCenters={serviceCenters}/> {/* Use the modified GridCardsWithoutHero component */}
+        <GridCardsWithoutHero searchTerm={searchTerm} sortOrder={sortOrder} serviceCenters={serviceCenters} userId={userId}/> {/* Use the modified GridCardsWithoutHero component */}
       </Container>
       <Footer />
     </div>

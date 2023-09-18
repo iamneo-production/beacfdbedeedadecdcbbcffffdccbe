@@ -12,7 +12,8 @@ import SearchBar from './Searchbar';
 
 const defaultTheme = createTheme();
 
-export default function GridCardsWithoutHero({ searchTerm, sortOrder, serviceCenters}) {
+export default function GridCardsWithoutHero({ searchTerm, sortOrder, serviceCenters, userId}) {
+  
   console.log("Search Term in GridCards:", searchTerm); 
   const handleCardClick = (serviceCenters) => {
     console.log("Clicked Card:", serviceCenters);
@@ -44,7 +45,7 @@ export default function GridCardsWithoutHero({ searchTerm, sortOrder, serviceCen
             <Grid item key={serviceCenters.id} xs={12} sm={6} md={4}>
               {/* Wrap the Card with a Link component */}
               <Link
-                to={`/user/dashboard/${serviceCenters.serviceCenterId}`} // Use string concatenation to include card.id
+                to={`/user/dashboard/${userId}/${serviceCenters.serviceCenterId}`} // Use string concatenation to include card.id
                 state={{ cardData: serviceCenters }}
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
