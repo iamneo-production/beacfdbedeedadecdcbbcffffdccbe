@@ -21,7 +21,7 @@ public class ProductController {
     private AuthRepository authRepository;
 
     @PostMapping("/appointment/{userId}")
-    public ResponseEntity<String> add(@RequestBody Product product, @RequestParam Long userId){
+    public ResponseEntity<String> add(@RequestBody Product product, @PathVariable Long userId){
         User user = authRepository.findById(userId).orElse(null);
         if(user != null){
             product.setUser(user);
