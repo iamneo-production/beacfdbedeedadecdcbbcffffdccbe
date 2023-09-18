@@ -20,7 +20,7 @@ public class ProductController {
     @Autowired
     private AuthRepository authRepository;
 
-    @PostMapping("/appointment/{id}")
+    @PostMapping("/appointment/{userId}")
     public ResponseEntity<String> add(@RequestBody Product product, @RequestParam Long userId){
         User user = authRepository.findById(userId).orElse(null);
         if(user != null){
