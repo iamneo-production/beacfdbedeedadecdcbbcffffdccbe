@@ -12,16 +12,12 @@ export default function DeleteCenterConfirmationModal({
   handleClose,
 }) {
 
-    const navigate = useNavigate();
     const handleConfirmation = () => {
         handleClose();
-        navigate(`/admin/CenterProfile/${userId}`);
-
-
-
+    }
 
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog open={open} onClose={handleClose}>
       <DialogTitle>Delete Confirmation</DialogTitle>
       <DialogContent>
         <DialogContentText>
