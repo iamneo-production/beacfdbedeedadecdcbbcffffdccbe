@@ -16,15 +16,13 @@ export const routes = [
   { path: '/', element: <Auth /> },
   { path: '/login', element: <Login /> },
   { path: '/signup', element: <SignUp /> },
-  { path: '/admin', element: <AdminHomePage /> },
-  { path: '/user/homepage/:userId', element: <Homepage /> },
-  
+  { path: '/admin/AdminHomePage/:userId', element: <AdminHomePage />},
   { path: '/admin/addServiceCenter/:userId', element: <AddCenter /> },
-  { path: '/user/dashboard/:userId/:serviceCenterId', element: <Dashboard /> },
-  { path: '/user/dashboardGrid', element: <DashboardGrid /> },
-  { path: '/user/appointment/:userId', element: <Appointment /> },
   { path: '/admin/CenterProfile/:userId', element: <CenterProfile />},
   { path: '/admin/editServiceCenter/:userId/:serviceCenterId', element: <EditServiceCenter />},
   { path: '/admin/AdminAppointmentView/:userId', element: <AdminAppointmentView />},
-  { path: '/admin/AdminHomePage/:userId', element: <AdminHomePage />}
+  { path: '/user/homepage/:userId', element: <Homepage /> },
+  { path: '/user/dashboard/:userId/:serviceCenterId', element: <Dashboard /> },
+  { path: '/user/dashboardGrid', element: <DashboardGrid /> },
+  { path: '/user/appointment/:userId', element: <Appointment /> },
 ];
