@@ -18,6 +18,34 @@ export default function ConfirmationModal({
 
   // Function to handle the confirmation and navigation
   const handleConfirmation = () => {
+    const requestData = {
+      productName: userData.enterProductName,
+      productModelNo: userData.enterModelNo,
+      dateOfPurchase: userData.enterDateOfPurchase,
+      mobileNumber: userData.enterContactNumber,
+      productDescription: userData.enterProblem,
+      availableSlots: userData.enterAppointmentDate,
+    };
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("Product Appointment created successfully");
+          handleClose(); // Close the confirmation modal
+          // Navigate to the appointments page
+          navigate("/user/appointment/${userId");
+        } else {
+          console.error("Error creating product appointment");
+        }
+      })
+      .catch((error) => {
+        console.error("Error creating product appointment:", error);
+      });
     // Handle appointment confirmation and bill generation here
     handleClose();
     // Navigate to the appointments page
