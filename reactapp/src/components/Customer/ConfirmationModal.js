@@ -27,6 +27,7 @@ export default function ConfirmationModal({
       productDescription: userData.enterProblem,
       availableSlots: userData.enterAppointmentDate,
     };
+    console.log("User ID:", userId);
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment`, {
       method: "POST",
       headers: {
