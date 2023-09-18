@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from "../Navbar";
+import AdminNavBar from "./AdminNavBar";
 import SearchBar from "../Searchbar";
 import { Grid, Button, TextField, MenuItem } from "@mui/material"; // Import MenuItem
 import GridCardsWithoutHero from "../GridCardsWithoutHero"; // Import the modified component
@@ -47,7 +47,7 @@ function CenterProfile() {
 
   return (
     <div>
-      <Navbar />
+      <AdminNavBar />
       <Container sx={{ py: 8 }} maxWidth="lg">
       <Typography
               component="h1"
