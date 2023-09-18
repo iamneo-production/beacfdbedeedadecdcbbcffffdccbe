@@ -27,7 +27,10 @@ export default function EditServiceCenter() {
   
     const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
-    const openConfirmationModal = () => { setIsConfirmationModalOpen(true); };
+    const openConfirmationModal = () => { 
+      setIsConfirmationModalOpen(true);
+      console.log('Modal opened'); // Add this line
+    };
     const closeConfirmationModal = () => { setIsConfirmationModalOpen(false); };
   
     const [adminData, setAdminData] = useState({
@@ -306,6 +309,7 @@ export default function EditServiceCenter() {
                       >
                         Submit
                       </Button>
+                      {console.log('isConfirmationModalOpen:', isConfirmationModalOpen)}
                       {isConfirmationModalOpen && (
                         <div className="confirmation-modal">
                         <div className="modal-content">
