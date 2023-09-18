@@ -16,13 +16,14 @@ export const routes = [
   { path: '/', element: <Auth /> },
   { path: '/login', element: <Login /> },
   { path: '/signup', element: <SignUp /> },
-  { path: '/user/homepage/:userId', element: <Homepage /> },
-  { path: '/admin/addServiceCenter/:userId/', element: <AddCenter /> },
-  { path: '/user/dashboard/:userId', element: <Dashboard /> },
-  { path: '/user/dashboardGrid/:userId', element: <DashboardGrid /> },
-  { path: '/user/appointment/:userId', element: <Appointment /> },
-  { path: '/admin/CenterProfile/:userId', element: <CenterProfile />},
-  { path: '/admin/editServiceCenter/:userId/:serviceCenterId', element: <EditServiceCenter />},
-  { path: '/admin/AdminAppointmentView/:userId', element: <AdminAppointmentView />},
-  { path: '/admin/AdminHomePage/:userId', element: <AdminHomePage />}
+  { path: '/user/homepage', element: <Homepage /> },
+  { path: '/admin', element: <AdminHomePage /> },
+  { path: '/admin/addServiceCenter', element: <AddCenter /> },
+  { path: '/user/dashboard/:id', element: <Dashboard /> },
+  { path: '/user/dashboardGrid', element: <DashboardGrid /> },
+  { path: '/user/appointment', element: <Appointment /> },
+  { path: '/admin/CenterProfile', element: <CenterProfile />},
+  { path: '/admin/editServiceCenter/:id', element: <EditServiceCenter />},
+  { path: '/admin/AdminAppointmentView', element: <AdminAppointmentView />},
+  { path: '/admin/AdminHomePage', element: <AdminHomePage />}
 ];
