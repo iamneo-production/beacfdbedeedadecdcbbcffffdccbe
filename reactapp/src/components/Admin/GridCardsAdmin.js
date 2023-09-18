@@ -21,6 +21,10 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
 
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
+  const handleConfirmationModalClose = () => {
+    setIsConfirmationModalOpen(false);
+  };
+
   const handleCardClick = (serviceCenter) => {
     console.log("Clicked Card:", serviceCenter);
   };
@@ -132,6 +136,10 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                   >
                     Delete
                   </Button>
+                  <ConfirmationModal
+                      open={isConfirmationModalOpen}
+                      handleClose={handleConfirmationModalClose}
+                    />
                 </CardActions>
               </Card>
             </Grid>

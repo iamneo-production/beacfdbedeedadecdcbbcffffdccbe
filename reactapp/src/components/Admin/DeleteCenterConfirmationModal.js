@@ -10,8 +10,16 @@ import { useNavigate } from "react-router-dom";
 export default function DeleteCenterConfirmationModal({
   open,
   handleClose,
-  onConfirmDelete,
 }) {
+
+    const navigate = useNavigate();
+    const handleConfirmation = () => {
+        handleClose();
+        navigate(`/admin/CenterProfile/${userId}`);
+
+
+
+
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Delete Confirmation</DialogTitle>
