@@ -11,12 +11,17 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import SearchBar from './Searchbar';
-
-const defaultTheme = createTheme();
+import { useNavigate } from 'react-router-dom';
 
 export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
+const navigate = useNavigate();
+const params = useParams();
+console.log('Params: ', params);
+const { userId } = params;
+console.log('User ID: ', userId);
+
   console.log("Search Term in GridCards:", searchTerm); 
   console.log("Service Centers Data:", serviceCenters);
   const handleCardClick = (serviceCenters) => {
@@ -43,8 +48,6 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
   });
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
       <main>
         {/* Hero unit */}
         <Container sx={{ py: 8 }} maxWidth="lg">
@@ -54,7 +57,7 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
               <Grid item key={serviceCenters.id} xs={12} sm={6} md={4}>
                 {/* Wrap the Card with a Link component */}
                 <Link
-                  to={`/user/dashboard/${serviceCenters.serviceCenterId}`} // Use string concatenation to include card.id
+                  to={`/user/dashboard/${userId}/${serviceCenters.serviceCenterId}`} // Use string concatenation to include card.id
                   state={{ cardData: serviceCenters }}
                   style={{ textDecoration: 'none', color: 'inherit' }}
                 >
@@ -91,7 +94,6 @@ export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
           </Grid>
         </Container>
       </main>
-    </ThemeProvider>
   );
 
 }
