@@ -18,7 +18,7 @@ export const routes = [
   { path: '/signup', element: <SignUp /> },
   { path: '/user/homepage', element: <Homepage /> },
   { path: '/admin', element: <AdminHomePage /> },
-  { path: '/admin/addServiceCenter:id', element: <AddCenter /> },
+  { path: '/admin/addServiceCenter/:userId', element: <AddCenter /> },
   { path: '/user/dashboard/:id', element: <Dashboard /> },
   { path: '/user/dashboardGrid', element: <DashboardGrid /> },
   { path: '/user/appointment', element: <Appointment /> },
