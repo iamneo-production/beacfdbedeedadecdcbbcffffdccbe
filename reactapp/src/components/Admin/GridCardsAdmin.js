@@ -6,29 +6,16 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-import SearchBar from "../Searchbar";
 import { useNavigate } from "react-router-dom";
-import CenterProfile from "./CenterProfile";
-import { useParams } from "react-router-dom";
-
-const defaultTheme = createTheme();
 
 export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }) {
   const navigate = useNavigate();
-  const params = useParams();
-   const { userId, serviceCenterId } = useParams(); // Use serviceCenterId instead of cardId
-   console.log('User ID:', userId);
-   console.log('ServiceCenter ID:' , serviceCenterId);
-  console.log("Search Term in GridCards:", searchTerm);
-  
-  const handleCardClick = (serviceCenters) => {
-    console.log("Clicked Card:", serviceCenters);
+
+  const handleCardClick = (serviceCenter) => {
+    console.log("Clicked Card:", serviceCenter);
   };
 
   const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] = useState(false);
@@ -58,7 +45,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
     console.log(' HANDLE DELETE Service Center ID check:', serviceCenterId);
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/deleteServiceCenter/${serviceCenterId}`, {
     method: "DELETE",
-})
+  })
     .then((response) => {
       if (response.ok) {
         console.log("Service Center Deleted Successfully");
@@ -75,7 +62,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
 
   // Filter the cards based on the search term
   const filteredCards = serviceCenters.filter((center) =>
-  center.serviceCenterName.toLowerCase().includes(searchTerm.toLowerCase())
+    center.serviceCenterName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const sortedCards = [...filteredCards].sort((a, b) => {
@@ -92,104 +79,94 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
   });
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <main>
-        {/* Hero unit */}
-        <Container sx={{ py: 8 }} maxWidth="lg">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {sortedCards.map((serviceCenters) => (
-              <Grid item key={serviceCenters.id} xs={12} sm={6} md={4}>
-                {/* Wrap the Card with a Link component */}
-                {/* <Link
-                  to={`/admin/editServiceCenter/${userId}/${serviceCenters.serviceCenterId}`}
-                  state={{ cardData: serviceCenters }}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                > */}
-                  <Card
-                    sx={{
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                    onClick={() => handleCardClick(serviceCenters)}
+    <main>
+      {/* Hero unit */}
+      <Container sx={{ py: 8 }} maxWidth="lg">
+        {/* End hero unit */}
+        <Grid container spacing={4}>
+          {sortedCards.map((serviceCenter) => (
+            <Grid item key={serviceCenter.id} xs={12} sm={6} md={4}>
+              <Card
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+                onClick={() => handleCardClick(serviceCenter)}
+              >
+                <CardMedia
+                  component="div"
+                  sx={{
+                    // 16:9
+                    pt: "56.25%",
+                  }}
+                  image={serviceCenter.serviceCenterImageUrl}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {serviceCenter.serviceCenterName}
+                  </Typography>
+                  <Typography>
+                    <strong>Place: </strong>
+                    {serviceCenter.serviceCenterAddress}
+                  </Typography>
+                  <Typography>
+                    <strong>Timing: </strong>
+                    {serviceCenter.ServiceCenterTimings}
+                  </Typography>
+                  <Typography>
+                    <strong>Rating: </strong>
+                    {serviceCenter.serviceCenterDescription}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <div>
+                    <Button
+                      size="small"
+                      style={{ color: "black", fontSize: "16px" }}
+                      onClick={() => handleEditCardClick(serviceCenter.serviceCenterId)}
+                    >
+                      Edit
+                    </Button>
+                  </div>
+                  <Button
+                    size="small"
+                    style={{ color: "black", fontSize: "16px" }}
+                    onClick={() => handleDelete(serviceCenter.serviceCenterId)}
                   >
-                    <CardMedia
-                      component="div"
-                      sx={{
-                        // 16:9
-                        pt: "56.25%",
-                      }}
-                      image={serviceCenters.serviceCenterImageUrl}
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {serviceCenters.serviceCenterName}
-                      </Typography>
-                      <Typography>
-                        <strong>Place: </strong>
-                        {serviceCenters.serviceCenterAddress}
-                      </Typography>
-                      <Typography>
-                        <strong>Timing: </strong>
-                        {serviceCenters.ServiceCenterTimings}
-                      </Typography>
-                      <Typography>
-                        <strong>Rating: </strong>
-                        {serviceCenters.serviceCenterDescription}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <div>
-                          <Button
-                            size="small"
-                            style={{ color: "black", fontSize: "16px" }}
-                            onClick={() => handleEditCardClick(serviceCenters.serviceCenterId)}
-                          >
-                            Edit
-                          </Button>
-                      </div>
-                      <Button
-                        size="small"
-                        style={{ color: "black", fontSize: "16px" }}
-                        onClick={() => handleDelete(serviceCenters.serviceCenterId)}
-                      >
-                        Delete
-                      </Button>
-
-                    </CardActions>
-                  </Card>
-                {/* </Link> */}
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </main>
-      {isDeleteConfirmationModalOpen && (
-        <div className="delete-confirmation-modal">
-          <div className="modal-content">
-            <h2>Delete Confirmation</h2>
-            <p>Are you sure you want to delete this service center?</p>
-            <div className="modal-buttons">
-              <Button
-                variant="contained"
-                color="#f44336"
-                onClick={handleDelete}
-              >
-                Confirm Delete
-              </Button>
-              <Button
-                variant="outlined"
-                color="00cf00"
-                onClick={closeDeleteConfirmationModal}
-              >
-                Cancel
-              </Button>
-            </div>
+                    Delete
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    {isDeleteConfirmationModalOpen && (
+      <div className="delete-confirmation-modal">
+        <div className="modal-content">
+          <h2>Delete Confirmation</h2>
+          <p>Are you sure you want to delete this service center?</p>
+          <div className="modal-buttons">
+            <Button
+              variant="contained"
+              style={{ backgroundColor: "#f44336" }}
+              onClick={handleDelete}
+            >
+              Confirm Delete
+            </Button>
+            <Button
+              variant="outlined"
+              style={{ color: "#00cf00" }}
+              onClick={closeDeleteConfirmationModal}
+            >
+              Cancel
+            </Button>
           </div>
         </div>
-      )}
-    </ThemeProvider>
+      </div>
+    )}
+    </main>
   );
 }
+  
