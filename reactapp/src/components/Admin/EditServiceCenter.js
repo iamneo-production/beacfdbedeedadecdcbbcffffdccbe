@@ -302,7 +302,7 @@ export default function EditServiceCenter() {
                         fullWidth
                         style={{ backgroundColor: "black" }}
                         type="submit" /* Added type attribute */
-                        onClick={openConfirmationModal}
+                        // onClick={openConfirmationModal}
                       >
                         Submit
                       </Button>
