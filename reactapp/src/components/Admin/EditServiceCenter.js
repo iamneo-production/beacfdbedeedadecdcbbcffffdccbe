@@ -337,9 +337,10 @@ export default function EditServiceCenter() {
                           }}
                         >
                           <h2>Confirmation</h2>
-                          <p>Do you wish to update service center {serviceCenterId} details?</p>
+                          <p>Do you wish to update <strong>Service Center {serviceCenterId}, {editCenterName} </strong>details?</p>
                           <h3>Updated Details:</h3>
                           <p><strong>Name:</strong> {adminData.editCenterName}</p>
+                          <p><strong></strong></p>
                           <p><strong>Phone Number:</strong> {adminData.editCenterPhoneNumber}</p>
                           <p><strong>Address:</strong> {adminData.editCenterAddress}</p>
                           {/* Add more details here as needed */}
