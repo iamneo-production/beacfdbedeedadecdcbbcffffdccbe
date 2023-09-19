@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom";
 import { CardMedia } from "@mui/material";
 import ConfirmationModal from "./ConfirmationModal";
 import { useState } from "react";
+import Navbar from "../Navbar";
 
 const defaultTheme = createTheme();
 
@@ -139,6 +140,7 @@ export default function Dashboard() {
   };
 
   return (
+    <
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <main>

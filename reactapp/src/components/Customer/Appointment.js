@@ -25,6 +25,7 @@ const tableContainerStyle = {
 };
 
 const columnWidths = {
+  productId: "10%",
   name: "30%", // Adjust the width of the 'Name' column
   date: "20%", // Adjust the width of the 'Date' column
   timings: "20%",
@@ -97,6 +98,7 @@ export default function Appointment() {
         <Table aria-label="basic table">
           <TableHead>
             <TableRow>
+              <TableCell style={{ width: columnWidths.productId}}>Appointment ID</TableCell>
               <TableCell style={{ width: columnWidths.name }}>Name</TableCell>
               <TableCell style={{ width: columnWidths.date }}>Service Center</TableCell>
               <TableCell style={{ width: columnWidths.timings }}>
@@ -117,6 +119,7 @@ export default function Appointment() {
           <TableBody>
             {userAppointments.map((appointment) => (
               <TableRow key={appointment.id}>
+                <TableCell>{appointment.productId}</TableCell>
                 <TableCell>{appointment.productName}</TableCell>
                 <TableCell>{appointment.serviceCenterName}</TableCell>
                 <TableCell>{appointment.availableSlots}</TableCell>
