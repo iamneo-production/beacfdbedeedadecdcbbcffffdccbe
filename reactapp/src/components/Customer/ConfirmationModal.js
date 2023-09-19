@@ -13,7 +13,8 @@ export default function ConfirmationModal({
   open,
   handleClose,
   userData, // This should be an object containing the user's entered data
-  userId 
+  userId,
+  serviceCenterId
 }) {
   const navigate = useNavigate(); // Initialize useHistory
 
@@ -28,6 +29,7 @@ export default function ConfirmationModal({
       availableSlots: userData.enterAppointmentDate,
     };
     console.log("User ID inside confirmation:", userId);
+    console.log("ServiceCenter")
     console.log(requestData);
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment/${userId}`, {
       method: "POST",

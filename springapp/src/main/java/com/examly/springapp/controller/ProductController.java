@@ -3,6 +3,7 @@ package com.examly.springapp.controller;
 import com.examly.springapp.model.Product;
 import com.examly.springapp.model.User;
 import com.examly.springapp.service.ProductService;
+import com.examly.springapp.model.ServiceCenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import com.examly.springapp.repository.*;
@@ -19,6 +20,8 @@ public class ProductController {
     private ProductService productService;
     @Autowired
     private AuthRepository authRepository;
+    @Autowired
+    private ServiceCenterRepository serviceCenterRepository;
     
     @Autowired
     public ProductController(AuthRepository authRepository, ProductService productService){
@@ -32,6 +35,7 @@ public class ProductController {
         ServiceCenter serviceCenter = serviceCenterRepository.findById(serviceCenterId).orElse(null);
         if(user != null){
             product.setUser(user);
+            product.setServiceCenter(serviceCenter);
             System.out.println("Received Product Data: " + product.toString());
             // Save the Product
             productService.saveProduct(product);

@@ -290,6 +290,7 @@ export default function Dashboard() {
                       handleClose={handleConfirmationModalClose}
                       userData={userData}
                       userId={userId}
+                      serviceCenterId={serviceCenterId}
                     />
                   </form>
                 </CardContent>
