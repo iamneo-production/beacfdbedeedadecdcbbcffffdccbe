@@ -1,5 +1,6 @@
 com/examly/springapp/repository/AuthRepository.class
 com/examly/springapp/service/ProductService.class
+com/examly/springapp/controller/AppointmentController.class
 com/examly/springapp/SpringappApplication.class
 com/examly/springapp/service/AuthServiceImpl.class
 com/examly/springapp/repository/LoginRepository.class
