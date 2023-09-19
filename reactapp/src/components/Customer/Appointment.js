@@ -48,7 +48,8 @@ export default function Appointment() {
   const [reviewOpen, setReviewOpen] = useState(false);
   const [userAppointments, setUserAppointments] = useState([]);
 
-  const handleOpen = () => {
+  const handleOpen = (productId) => {
+    setEditProductId(productId); // Set the productId in state
     setOpen(true);
   };
 
@@ -127,7 +128,7 @@ export default function Appointment() {
                   <Button
                     variant="outlined"
                     style={{ color: "black", borderColor: "black" }}
-                    onClick={handleOpen} // Open the dialog on Edit button click
+                    onClick={handleOpen(appointment.productId)} // Open the dialog on Edit button click
                   >
                     <strong>Edit</strong>
                   </Button>
@@ -189,7 +190,7 @@ export default function Appointment() {
         </Table>
       </TableContainer>
       {/* Render the Dialog component */}
-      <EditBookingModal open={open} handleClose={handleClose} />
+      <EditBookingModal open={open} handleClose={handleClose} productId={appointment.productId} />
       <ReviewModal reviewOpen={reviewOpen} handleClose={handleReviewClose} />
     </div>
   );
