@@ -18,9 +18,9 @@ public class Product {
     @JoinColumn(name = "user_Id")
     private User user;
 
-    // @ManyToOne
-    // @JoinColumn(name = "service_center_id")
-    // private ServiceCenter serviceCenter;
+    @ManyToOne
+    @JoinColumn(name = "service_center_id")
+    private ServiceCenter serviceCenter;
 
     public Product(){
         //TODO document why the constructor
@@ -83,5 +83,8 @@ public class Product {
     }
     public void setUser(User user) {
         this.user = user;
+    }
+    public void setServiceCenter(ServiceCenter serviceCenter){
+        this.serviceCenter= serviceCenter;
     }
 }
