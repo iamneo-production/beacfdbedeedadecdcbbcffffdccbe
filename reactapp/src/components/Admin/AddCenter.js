@@ -12,10 +12,13 @@ import {
 } from "@mui/material";
 import AdminNavbar from "./AdminNavBar";
 import { Link, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom"
 
 function AddCenter() {
   const [openDialog, setOpenDialog] = useState(false);
   const navigate = useNavigate();
+  const { userId } = useParams();
+  console.log('User ID:', userId);
 
   const [centerData, setCenterData] = useState({
     addName: "",
@@ -131,12 +134,15 @@ function AddCenter() {
         body:JSON.stringify(formData)
       }).then(() => {
         console.log("New Center Added");
+        setOpenDialog(true);
       });
     }
   };
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
+    navigate("/center-profile");
+    {`/admin/CenterProfile/${userId}`}
   };
 
   return (
