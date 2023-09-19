@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface ProductService {
     public Product saveProduct(Product product);
     public List<Product> getAllAppointments();
-    public List<Product> getProductsByUserId(Long userId);
+    // public List<Product> getProductsByUserId(Long userId);
     public List<Product> getAppointmentsByUserId(Long userId);
     public Product getProductById(Long id);
     public Optional <Product> findById(Long id);

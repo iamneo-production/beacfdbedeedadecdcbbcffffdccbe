@@ -27,3 +27,4 @@ public class AppointmentController{
     return ResponseEntity.ok(userAppointments);
 }
 }
+

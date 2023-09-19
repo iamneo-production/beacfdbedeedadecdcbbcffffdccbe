@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
     // @Query("SELECT p FROM Product p WHERE p.userId = :userId")
-    List<Product> findByUserUserId(Long userId);
+    List<Product> findByUserId(Long userId);
 }
