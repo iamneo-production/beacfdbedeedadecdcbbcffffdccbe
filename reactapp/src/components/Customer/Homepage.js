@@ -79,10 +79,10 @@ function HomePage() {
               justifyContent="center"
               style={{ marginBottom: '13%' }}
             >
-              <Link to="/user/dashboardGrid" className='nav-link'>
+              <Link to={`/user/dashboardGrid/${userId}`} className='nav-link'>
               <Button variant="contained" style={{ backgroundColor: 'black' }}>Go to Dashboard</Button>
               </Link>
-              <Link to="/user/appointment" className="nav-link">
+              <Link to={`/user/appointment/${userId}`} className="nav-link">
               <Button variant="outlined" style={{ color: 'black', borderColor: 'black' }}>Go to Bookings</Button>
               </Link>
             </Stack>
