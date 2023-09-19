@@ -61,13 +61,13 @@ public class ProductController {
         return ResponseEntity.ok(updatedProductInfo);
     }
 
-    @GetMapping("/appointments/{userId}")
-    public ResponseEntity<List<Product>> getAppointmentsByUserId(@PathVariable Long userId) {
-        List<Product> appointments = productService.getAppointmentsByUserId(userId);
-        if (!appointments.isEmpty()) {
-            return ResponseEntity.ok(appointments);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    // @GetMapping("/appointments/{userId}")
+    // public ResponseEntity<List<Product>> getAppointmentsByUserId(@PathVariable Long userId) {
+    //     List<Product> appointments = productService.getAppointmentsByUserId(userId);
+    //     if (!appointments.isEmpty()) {
+    //         return ResponseEntity.ok(appointments);
+    //     } else {
+    //         return ResponseEntity.notFound().build();
+    //     }
+    //}
 }
