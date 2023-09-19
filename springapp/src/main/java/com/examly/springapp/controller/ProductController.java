@@ -34,11 +34,11 @@ public class ProductController {
         }
     }
      @GetMapping("/getappointment/{userId}")
-     public ResponseEntity<List<Product>> getAppointmentsByUserId(){
+     public ResponseEntity<List<Product>> getAppointmentsByUserId(@PathVariable Long userId){
         User user = authRepository.findById(userId).orElse(null);
         if(user != null){
             product.setUser(user);
-            List<Product> products = productService.getAppointmentsByUserId();
+            List<Product> products = productService.getAppointmentsByUserId(userId);
             return ResposeEntity.ok(products);
         } else {
             return ResponseEntity.badRequest().body("User Not Found.");
