@@ -13,10 +13,12 @@ import { useLocation } from "react-router-dom";
 import { CardMedia } from "@mui/material";
 import { useState } from "react";
 import AdminNavbar from "./AdminNavBar";
+import { useNavigate } from "react-router-dom";
 
 const defaultTheme = createTheme();
 
 export default function EditServiceCenter() {
+  const navigate = useNavigate();
    const params = useParams();
    const { userId, serviceCenterId } = useParams(); // Use serviceCenterId instead of cardId
    console.log('User ID:', userId);
@@ -363,6 +365,7 @@ export default function EditServiceCenter() {
                                 // Handle the confirmation action (e.g., send the update request)
                                 // Close the modal after confirmation
                                 closeConfirmationModal();
+                                navigate(`/admin/CenterProfile/${userId}`);
                               }}
                             >
                               Confirm
