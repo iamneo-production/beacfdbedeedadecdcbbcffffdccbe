@@ -65,7 +65,7 @@ export default function Appointment() {
 
   useEffect(() => {
     // Fetch appointments by userId
-    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/appointment/${userId}`)
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/getappointments/${userId}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
