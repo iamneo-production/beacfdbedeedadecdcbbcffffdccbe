@@ -337,12 +337,13 @@ export default function EditServiceCenter() {
                           }}
                         >
                           <h2>Confirmation</h2>
-                          <p>Do you wish to update <strong>Service Center {serviceCenterId}, {editCenterName} </strong>details?</p>
+                          <p>Do you wish to update <strong>Service Center {serviceCenterId}, {adminData.editCenterName} </strong>details?</p>
                           <h3>Updated Details:</h3>
                           <p><strong>Name:</strong> {adminData.editCenterName}</p>
-                          <p><strong></strong></p>
                           <p><strong>Phone Number:</strong> {adminData.editCenterPhoneNumber}</p>
                           <p><strong>Address:</strong> {adminData.editCenterAddress}</p>
+                          <p><strong>Image:</strong>{adminData.editCenterImageUrl}</p>
+                          <p><strong>Mail ID:</strong>{adminData.editCenterMailId}</p>
                           {/* Add more details here as needed */}
                           <div 
                             className="modal-buttons"
