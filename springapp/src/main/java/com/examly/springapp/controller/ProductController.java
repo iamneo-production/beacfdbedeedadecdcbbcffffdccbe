@@ -36,6 +36,7 @@ public class ProductController {
         if(user != null){
             product.setUser(user);
             product.setServiceCenter(serviceCenter);
+            product.setServiceCenterName(serviceCenter.getServiceCenterName());
             System.out.println("Received Product Data: " + product.toString());
             // Save the Product
             productService.saveProduct(product);

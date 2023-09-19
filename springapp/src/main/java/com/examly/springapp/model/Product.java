@@ -22,6 +22,9 @@ public class Product {
     @JoinColumn(name = "service_center_id")
     private ServiceCenter serviceCenter;
 
+    @Column(name = "service_center_name")
+    private String serviceCenterName;
+
     public Product(){
         //TODO document why the constructor
     }
@@ -86,5 +89,12 @@ public class Product {
     }
     public void setServiceCenter(ServiceCenter serviceCenter){
         this.serviceCenter= serviceCenter;
+    }
+    public String getServiceCenterName() {
+        return serviceCenterName;
+    }
+
+    public void setServiceCenterName(String serviceCenterName) {
+        this.serviceCenterName = serviceCenterName;
     }
 }
