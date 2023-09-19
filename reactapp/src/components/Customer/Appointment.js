@@ -117,9 +117,9 @@ export default function Appointment() {
           <TableBody>
             {userAppointments.map((appointment) => (
               <TableRow key={appointment.id}>
-                <TableCell>{appointment.name}</TableCell>
-                <TableCell>{appointment.date}</TableCell>
-                <TableCell>{appointment.timings}</TableCell>
+                <TableCell>{appointment.productName}</TableCell>
+                <TableCell>{appointment.dateOfAppointment}</TableCell>
+                <TableCell>{appointment.availableSlots}</TableCell>
                 <TableCell>
                   <Button
                     variant="outlined"
