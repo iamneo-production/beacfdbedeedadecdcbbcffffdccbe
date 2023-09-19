@@ -33,6 +33,8 @@ public class ProductController {
             return ResponseEntity.badRequest().body("User not found.");
         }
     }
+     @GetMapping("/getappointment/{userId}")
+     public ResponseEntity<List<Product>> getAppointmentsByUserId
 
     @DeleteMapping("/cancelappointment/{id}")
     public ResponseEntity<String> deleteAppointmentById(@PathVariable Long id) {
