@@ -21,8 +21,10 @@ public class ProductController {
     private AuthRepository authRepository;
     
     @Autowired
-    public ProductController(AuthRepository authRepository, Produc
-    )
+    public ProductController(AuthRepository authRepository, ProductService productService){
+        this.productService= productService;
+        this.authRepository = authRepository;
+    }
 
     @PostMapping("/appointment/{userId}")
     public ResponseEntity<String> add(@RequestBody Product product, @PathVariable Long userId){
