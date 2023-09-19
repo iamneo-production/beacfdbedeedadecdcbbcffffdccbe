@@ -30,6 +30,8 @@ const AdminAppointmentView = () => {
       });
   }, []);
 
+  const getRowId = (row) => row.productId;
+
   return (
     <div>
       <AdminNavbar />
@@ -50,6 +52,7 @@ const AdminAppointmentView = () => {
             columns={columns}
             pageSize={5}
             checkboxSelection
+            getRowId={getRowId}
           />
         </div>
       </div>

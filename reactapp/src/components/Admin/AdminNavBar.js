@@ -52,7 +52,7 @@ export default function AdminNavbar() {
               {/* Conditionally render buttons based on drawer state */}
               {!isDrawerOpen && (
                 <>
-                <Link to="/admin" className="nav-link">
+                <Link to={`/admin/AdminHomePage/${userId}`} className="nav-link">
                 <Button color="inherit" style={{ color: "white" }}>Home</Button>
                 </Link>
                   
