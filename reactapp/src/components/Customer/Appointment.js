@@ -47,6 +47,7 @@ export default function Appointment() {
   const [open, setOpen] = useState(false);
   const [reviewOpen, setReviewOpen] = useState(false);
   const [userAppointments, setUserAppointments] = useState([]);
+  const [editProductId, setEditProductId] = useState(null);
 
   const handleOpen = (productId) => {
     setEditProductId(productId); // Set the productId in state
@@ -118,79 +119,79 @@ export default function Appointment() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {userAppointments.map((appointment) => (
-              <TableRow key={appointment.id}>
-                <TableCell>{appointment.productId}</TableCell>
-                <TableCell>{appointment.productName}</TableCell>
-                <TableCell>{appointment.serviceCenterName}</TableCell>
-                <TableCell>{appointment.availableSlots}</TableCell>
-                <TableCell>
-                  <Button
-                    variant="outlined"
-                    style={{ color: "black", borderColor: "black" }}
-                    onClick={handleOpen(appointment.productId)} // Open the dialog on Edit button click
-                  >
-                    <strong>Edit</strong>
-                  </Button>
-                </TableCell>
-                <TableCell>
-                  <Button
-                    variant="outlined"
-                    style={{ color: "red", borderColor: "red" }}
-                  >
-                    <strong>Delete</strong>
-                  </Button>
-                </TableCell>
-                <TableCell>
-                  <Button
-                    variant="outlined"
-                    style={{
-                      color: "black",
-                      borderColor: "black",
-                      pointerEvents: isDateValid(appointment.date) ? "auto" : "auto",
-                      backgroundColor: isDateValid(appointment.date)
-                        ? "white"
-                        : "#c4c4c4", // Change the background color
-                    }}
-                    disabled={!isDateValid(appointment.date)}
-                    title={
-                      isDateValid(appointment.date)
-                        ? "Click to Generate Bill"
-                        : "Generated bill will be provided only after service"
-                    }
-                    onClick={handleGenerateBillClick}
-                  >
-                    <strong>Generate Bill</strong>
-                  </Button>
-                </TableCell>
-                <TableCell>
-                  <Button
-                    variant="contained"
-                    style={{
-                      borderColor: "#fcde32",
-                      backgroundColor: isDateValid(appointment.date)
-                        ? "#fcde32"
-                        : "#c4c4c4",
-                    }}
-                    onClick={handleReviewOpen}
-                    disabled={!isDateValid(appointment.date)}
-                    title={
-                      isDateValid(appointment.date)
-                        ? "Click to Generate Bill"
-                        : "Generated bill will be provided only after service"
-                    }
-                    // Open the dialog on Edit button click
-                  >
-                    <strong>Review</strong>
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+  {userAppointments.map((appointment) => (
+    <TableRow key={appointment.id}>
+      <TableCell>{appointment.productId}</TableCell>
+      <TableCell>{appointment.productName}</TableCell>
+      <TableCell>{appointment.serviceCenterName}</TableCell>
+      <TableCell>{appointment.availableSlots}</TableCell>
+      <TableCell>
+        <Button
+          variant="outlined"
+          style={{ color: "black", borderColor: "black" }}
+          onClick={() => handleOpen(appointment.productId)} // Pass the productId when opening the modal
+        >
+          <strong>Edit</strong>
+        </Button>
+      </TableCell>
+      <TableCell>
+        <Button
+          variant="outlined"
+          style={{ color: "red", borderColor: "red" }}
+        >
+          <strong>Delete</strong>
+        </Button>
+      </TableCell>
+      <TableCell>
+        <Button
+          variant="outlined"
+          style={{
+            color: "black",
+            borderColor: "black",
+            pointerEvents: isDateValid(appointment.date) ? "auto" : "auto",
+            backgroundColor: isDateValid(appointment.date)
+              ? "white"
+              : "#c4c4c4",
+          }}
+          disabled={!isDateValid(appointment.date)}
+          title={
+            isDateValid(appointment.date)
+              ? "Click to Generate Bill"
+              : "Generated bill will be provided only after service"
+          }
+          onClick={handleGenerateBillClick}
+        >
+          <strong>Generate Bill</strong>
+        </Button>
+      </TableCell>
+      <TableCell>
+        <Button
+          variant="contained"
+          style={{
+            borderColor: "#fcde32",
+            backgroundColor: isDateValid(appointment.date)
+              ? "#fcde32"
+              : "#c4c4c4",
+          }}
+          onClick={handleReviewOpen}
+          disabled={!isDateValid(appointment.date)}
+          title={
+            isDateValid(appointment.date)
+              ? "Click to Generate Bill"
+              : "Generated bill will be provided only after service"
+          }
+        >
+          <strong>Review</strong>
+        </Button>
+      </TableCell>
+    </TableRow>
+  ))}
+</TableBody>
+
         </Table>
       </TableContainer>
       {/* Render the Dialog component */}
-      <EditBookingModal open={open} handleClose={handleClose} productId={appointment.productId} />
+      <EditBookingModal open={open} handleClose={handleClose} productId={editProductId} />
       <ReviewModal reviewOpen={reviewOpen} handleClose={handleReviewClose} />
     </div>
   );
