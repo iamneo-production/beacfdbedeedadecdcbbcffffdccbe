@@ -26,9 +26,10 @@ public class ProductController {
         this.authRepository = authRepository;
     }
 
-    @PostMapping("/appointment/{userId}")
-    public ResponseEntity<String> add(@RequestBody Product product, @PathVariable Long userId){
+    @PostMapping("/appointment/{userId}/{serviceCenterId}")
+    public ResponseEntity<String> add(@RequestBody Product product, @PathVariable Long userId, @PathVariable Long serviceCenterId){
         User user = authRepository.findById(userId).orElse(null);
+        ServiceCenter serviceCenter = serviceCenterRepository.findById(serviceCenterId).orElse(null);
         if(user != null){
             product.setUser(user);
             System.out.println("Received Product Data: " + product.toString());
