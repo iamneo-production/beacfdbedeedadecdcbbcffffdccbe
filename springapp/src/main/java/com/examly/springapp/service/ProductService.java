@@ -15,4 +15,5 @@ public interface ProductService {
     public Product getProductById(Long id);
     public Optional <Product> findById(Long id);
     public boolean deleteAppointmentById(Long id);
+    public List<Product> getAllAppointmentsByUserId(Long userId);
 }

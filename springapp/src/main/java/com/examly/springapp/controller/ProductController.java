@@ -43,6 +43,16 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/appointments/{userId}")
+public ResponseEntity<List<Product>> getAppointmentsByUserId(@PathVariable Long userId) {
+    List<Product> appointments = productService.getAllAppointmentsByUserId(userId);
+    if (appointments != null && !appointments.isEmpty()) {
+        return ResponseEntity.ok(appointments);
+    } else {
+        return ResponseEntity.notFound().build();
+    }
+}
+
     @PutMapping("/editappointment/{id}")
     public ResponseEntity<Product> editAppointment(@PathVariable Long id, @RequestBody Product updatedProduct) {
         Product existingProduct = productService.getProductById(id);

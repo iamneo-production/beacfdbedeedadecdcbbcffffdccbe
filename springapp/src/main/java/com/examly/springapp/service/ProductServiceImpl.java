@@ -25,6 +25,10 @@ public class ProductServiceImpl implements ProductService{
     public Product getProductById(Long id) {
         return productRepository.findById(id).orElse(null);
     }
+    @Override
+    public List<Product> getAllAppointmentsByUserId(Long userId) {
+        return productRepository.findByUserId(userId);
+    }
     public boolean deleteAppointmentById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
         if (productOptional.isPresent()) {
