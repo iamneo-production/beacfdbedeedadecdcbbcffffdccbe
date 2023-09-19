@@ -18,9 +18,9 @@ public class Product {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "service_center_id")
-    private ServiceCenter serviceCenter;
+    // @ManyToOne
+    // @JoinColumn(name = "service_center_id")
+    // private ServiceCenter serviceCenter;
 
     public Product(){
         //TODO document why the constructor

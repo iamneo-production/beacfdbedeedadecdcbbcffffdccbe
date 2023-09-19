@@ -23,9 +23,10 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<Product> getAppointmentsByUserId(Long userId){
-        return productRepository.findByUserUserId(userId).orElse(null);
+    public List<Product> getAppointmentsByUserId(Long userId) {
+    return productRepository.findByUserUserId(userId);
     }
+
     
     @Override
     public Product getProductById(Long id) {
