@@ -24,7 +24,7 @@ public class ProductController {
     public ResponseEntity<String> add(@RequestBody Product product, @PathVariable Long userId){
         User user = authRepository.findById(userId).orElse(null);
         if(user != null){
-            product.setUser(user);
+            products.setUser(user);
             System.out.println("Received Product Data: " + product.toString());
             // Save the Product
             productService.saveProduct(product);
