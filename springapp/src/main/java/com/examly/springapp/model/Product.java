@@ -15,7 +15,7 @@ public class Product {
     private String availableSlots;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
 
     // @ManyToOne
