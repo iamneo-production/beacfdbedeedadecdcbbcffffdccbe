@@ -97,7 +97,7 @@ export default function EditBookingModal({ open, handleClose, productId }) {
         productDescription: editData.editProblem,
         availableSlots: editData.editAppointmentDate,
       };
-      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/editappointment/${productId}`, {
+      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/editappointment/${productId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export default function EditBookingModal({ open, handleClose, productId }) {
       console.error("Error updating appointment:", error);
     });
 
-    
+
       handleClose();
     }
   };
