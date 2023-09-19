@@ -24,7 +24,7 @@ public class ProductController {
     public ResponseEntity<String> add(@RequestBody Product product, @PathVariable Long userId){
         User user = authRepository.findById(userId).orElse(null);
         if(user != null){
-            products.setUser(user);
+            product.setUser(user);
             System.out.println("Received Product Data: " + product.toString());
             // Save the Product
             productService.saveProduct(product);
@@ -37,9 +37,9 @@ public class ProductController {
      public ResponseEntity<List<Product>> getAppointmentsByUserId(@PathVariable Long userId){
         User user = authRepository.findById(userId).orElse(null);
         if(user != null){
-            product.setUser(user);
+            products.setUser(user);
             List<Product> products = productService.getAppointmentsByUserId(userId);
-            return ResposeEntity.ok(products);
+            return ResponseEntity.ok(products);
         } else {
             return ResponseEntity.badRequest().body("User Not Found.");
         }
