@@ -29,9 +29,9 @@ export default function ConfirmationModal({
       availableSlots: userData.enterAppointmentDate,
     };
     console.log("User ID inside confirmation:", userId);
-    console.log("ServiceCenter")
+    console.log("ServiceCenter ID inside confirmation: ", serviceCenterId)
     console.log(requestData);
-    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment/${userId}`, {
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment/${userId}/${serviceCenterId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
