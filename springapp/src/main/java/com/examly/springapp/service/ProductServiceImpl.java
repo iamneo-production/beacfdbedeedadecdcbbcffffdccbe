@@ -22,10 +22,10 @@ public class ProductServiceImpl implements ProductService{
         return productRepository.findAll();
     }
 
-    @Override
-    public List<Product> getAppointmentsByUserId(Long userId) {
-    return productRepository.findByUserUserId(userId);
-    }
+    // @Override
+    // public List<Product> getAppointmentsByUserId(Long userId) {
+    // return productRepository.findByUserUserId(userId);
+    // }
 
     
     @Override

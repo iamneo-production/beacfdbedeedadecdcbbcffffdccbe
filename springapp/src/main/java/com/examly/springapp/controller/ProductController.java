@@ -39,11 +39,11 @@ public class ProductController {
             return ResponseEntity.badRequest().body("User not found.");
         }
     }
-    @GetMapping("/getappointment/{userId}")
-    public ResponseEntity<List<Product>> getAppointmentsByUserId(@PathVariable Long userId) {
-        List<Product> products = productService.getAppointmentsByUserId(userId);
-        return ResponseEntity.ok(products);
-    }
+    // @GetMapping("/getappointment/{userId}")
+    // public ResponseEntity<List<Product>> getAppointmentsByUserId(@PathVariable Long userId) {
+    //     List<Product> products = productService.getAppointmentsByUserId(userId);
+    //     return ResponseEntity.ok(products);
+    // }
 
     @DeleteMapping("/cancelappointment/{id}")
     public ResponseEntity<String> deleteAppointmentById(@PathVariable Long id) {
