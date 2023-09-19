@@ -140,9 +140,9 @@ export default function Dashboard() {
   };
 
   return (
-    <
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
+      <Navbar />
       <main>
         <Container maxWidth="lg">
           <Grid container spacing={3}>
