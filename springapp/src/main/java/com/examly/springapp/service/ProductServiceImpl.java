@@ -38,8 +38,4 @@ public class ProductServiceImpl implements ProductService{
     public Optional < Product > findById(Long id) {
         return productRepository.findById(id);
     }
-    @Override
-    public List<Product> getAppointmentsByUserId(Long userId) {
-        return productRepository.findByUserId(userId); // Assuming you have a repository
-    }
 }
