@@ -141,8 +141,7 @@ function AddCenter() {
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
-    navigate("/center-profile");
-    {`/admin/CenterProfile/${userId}`}
+    navigate(`/admin/CenterProfile/${userId}`);
   };
 
   return (
