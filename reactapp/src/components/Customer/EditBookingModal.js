@@ -88,6 +88,28 @@ export default function EditBookingModal({ open, handleClose }) {
     }
     if (isValid) {
       console.log("No Errors");
+      fetch(`/editappointment/{id}/${appointment.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editData), // Send the updated data in the request body
+      })
+        .then((response) => {
+          if (response.ok) {
+            // Handle success
+            // You can also update the local state with the updated data if needed
+            onUpdate(editData);
+            handleClose();
+          } else {
+            // Handle errors here
+            console.error("Failed to update appointment");
+          }
+        })
+        .catch((error) => {
+          console.error("Error updating appointment:", error);
+        });
+    }
       handleClose();
     }
   };
