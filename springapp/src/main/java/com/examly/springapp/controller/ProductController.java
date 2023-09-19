@@ -34,7 +34,16 @@ public class ProductController {
         }
     }
      @GetMapping("/getappointment/{userId}")
-     public ResponseEntity<List<Product>> getAppointmentsByUserId
+     public ResponseEntity<List<Product>> getAppointmentsByUserId(){
+        User user = authRepository.findById(userId).orElse(null);
+        if(user != null){
+            product.setUser(user);
+            List<Product> products = productService.getAppointmentsByUserId();
+            return ResposeEntity.ok(products);
+        } else {
+            return ResponseEntity.badRequest().body("User Not Found.");
+        }
+         }
 
     @DeleteMapping("/cancelappointment/{id}")
     public ResponseEntity<String> deleteAppointmentById(@PathVariable Long id) {
