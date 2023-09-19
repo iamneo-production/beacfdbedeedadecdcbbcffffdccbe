@@ -84,6 +84,25 @@ export default function Appointment() {
         console.error('Error fetching appointments:', error);
       });
   }, [userId]); // Add userId as a dependency
+
+  const handleCancelAppointment = (productId) => {
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/cancelappointment/${productId}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Handle successful cancellation (e.g., show a success message, refresh the appointment list)
+          console.log("Appointment canceled successfully");
+          // You can update the userAppointments state or fetch the appointments again to reflect the changes
+        } else {
+          // Handle errors (e.g., show an error message)
+          console.error("Failed to cancel appointment");
+        }
+      })
+      .catch((error) => {
+        console.error("Error canceling appointment:", error);
+      });
+  };
   
 
   // Function to check if a date is greater than or equal to the current date
@@ -138,6 +157,7 @@ export default function Appointment() {
         <Button
           variant="outlined"
           style={{ color: "red", borderColor: "red" }}
+          onClick={() => handleCancelAppointment(appointment.productId)}
         >
           <strong>Delete</strong>
         </Button>
