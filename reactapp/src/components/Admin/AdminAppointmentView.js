@@ -4,14 +4,13 @@ import AdminNavbar from './AdminNavBar';
 import { Typography } from '@mui/material';
 
 const columns = [
-  { field: 'id', headerName: 'Unique Id', width: 150 },
-  { field: 'name', headerName: 'Name of Customer', width: 200 },
-  { field: 'vacuumModel', headerName: 'Vacuum Model', width: 150 },
-  { field: 'service', headerName: 'Service Sought', width: 200 },
-  { field: 'pricePaid', headerName: 'Price Paid', width: 150 },
-  { field: 'location', headerName: 'Location', width: 150 },
-  { field: 'date', headerName: 'Date of Appointment', width: 200 },
-  { field: 'review', headerName: 'Review (out of 5)', width: 150 },
+  { field: 'productId', headerName: 'Product ID', width: 150 },
+  { field: 'productName', headerName: 'Product Name', width: 200 },
+  { field: 'productModelNo', headerName: 'Product Model No', width: 200 },
+  { field: 'dateOfPurchase', headerName: 'Date of Purchase', width: 200 },
+  { field: 'mobileNumber', headerName: 'Mobile Number', width: 150 },
+  { field: 'productDescription', headerName: 'Product Description', width: 200 },
+  { field: 'availableSlots', headerName: 'Available Slots', width: 200 },
 ];
 
 const AdminAppointmentView = () => {
@@ -19,10 +18,10 @@ const AdminAppointmentView = () => {
 
   useEffect(() => {
     // Fetch appointments data from your API
-    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/appointment`)
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/appointment`) // Update the URL
       .then((response) => response.json())
       .then((data) => {
-        // Assuming your API response is an array of appointment objects
+        // Assuming your API response is an array of product objects
         console.log('API Response:', data);
         setAppointments(data);
       })
