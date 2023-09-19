@@ -88,6 +88,37 @@ export default function EditBookingModal({ open, handleClose, productId }) {
     }
     if (isValid) {
       console.log("No Errors");
+      const updatedAppointment = {
+        // Create an object with the updated appointment data
+        productName: editData.editProductName,
+        productModelNo: editData.editModelNo,
+        dateOfPurchase: editData.editDateOfPurchase,
+        mobileNumber: editData.editContactNumber,
+        productDescription: editData.editProblem,
+        availableSlots: editData.editAppointmentDate,
+      };
+      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/editappointment/${productId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedAppointment),
+    })
+    .then((response) => {
+      if (response.ok) {
+        // Handle successful update (e.g., show a success message, close the modal)
+        console.log("Appointment updated successfully");
+        handleClose();
+      } else {
+        // Handle errors (e.g., show an error message)
+        console.error("Failed to update appointment");
+      }
+    })
+    .catch((error) => {
+      console.error("Error updating appointment:", error);
+    });
+
+    
       handleClose();
     }
   };
