@@ -98,7 +98,7 @@ export default function Appointment() {
           <TableHead>
             <TableRow>
               <TableCell style={{ width: columnWidths.name }}>Name</TableCell>
-              <TableCell style={{ width: columnWidths.date }}>Date</TableCell>
+              <TableCell style={{ width: columnWidths.date }}>Service Center</TableCell>
               <TableCell style={{ width: columnWidths.timings }}>
                 Timings
               </TableCell>
@@ -118,7 +118,7 @@ export default function Appointment() {
             {userAppointments.map((appointment) => (
               <TableRow key={appointment.id}>
                 <TableCell>{appointment.productName}</TableCell>
-                <TableCell>{appointment.dateOfAppointment}</TableCell>
+                <TableCell>{appointment.serviceCenterName}</TableCell>
                 <TableCell>{appointment.availableSlots}</TableCell>
                 <TableCell>
                   <Button
