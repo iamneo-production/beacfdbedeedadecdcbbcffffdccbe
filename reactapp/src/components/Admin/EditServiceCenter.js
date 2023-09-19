@@ -344,6 +344,9 @@ export default function EditServiceCenter() {
                           <p><strong>Address:</strong> {adminData.editCenterAddress}</p>
                           <p><strong>Image:</strong>{adminData.editCenterImageUrl}</p>
                           <p><strong>Mail ID:</strong>{adminData.editCenterMailId}</p>
+                          <p><strong>Description:</strong>{adminData.editCenterDescription}</p>
+                          <p><strong>Timings:</strong>{adminData.editCenterTimings}</p>
+                          <p><strong>Price:</strong>{adminData.editCenterPrice}</p>
                           {/* Add more details here as needed */}
                           <div 
                             className="modal-buttons"
