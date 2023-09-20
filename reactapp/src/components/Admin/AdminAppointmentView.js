@@ -84,6 +84,7 @@ const AdminAppointmentView = () => {
           aria-label="Generate PDF"
           style={{
             position: 'fixed',
+            backgroundColor: 'black',
             bottom: '20px',
             right: '20px',
             width: '60px', // Increase the width for a larger button
