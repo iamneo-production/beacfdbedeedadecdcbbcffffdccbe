@@ -6,6 +6,7 @@ import { saveAs } from "file-saver";
 import 'jspdf-autotable'; // Import the autoTable plugin
 import jsPDF from "jspdf";
 import AddIcon from '@mui/icons-material/Add';
+import Footer from '../Footer';
 
 const columns = [
   { field: 'productId', headerName: 'Product ID', width: 150 },
@@ -107,6 +108,7 @@ const AdminAppointmentView = () => {
           />
         </Fab>
       </div>
+      <Footer />
     </div>
   );
 };

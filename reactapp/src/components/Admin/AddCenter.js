@@ -13,6 +13,7 @@ import {
 import AdminNavbar from "./AdminNavBar";
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom"
+import Footer from "../Footer";
 
 function AddCenter() {
   const [openDialog, setOpenDialog] = useState(false);
@@ -264,6 +265,7 @@ function AddCenter() {
                   variant="contained"
                   color="primary"
                   fullWidth
+                  style={{ marginBottom: "50px" }}
                   onClick={handleFormSubmit}
                 >
                   Add
@@ -287,6 +289,7 @@ function AddCenter() {
           </Button>
         </DialogActions>
       </Dialog>
+      <div><Footer /></div>
     </div>
   );
 }
