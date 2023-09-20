@@ -17,6 +17,9 @@ import EditBookingModal from "./EditBookingModal";
 import ReviewModal from "./ReviewModal";
 import { generatePDF } from "./BillGenerator";
 import { useParams } from "react-router-dom";
+import { saveAs } from "file-saver";
+import jsPDF from "jspdf";
+
 
 const tableContainerStyle = {
   marginTop: "50px",

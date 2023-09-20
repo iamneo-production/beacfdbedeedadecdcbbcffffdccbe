@@ -32,6 +32,8 @@ const AdminAppointmentView = () => {
 
   const getRowId = (row) => row.productId;
 
+  
+
   return (
     <div>
       <AdminNavbar />
