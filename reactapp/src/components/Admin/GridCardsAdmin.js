@@ -112,7 +112,7 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                   </Typography>
                   <Typography>
                     <strong>Timing: </strong>
-                    {serviceCenter.ServiceCenterTimings}
+                    {serviceCenter.serviceCenterTimings}
                   </Typography>
                   <Typography>
                     <strong>Rating: </strong>
