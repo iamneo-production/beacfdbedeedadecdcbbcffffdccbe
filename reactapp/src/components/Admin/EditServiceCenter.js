@@ -72,6 +72,7 @@ export default function EditServiceCenter() {
 
     useEffect(() => {
       // Fetch the service data here
+      console.log("Inside useEffect"); 
       fetch(`https://8081-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/service-center/${serviceCenterId}`)
         .then((response) => response.json())
         .then((data) => {
