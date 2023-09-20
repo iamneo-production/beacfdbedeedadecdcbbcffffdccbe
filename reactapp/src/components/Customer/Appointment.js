@@ -49,8 +49,8 @@ export default function Appointment() {
   const [userAppointments, setUserAppointments] = useState([]);
   const [editProductId, setEditProductId] = useState(null);
 
-  const handleOpen = (productId) => {
-    setEditProductId(productId); // Set the productId in state
+  const handleOpen = (appointment) => {
+    setEditProductId(appointment.productId); // Set the productId in state
     setOpen(true);
   };
 
@@ -160,7 +160,7 @@ export default function Appointment() {
         <Button
           variant="outlined"
           style={{ color: "black", borderColor: "black" }}
-          onClick={() => handleOpen(appointment.productId)} // Pass the productId when opening the modal
+          onClick={() => handleOpen(appointment)} // Pass the productId when opening the modal
         >
           <strong>Edit</strong>
         </Button>
