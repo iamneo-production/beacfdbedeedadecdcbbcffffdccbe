@@ -103,7 +103,7 @@ export default function EditBookingModal({ open, handleClose, productId }) {
         appointment.productId === productId ? updatedAppointment : appointment
       )
     );
-    
+
       fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/editappointment/${productId}`, {
       method: "PUT",
       headers: {
@@ -116,6 +116,8 @@ export default function EditBookingModal({ open, handleClose, productId }) {
         // Handle successful update (e.g., show a success message, close the modal)
         console.log("Appointment updated successfully");
         handleClose();
+        // Call the callback to update the appointments in the parent component
+        updateAppointments(updatedAppointment);
       } else {
         // Handle errors (e.g., show an error message)
         console.error("Failed to update appointment");
