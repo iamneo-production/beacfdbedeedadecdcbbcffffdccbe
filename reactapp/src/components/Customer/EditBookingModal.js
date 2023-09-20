@@ -124,7 +124,7 @@ export default function EditBookingModal({
       },
       body: JSON.stringify(updatedAppointment),
     })
-    .then((response) => {
+    .then(async(response) => {
       if (response.ok) {
         // Handle successful update (e.g., show a success message, close the modal)
         console.log("Appointment updated successfully");
@@ -133,10 +133,11 @@ export default function EditBookingModal({
         // Call the callback to update the appointments in the parent component
         updateAppointments(updatedAppointment);
         await new Promise(resolve => setTimeout(resolve, 1000));
+          // Show "Kindly refresh page" snackbar
+        enqueueSnackbar('Kindly refresh page', { variant: 'warning' });
 
       // Show "Kindly refresh page" snackbar
       enqueueSnackbar('Kindly refresh page', { variant: 'warning' });
-    }
       } else {
         // Handle errors (e.g., show an error message)
         console.error("Failed to update appointment");
