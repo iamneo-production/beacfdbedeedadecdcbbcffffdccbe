@@ -98,7 +98,7 @@ const AdminAppointmentView = () => {
               transition: 'transform 0.2s', // Add transition for a smooth hover effect
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'scale(1.1)'; // Enlarge the icon on hover
+              e.currentTarget.style.transform = 'scale(1.3)'; // Enlarge the icon on hover
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.transform = 'scale(1)'; // Restore the original size on hover out
