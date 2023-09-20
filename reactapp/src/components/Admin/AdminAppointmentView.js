@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import AdminNavbar from './AdminNavBar';
-import { Typography } from '@mui/material';
+import { Typography, Button } from '@mui/material';
+import { saveAs } from "file-saver";
+import jsPDF from "jspdf";
 
 const columns = [
   { field: 'productId', headerName: 'Product ID', width: 150 },
@@ -32,7 +34,24 @@ const AdminAppointmentView = () => {
 
   const getRowId = (row) => row.productId;
 
-  
+  const createPdf = () => {
+    const pdf = new jsPDF();
+
+    pdf.text("Appointments", 10, 10);
+
+    appointments.forEach((appointment, index) => {
+      const yOffset = 20 + index * 10;
+      pdf.text(`Product ID: ${appointment.productId}`, 10, yOffset);
+      pdf.text(`Product Name: ${appointment.productName}`, 10, yOffset + 5);
+      pdf.text(`Model No: ${appointment.productModelNo}`, 10, yOffset + 10);
+      pdf.text(`Date of Purchase: ${appointment.dateOfPurchase}`, 10, yOffset + 15);
+      pdf.text(`Mobile Number: ${appointment.mobileNumber}`, 10, yOffset + 20);
+      pdf.text(`Description: ${appointment.productDescription}`, 10, yOffset + 25);
+      pdf.text(`Available Slots: ${appointment.availableSlots}`, 10, yOffset + 30);
+    });
+
+    pdf.save("appointments.pdf");
+  };
 
   return (
     <div>
@@ -49,6 +68,9 @@ const AdminAppointmentView = () => {
       </Typography>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
         <div style={{ height: 400, width: '90%' }}>
+        <Button variant="contained" color="primary" onClick={createPdf}>
+            Generate PDF
+          </Button>
           <DataGrid
             rows={appointments} // Use the fetched data for rows
             columns={columns}
