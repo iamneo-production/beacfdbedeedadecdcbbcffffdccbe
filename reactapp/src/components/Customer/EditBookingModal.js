@@ -50,18 +50,7 @@ export default function EditBookingModal({
       ...errors,
       [name]: "",
     });
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    // Show the success snackbar
-    setShowSuccessSnackbar(true);
-    // Show the refresh snackbar after a delay (e.g., 2 seconds)
-    setTimeout(() => {
-      setShowRefreshSnackbar(true);
-    }, 2000);
-  };
-  
+  };  
 
   const handleModalSubmit = (event) => {
     event.preventDefault();
