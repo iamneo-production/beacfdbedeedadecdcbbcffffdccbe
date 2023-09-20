@@ -114,7 +114,7 @@ export default function Appointment() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar userId={userId}/>
       <TableContainer component={Paper} style={tableContainerStyle}>
         <Table aria-label="basic table">
           <TableHead>
