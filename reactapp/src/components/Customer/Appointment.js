@@ -231,7 +231,7 @@ export default function Appointment() {
         productId={editProductId} 
         setUserAppointments={setUserAppointments}
         updateAppointments={updateAppointments}
-        serviceCenterName={appointment.serviceCenterName}
+        serviceCenterName={serviceCenterName}
         />
       <ReviewModal reviewOpen={reviewOpen} handleClose={handleReviewClose} />
     </div>
