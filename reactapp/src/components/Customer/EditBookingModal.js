@@ -7,6 +7,7 @@ import {
   TextField,
   Button,
 } from "@mui/material";
+import { useSnackbar } from 'notistack';
 
 export default function EditBookingModal({ 
   open, 
@@ -28,8 +29,6 @@ export default function EditBookingModal({
     editServiceCenterName: serviceCenterName,
   });
 
-  const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false);
-  const [showRefreshSnackbar, setShowRefreshSnackbar] = useState(false);
 
   const [errors, setErrors] = useState({
     editProductName: "",
