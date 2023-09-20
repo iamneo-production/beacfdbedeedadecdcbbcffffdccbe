@@ -84,6 +84,10 @@ const AdminAppointmentView = () => {
             position: 'fixed',
             bottom: '20px',
             right: '20px',
+            transition: 'transform 0.2s', // Add transition for a smooth hover effect
+            '&:hover': {
+              transform: 'scale(1.1)', // Scale up the button on hover
+            },
           }}
           onClick={createPdf}
         >
