@@ -97,6 +97,13 @@ export default function EditBookingModal({ open, handleClose, productId }) {
         productDescription: editData.editProblem,
         availableSlots: editData.editAppointmentDate,
       };
+
+      setUserAppointments((prevAppointments) =>
+      prevAppointments.map((appointment) =>
+        appointment.productId === productId ? updatedAppointment : appointment
+      )
+    );
+    
       fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/editappointment/${productId}`, {
       method: "PUT",
       headers: {
