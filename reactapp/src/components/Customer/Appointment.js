@@ -94,6 +94,10 @@ export default function Appointment() {
           // Handle successful cancellation (e.g., show a success message, refresh the appointment list)
           console.log("Appointment canceled successfully");
           // You can update the userAppointments state or fetch the appointments again to reflect the changes
+          // Remove the deleted appointment from the userAppointments state
+        setUserAppointments((prevAppointments) =>
+        prevAppointments.filter((appointment) => appointment.productId !== productId)
+      );
         } else {
           // Handle errors (e.g., show an error message)
           console.error("Failed to cancel appointment");
