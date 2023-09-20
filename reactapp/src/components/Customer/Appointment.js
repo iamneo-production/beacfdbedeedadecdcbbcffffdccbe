@@ -62,19 +62,19 @@ export default function Appointment() {
     setSuccessSnackbarOpen(true);
   };
 
-  // Function to show refresh snackbar
-  const showRefreshSnackbar = () => {
-    setRefreshSnackbarOpen(true);
-  };
-
   // Function to hide success snackbar
   const hideSuccessSnackbar = () => {
     setSuccessSnackbarOpen(false);
   };
 
-  // Function to hide refresh snackbar
-  const hideRefreshSnackbar = () => {
-    setRefreshSnackbarOpen(false);
+  const handleOpenDeleteConfirmation = (productId) => {
+    setDeletingProductId(productId);
+    setDeleteConfirmationOpen(true);
+  };
+  
+  const handleCloseDeleteConfirmation = () => {
+    setDeleteConfirmationOpen(false);
+    setDeletingProductId(null);
   };
 
   const handleOpen = (appointment) => {
