@@ -14,6 +14,33 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link, useParams } from 'react-router-dom';
 import SearchBar from './Searchbar';
 import { useNavigate } from 'react-router-dom';
+import starImage from "./star_image.png";
+
+function RatingComponent() {
+  // Generate a random rating between 3 and 5
+  const randomRating = Math.floor(Math.random() * 3) + 3;
+
+  // Create an array of stars based on the rating
+  const starElements = Array.from({ length: randomRating }, (_, index) => (
+    <img
+      key={index}
+      src={starImage} // Use the imported star image
+      alt="Star"
+      width="20" // Adjust the width and height as needed
+      height="20"
+      style={{ marginRight: '3px' }}
+    />
+  ));
+
+  return (
+    <div>
+      <strong>Rating: </strong>
+      {starElements}
+    </div>
+  );
+}
+
+
 
 export default function GridCards({ searchTerm, sortOrder, serviceCenters }) {
 const navigate = useNavigate();
@@ -83,9 +110,7 @@ console.log('User ID: ', userId);
                       <Typography>
                         <strong>Timing: </strong>{serviceCenters.serviceCenterTimings}
                       </Typography>
-                      <Typography>
-                        <strong>Rating: </strong>{serviceCenters.serviceCenterRating}
-                      </Typography>
+                      <RatingComponent />
                     </CardContent>
                   </Card>
                 </Link>

@@ -35,9 +35,9 @@ const columnWidths = {
   review: "5%", // Adjust the width of the 'Timings' column
 };
 
-const handleGenerateBillClick = () => {
+const handleGenerateBillClick = (appointmentDetails) => {
   // Call the generatePDF function from the BillGenerator component
-  generatePDF(); // This assumes that BillGenerator has a generatePDF function
+  generatePDF(appointmentDetails); // This assumes that BillGenerator has a generatePDF function
 };
 
 export default function Appointment() {
@@ -123,7 +123,7 @@ export default function Appointment() {
               <TableCell style={{ width: columnWidths.name }}>Name</TableCell>
               <TableCell style={{ width: columnWidths.date }}>Service Center</TableCell>
               <TableCell style={{ width: columnWidths.timings }}>
-                Timings
+                Date of Appointment
               </TableCell>
               <TableCell style={{ width: columnWidths.edit }}>Edit</TableCell>
               <TableCell style={{ width: columnWidths.delete }}>
@@ -179,7 +179,7 @@ export default function Appointment() {
               ? "Click to Generate Bill"
               : "Generated bill will be provided only after service"
           }
-          onClick={handleGenerateBillClick}
+          onClick={() => handleGenerateBillClick([appointment])}
         >
           <strong>Generate Bill</strong>
         </Button>

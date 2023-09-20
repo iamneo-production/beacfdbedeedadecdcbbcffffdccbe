@@ -12,9 +12,10 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const params= useParams();
   const { userId, serviceCenterId } = useParams();
   console.log('User ID:', userId);
@@ -23,8 +24,9 @@ export default function Navbar() {
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
-  const handleListItemClick = () => {
+  const handleListItemClick = (route) => {
     setIsDrawerOpen(false); // Close the drawer when a list item is clicked
+    navigate(route);
   };
 
   return (
@@ -86,13 +88,13 @@ export default function Navbar() {
         variant="temporary"
       >
         <List>
-          <ListItem button onClick={handleListItemClick}>
+          <ListItem button onClick={handleListItemClick(`/user/homepage/${userId}`)}>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button onClick={handleListItemClick}>
+          <ListItem button onClick={handleListItemClick(`/user/dashboardGrid/${userId}`)}>
             <ListItemText primary="Dashboard" />
           </ListItem>
-          <ListItem button onClick={handleListItemClick}>
+          <ListItem button onClick={handleListItemClick(`/user/appointment/${userId}`)}>
             <ListItemText primary="My Bookings" />
           </ListItem>
         </List>
