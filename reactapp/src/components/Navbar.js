@@ -52,16 +52,19 @@ export default function Navbar({ userId }) {
               {/* Conditionally render buttons based on drawer state */}
               {!isDrawerOpen && (
                 <>
+                {console.log('Before Home Link:', userId)}
                   <Link to={`/user/homepage/${userId}`} className="nav-link" style={{ color: "white" }}>
                     <Button color="inherit" id="homeButton">
                       Home
                     </Button>
                   </Link>
+                  {console.log('Before DashboardGrid Link:', userId)}
                   <Link to={`/user/dashboardGrid/${userId}`} className="nav-link">
                     <Button color="inherit" id="dashboardButton" style={{ color: "white" }}>
                       Dashboard
                     </Button>
                   </Link>
+                  {console.log('Before Appointment Link:', userId)}
                   <Link to={`/user/appointment/${userId}`} className="nav-link">
                     <Button color="inherit" id="myBookingButton" style={{ color: "white" }}>
                       My Bookings
@@ -85,12 +88,15 @@ export default function Navbar({ userId }) {
         variant="temporary"
       >
         <List>
+        {console.log('Before App Drawer Home Link:', userId)}
           <ListItem button onClick={() => handleListItemClick(`/user/homepage/${userId}`)}>
             <ListItemText primary="Home" />
           </ListItem>
+          {console.log('Before App Drawer DashboardGrid Link:', userId)}
           <ListItem button onClick={() => handleListItemClick(`/user/dashboardGrid/${userId}`)}>
             <ListItemText primary="Dashboard" />
           </ListItem>
+          {console.log('Before App Drawer Appointments Link:', userId)}
           <ListItem button onClick={() => handleListItemClick(`/user/appointment/${userId}`)}>
             <ListItemText primary="My Bookings" />
           </ListItem>

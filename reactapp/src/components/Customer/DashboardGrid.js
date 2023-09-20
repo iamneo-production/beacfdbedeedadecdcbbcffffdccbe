@@ -46,7 +46,7 @@ function DashboardGrid() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar userId={userId} />
       <Container sx={{ py: 8 }} maxWidth="lg">
       <Typography
               component="h1"
