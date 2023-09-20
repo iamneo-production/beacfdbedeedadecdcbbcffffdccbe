@@ -20,18 +20,28 @@ public class AppointmentController {
     @Autowired
     private ProductRepository productRepository;
 
-    @Autow
+    @Autowired
+    private AuthRepository authRepository;
+
+    @Autowired
+    private ServiceCenterRepository serviceCenterRepository;
     
-    @GetMapping("/totalproducts")
+    @GetMapping("/total-products")
     public ResponseEntity<Long> getTotalProducts() {
         long totalProducts = productRepository.count(); // Count the records in the Product table
         return ResponseEntity.ok(totalProducts);
     }
 
-    @GetMapping("/totalcustomers")
+    @GetMapping("/total-customers")
     public ResponseEntity<Long> getTotalCustomers(){
         long totalCustomers = authRepository.count();
         return ResponseEntity.ok(totalCustomers);
+    }
+
+    @GetMApping("/total-service-centers")
+    public ResponseEntity<Long> getTotalServiceCenters(){
+        long totalServiceCenters = serviceCenterRepository.count();
+        return ResponseEntity.ok(totalServiceCenters);
     }
 }
     
