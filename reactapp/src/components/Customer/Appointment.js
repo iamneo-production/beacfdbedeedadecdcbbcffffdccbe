@@ -116,6 +116,8 @@ export default function Appointment() {
     );
   };
   
+ // Replace 'appointment' with the actual variable containing the appointment data
+
 
   // Function to check if a date is greater than or equal to the current date
   const isDateValid = (dateStr) => {
