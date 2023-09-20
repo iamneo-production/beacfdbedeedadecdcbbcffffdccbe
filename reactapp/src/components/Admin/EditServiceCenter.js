@@ -68,6 +68,31 @@ export default function EditServiceCenter() {
         [name]: "",
       });
     };
+
+    useEffect(() => {
+      // Fetch the service data here
+      fetch(`https://your-api-endpoint.com/services/${serviceCenterId}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data) {
+            // Update the adminData state with the fetched service data
+            setAdminData({
+              editCenterName: data.serviceCenterName,
+              editCenterPhoneNumber: data.serviceCenterPhone,
+              editCenterAddress: data.serviceCenterAddress,
+              editCenterTimings: data.serviceCenterTimings,
+              editCenterPrice: data.serviceCenterPrice,
+              editCenterImageUrl: data.serviceCenterImageUrl,
+              editCenterMailId: data.serviceCenterEmailId,
+              editCenterDescription: data.serviceCenterDescription,
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching service data:", error);
+        });
+    }, [serviceCenterId]);
+    
   
     const handleFormSubmit = (event) => {
       event.preventDefault();
