@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import AdminNavbar from './AdminNavBar';
-import { Typography, Button } from '@mui/material';
+import { Typography, Fab } from '@mui/material';
 import { saveAs } from "file-saver";
 import jsPDF from "jspdf";
+import AddIcon from '@mui/icons-material/Add';
 
 const columns = [
   { field: 'productId', headerName: 'Product ID', width: 150 },
@@ -68,9 +69,6 @@ const AdminAppointmentView = () => {
       </Typography>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
         <div style={{ height: 400, width: '90%' }}>
-        <Button variant="contained" color="primary" onClick={createPdf}>
-            Generate PDF
-          </Button>
           <DataGrid
             rows={appointments} // Use the fetched data for rows
             columns={columns}
@@ -79,6 +77,18 @@ const AdminAppointmentView = () => {
             getRowId={getRowId}
           />
         </div>
+        <Fab
+          color="primary"
+          aria-label="Generate PDF"
+          style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+          }}
+          onClick={createPdf}
+        >
+          <AddIcon />
+        </Fab>
       </div>
     </div>
   );
