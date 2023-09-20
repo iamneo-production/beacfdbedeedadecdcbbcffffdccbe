@@ -29,7 +29,6 @@ export default function EditBookingModal({
     editServiceCenterName: serviceCenterName,
   });
 
-
   const [errors, setErrors] = useState({
     editProductName: "",
     editModelNo: "",
@@ -38,6 +37,8 @@ export default function EditBookingModal({
     editProblem: "",
     editAppointmentDate: "",
   });
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -128,8 +129,14 @@ export default function EditBookingModal({
         // Handle successful update (e.g., show a success message, close the modal)
         console.log("Appointment updated successfully");
         handleClose();
+        enqueueSnackbar('Edited successfully!', { variant: 'success' });
         // Call the callback to update the appointments in the parent component
         updateAppointments(updatedAppointment);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Show "Kindly refresh page" snackbar
+      enqueueSnackbar('Kindly refresh page', { variant: 'warning' });
+    }
       } else {
         // Handle errors (e.g., show an error message)
         console.error("Failed to update appointment");
