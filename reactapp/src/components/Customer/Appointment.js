@@ -12,6 +12,7 @@ import {
   Alert
 } from "@mui/material";
 import Navbar from "../Navbar";
+import { Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import EditBookingModal from "./EditBookingModal";
 import ReviewModal from "./ReviewModal";
 import { generatePDF } from "./BillGenerator";
@@ -199,7 +200,7 @@ export default function Appointment() {
         <Button
           variant="outlined"
           style={{ color: "red", borderColor: "red" }}
-          onClick={() => handleCancelAppointment(appointment.productId)}
+          onClick={() => handleOpenDeleteConfirmation(appointment.productId)} // Open confirmation dialog
         >
           <strong>Delete</strong>
         </Button>
@@ -261,9 +262,7 @@ export default function Appointment() {
         updateAppointments={updateAppointments}
         serviceCenterName={Appointment.serviceCenterName}
         showSuccessSnackbar={showSuccessSnackbar}
-        showRefreshSnackbar={showRefreshSnackbar}
         hideSuccessSnackbar={hideSuccessSnackbar}
-        hideRefreshSnackbar={hideRefreshSnackbar}
         />
         {/* Snackbar for "Edited successfully!" */}
       <Snackbar
@@ -279,6 +278,35 @@ export default function Appointment() {
 
       {/* Snackbar for "Kindly refresh page" */}
       <ReviewModal reviewOpen={reviewOpen} handleClose={handleReviewClose} />
+      <Dialog
+  open={deleteConfirmationOpen}
+  onClose={handleCloseDeleteConfirmation}
+>
+  <DialogTitle>Confirm Deletion</DialogTitle>
+  <DialogContent>
+    Are you sure you want to delete this appointment?
+  </DialogContent>
+  <DialogActions>
+    <Button
+      onClick={handleCloseDeleteConfirmation}
+      color="primary"
+    >
+      Cancel
+    </Button>
+    <Button
+      onClick={() => {
+        handleCancelAppointment(deletingProductId); // Perform the delete action
+        handleCloseDeleteConfirmation(); // Close the confirmation Dialog
+      }}
+      color="primary"
+      variant="contained"
+      style={{ backgroundColor: "red", color: "white" }}
+    >
+      Delete
+    </Button>
+  </DialogActions>
+</Dialog>
+
     </div>
   );
 }
