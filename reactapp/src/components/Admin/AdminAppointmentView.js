@@ -78,6 +78,7 @@ const AdminAppointmentView = () => {
             pageSize={5}
             checkboxSelection
             getRowId={getRowId}
+            style={{ marginBottom: "60px" }}
           />
         </div>
         <Fab
@@ -108,7 +109,7 @@ const AdminAppointmentView = () => {
           />
         </Fab>
       </div>
-      <Footer />
+      {/* <Footer style={{ marginBottom: '30px' }} /> */}
     </div>
   );
 };
