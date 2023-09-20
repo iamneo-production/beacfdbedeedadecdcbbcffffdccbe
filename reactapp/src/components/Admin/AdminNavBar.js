@@ -28,7 +28,7 @@ export default function AdminNavbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: '#3832a8' }}>
+      <AppBar position="static" style={{ background: '#909090' }}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <div>
             <Hidden smUp>

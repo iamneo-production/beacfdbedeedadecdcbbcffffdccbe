@@ -5,6 +5,7 @@ import CenterCard from "./CenterProfile";
 import { Route, Routes } from "react-router-dom"; 
 import AddCenter from "./AddCenter";
 import { useParams } from "react-router-dom";
+import Footer from "../Footer";
 
 const styles = {
   container: {
@@ -31,6 +32,7 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)"
   },
   number: {
       fontSize: "3rem", // Increase the font size for the numbers
@@ -84,6 +86,9 @@ function AdminHomePage() {
           </Paper>
         </div>
       </Container>
+      <div></div>
+      <div></div>
+      <Footer />
     </div>
   );
 }
