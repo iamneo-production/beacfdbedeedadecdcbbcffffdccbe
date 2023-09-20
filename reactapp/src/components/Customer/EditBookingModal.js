@@ -8,7 +8,13 @@ import {
   Button,
 } from "@mui/material";
 
-export default function EditBookingModal({ open, handleClose, productId }) {
+export default function EditBookingModal({ 
+  open, 
+  handleClose, 
+  productId,
+  setUserAppointments, // Make sure to include these props
+  updateAppointments  
+ }) {
   const [editData, setEditData] = useState({
     editProductName: "",
     editModelNo: "",

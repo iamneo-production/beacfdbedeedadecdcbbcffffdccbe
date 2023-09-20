@@ -108,7 +108,7 @@ export default function Appointment() {
       });
   };
 
-  const updateAppointments = (updatedAppointment) => {
+  const updateAppointments = (productId, updatedAppointment) => {
     setUserAppointments((prevAppointments) =>
       prevAppointments.map((appointment) =>
         appointment.productId === productId ? updatedAppointment : appointment
@@ -227,6 +227,7 @@ export default function Appointment() {
         open={open} 
         handleClose={handleClose} 
         productId={editProductId} 
+        setUserAppointments={setUserAppointments}
         updateAppointments={updateAppointments}
         />
       <ReviewModal reviewOpen={reviewOpen} handleClose={handleReviewClose} />
