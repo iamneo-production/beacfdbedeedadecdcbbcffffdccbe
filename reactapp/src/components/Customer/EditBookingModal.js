@@ -135,9 +135,6 @@ export default function EditBookingModal({
         await new Promise(resolve => setTimeout(resolve, 1000));
           // Show "Kindly refresh page" snackbar
           showRefreshSnackbar();
-
-      // Show "Kindly refresh page" snackbar
-      enqueueSnackbar('Kindly refresh page', { variant: 'warning' });
       } else {
         // Handle errors (e.g., show an error message)
         console.error("Failed to update appointment");
