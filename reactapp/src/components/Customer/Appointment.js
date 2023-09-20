@@ -268,22 +268,12 @@ export default function Appointment() {
         onClose={hideSuccessSnackbar}
         anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
       >
-        <Alert onClose={hideSuccessSnackbar} severity="success">
-          Edited successfully!
+        <Alert onClose={hideSuccessSnackbar} severity="success" style={{ backgroundColor: "#5EBA7D", color: "white" }}>
+          Edited successfully! Kindly refresh page.
         </Alert>
       </Snackbar>
 
       {/* Snackbar for "Kindly refresh page" */}
-      <Snackbar
-        open={refreshSnackbarOpen}
-        autoHideDuration={6000}
-        onClose={hideRefreshSnackbar}
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-      >
-        <Alert onClose={hideRefreshSnackbar} severity="warning">
-          Kindly refresh page
-        </Alert>
-      </Snackbar>
       <ReviewModal reviewOpen={reviewOpen} handleClose={handleReviewClose} />
     </div>
   );
