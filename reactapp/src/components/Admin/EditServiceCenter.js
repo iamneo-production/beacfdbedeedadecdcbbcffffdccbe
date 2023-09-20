@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -71,7 +72,7 @@ export default function EditServiceCenter() {
 
     useEffect(() => {
       // Fetch the service data here
-      fetch(`https://your-api-endpoint.com/services/${serviceCenterId}`)
+      fetch(`https://8081-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/editServiceCenter/${serviceCenterId}`)
         .then((response) => response.json())
         .then((data) => {
           if (data) {
