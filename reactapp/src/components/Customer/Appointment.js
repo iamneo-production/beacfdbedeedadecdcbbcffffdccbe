@@ -49,6 +49,28 @@ export default function Appointment() {
   const [userAppointments, setUserAppointments] = useState([]);
   const [editProductId, setEditProductId] = useState(null);
 
+  const [successSnackbarOpen, setSuccessSnackbarOpen] = useState(false);
+  const [refreshSnackbarOpen, setRefreshSnackbarOpen] = useState(false);
+
+  const showSuccessSnackbar = () => {
+    setSuccessSnackbarOpen(true);
+  };
+
+  // Function to show refresh snackbar
+  const showRefreshSnackbar = () => {
+    setRefreshSnackbarOpen(true);
+  };
+
+  // Function to hide success snackbar
+  const hideSuccessSnackbar = () => {
+    setSuccessSnackbarOpen(false);
+  };
+
+  // Function to hide refresh snackbar
+  const hideRefreshSnackbar = () => {
+    setRefreshSnackbarOpen(false);
+  };
+
   const handleOpen = (appointment) => {
     setEditProductId(appointment.productId); // Set the productId in state
     setOpen(true);
@@ -232,7 +254,34 @@ export default function Appointment() {
         setUserAppointments={setUserAppointments}
         updateAppointments={updateAppointments}
         serviceCenterName={Appointment.serviceCenterName}
+        showSuccessSnackbar={showSuccessSnackbar}
+        showRefreshSnackbar={showRefreshSnackbar}
+        hideSuccessSnackbar={hideSuccessSnackbar}
+        hideRefreshSnackbar={hideRefreshSnackbar}
         />
+        {/* Snackbar for "Edited successfully!" */}
+      <Snackbar
+        open={successSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={hideSuccessSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+      >
+        <Alert onClose={hideSuccessSnackbar} severity="success">
+          Edited successfully!
+        </Alert>
+      </Snackbar>
+
+      {/* Snackbar for "Kindly refresh page" */}
+      <Snackbar
+        open={refreshSnackbarOpen}
+        autoHideDuration={6000}
+        onClose={hideRefreshSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+      >
+        <Alert onClose={hideRefreshSnackbar} severity="warning">
+          Kindly refresh page
+        </Alert>
+      </Snackbar>
       <ReviewModal reviewOpen={reviewOpen} handleClose={handleReviewClose} />
     </div>
   );
