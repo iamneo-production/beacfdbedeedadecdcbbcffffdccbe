@@ -13,7 +13,8 @@ export default function EditBookingModal({
   handleClose, 
   productId,
   setUserAppointments, // Make sure to include these props
-  updateAppointments  
+  updateAppointments,
+  serviceCenterName 
  }) {
   const [editData, setEditData] = useState({
     editProductName: "",
@@ -22,6 +23,8 @@ export default function EditBookingModal({
     editContactNumber: "",
     editProblem: "",
     editAppointmentDate: "",
+    editProductId: productId, // Set productId from props
+    editServiceCenterName: serviceCenterName,
   });
 
   const [errors, setErrors] = useState({
