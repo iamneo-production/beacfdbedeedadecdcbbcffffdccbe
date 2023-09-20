@@ -54,6 +54,10 @@ export default function Appointment() {
   const [successSnackbarOpen, setSuccessSnackbarOpen] = useState(false);
   const [refreshSnackbarOpen, setRefreshSnackbarOpen] = useState(false);
 
+  const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
+  const [deletingProductId, setDeletingProductId] = useState(null);
+
+
   const showSuccessSnackbar = () => {
     setSuccessSnackbarOpen(true);
   };
