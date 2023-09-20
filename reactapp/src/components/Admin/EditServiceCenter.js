@@ -73,9 +73,10 @@ export default function EditServiceCenter() {
     useEffect(() => {
       // Fetch the service data here
       console.log("Inside useEffect"); 
-      fetch(`https://8081-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/service-center/${serviceCenterId}`)
+      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/service-center/${serviceCenterId}`)
         .then((response) => response.json())
         .then((data) => {
+          console.log("API Response Data:", data);
           if (data) {
             // Update the adminData state with the fetched service data
             setAdminData({
