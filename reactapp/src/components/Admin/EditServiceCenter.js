@@ -72,7 +72,7 @@ export default function EditServiceCenter() {
 
     useEffect(() => {
       // Fetch the service data here
-      fetch(`https://8081-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/editServiceCenter/${serviceCenterId}`)
+      fetch(`https://8081-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/service-center/${serviceCenterId}`)
         .then((response) => response.json())
         .then((data) => {
           if (data) {
@@ -87,6 +87,7 @@ export default function EditServiceCenter() {
               editCenterMailId: data.serviceCenterEmailId,
               editCenterDescription: data.serviceCenterDescription,
             });
+            console.log("Fetched Service Data:", data);
           }
         })
         .catch((error) => {
