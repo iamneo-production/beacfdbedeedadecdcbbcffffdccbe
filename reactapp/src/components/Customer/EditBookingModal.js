@@ -16,7 +16,7 @@ export default function EditBookingModal({
   updateAppointments,
   serviceCenterName 
  }) {
-  console.log('Service Center Name:', serviceCenterName);
+
   const [editData, setEditData] = useState({
     editProductName: "",
     editModelNo: "",
