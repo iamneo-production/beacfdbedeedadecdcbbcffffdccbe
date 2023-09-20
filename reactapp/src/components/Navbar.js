@@ -16,8 +16,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const params= useParams();
-  const { userId, serviceCenterId } = useParams();
+  const { userId } = useParams();
   console.log('User ID:', userId);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
