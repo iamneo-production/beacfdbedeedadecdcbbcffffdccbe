@@ -19,11 +19,19 @@ public class AppointmentController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autow
     
     @GetMapping("/totalproducts")
     public ResponseEntity<Long> getTotalProducts() {
         long totalProducts = productRepository.count(); // Count the records in the Product table
         return ResponseEntity.ok(totalProducts);
+    }
+
+    @GetMapping("/totalcustomers")
+    public ResponseEntity<Long> getTotalCustomers(){
+        long totalCustomers = authRepository.count();
+        return ResponseEntity.ok(totalCustomers);
     }
 }
     
