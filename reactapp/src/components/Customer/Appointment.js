@@ -107,6 +107,14 @@ export default function Appointment() {
         console.error("Error canceling appointment:", error);
       });
   };
+
+  const updateAppointments = (updatedAppointment) => {
+    setUserAppointments((prevAppointments) =>
+      prevAppointments.map((appointment) =>
+        appointment.productId === productId ? updatedAppointment : appointment
+      )
+    );
+  };
   
 
   // Function to check if a date is greater than or equal to the current date
@@ -215,7 +223,12 @@ export default function Appointment() {
         </Table>
       </TableContainer>
       {/* Render the Dialog component */}
-      <EditBookingModal open={open} handleClose={handleClose} productId={editProductId} />
+      <EditBookingModal 
+        open={open} 
+        handleClose={handleClose} 
+        productId={editProductId} 
+        updateAppointments={updateAppointments}
+        />
       <ReviewModal reviewOpen={reviewOpen} handleClose={handleReviewClose} />
     </div>
   );
