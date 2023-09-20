@@ -47,15 +47,10 @@ const AdminAppointmentView = () => {
       columns.map((column) => appointment[column.field])
     );
 
-    appointments.forEach((appointment, index) => {
-      const yOffset = 20 + index * 40;
-      pdf.text(`Product ID: ${appointment.productId}`, 10, yOffset);
-      pdf.text(`Product Name: ${appointment.productName}`, 10, yOffset + 5);
-      pdf.text(`Model No: ${appointment.productModelNo}`, 10, yOffset + 10);
-      pdf.text(`Date of Purchase: ${appointment.dateOfPurchase}`, 10, yOffset + 15);
-      pdf.text(`Mobile Number: ${appointment.mobileNumber}`, 10, yOffset + 20);
-      pdf.text(`Description: ${appointment.productDescription}`, 10, yOffset + 25);
-      pdf.text(`Available Slots: ${appointment.availableSlots}`, 10, yOffset + 30);
+    pdf.autoTable({
+      head: [headers],
+      body: tableData,
+      startY: 20,
     });
 
     pdf.save("appointments.pdf");
