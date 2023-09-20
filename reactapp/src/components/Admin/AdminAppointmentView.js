@@ -92,7 +92,18 @@ const AdminAppointmentView = () => {
           }}
           onClick={createPdf}
         >
-          <AddIcon />
+          <AddIcon
+            style={{
+              fontSize: '30px', // Increase the icon size
+              transition: 'transform 0.2s', // Add transition for a smooth hover effect
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'scale(1.1)'; // Enlarge the icon on hover
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'scale(1)'; // Restore the original size on hover out
+            }}
+          />
         </Fab>
       </div>
     </div>
