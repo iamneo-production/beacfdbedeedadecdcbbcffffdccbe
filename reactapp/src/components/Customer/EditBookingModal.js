@@ -28,6 +28,9 @@ export default function EditBookingModal({
     editServiceCenterName: serviceCenterName,
   });
 
+  const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false);
+  const [showRefreshSnackbar, setShowRefreshSnackbar] = useState(false);
+
   const [errors, setErrors] = useState({
     editProductName: "",
     editModelNo: "",
@@ -48,6 +51,17 @@ export default function EditBookingModal({
       [name]: "",
     });
   };
+
+  const handleClose = () => {
+    setOpen(false);
+    // Show the success snackbar
+    setShowSuccessSnackbar(true);
+    // Show the refresh snackbar after a delay (e.g., 2 seconds)
+    setTimeout(() => {
+      setShowRefreshSnackbar(true);
+    }, 2000);
+  };
+  
 
   const handleModalSubmit = (event) => {
     event.preventDefault();
