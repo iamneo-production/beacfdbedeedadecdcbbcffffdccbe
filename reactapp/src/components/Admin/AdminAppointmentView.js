@@ -3,6 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import AdminNavbar from './AdminNavBar';
 import { Typography, Fab } from '@mui/material';
 import { saveAs } from "file-saver";
+import 'jspdf-autotable'; // Import the autoTable plugin
 import jsPDF from "jspdf";
 import AddIcon from '@mui/icons-material/Add';
 
@@ -40,8 +41,14 @@ const AdminAppointmentView = () => {
 
     pdf.text("Appointments", 10, 10);
 
+    const headers = columns.map((column) => column.headerName);
+
+    const tableData = appointments.map((appointment) =>
+      columns.map((column) => appointment[column.field])
+    );
+
     appointments.forEach((appointment, index) => {
-      const yOffset = 20 + index * 10;
+      const yOffset = 20 + index * 40;
       pdf.text(`Product ID: ${appointment.productId}`, 10, yOffset);
       pdf.text(`Product Name: ${appointment.productName}`, 10, yOffset + 5);
       pdf.text(`Model No: ${appointment.productModelNo}`, 10, yOffset + 10);
