@@ -12,12 +12,10 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ userId }) {
   const navigate = useNavigate();
-  const { userId } = useParams();
-  console.log('User ID:', userId);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
   const toggleDrawer = () => {
@@ -65,9 +63,9 @@ export default function Navbar() {
                     </Button>
                   </Link>
                   <Link to={`/user/appointment/${userId}`} className="nav-link">
-                  <Button color="inherit" id="myBookingButton" style={{ color: "white" }}>
-                    My Bookings
-                  </Button>
+                    <Button color="inherit" id="myBookingButton" style={{ color: "white" }}>
+                      My Bookings
+                    </Button>
                   </Link>
                 </>
               )}
@@ -87,13 +85,13 @@ export default function Navbar() {
         variant="temporary"
       >
         <List>
-          <ListItem button onClick={handleListItemClick(`/user/homepage/${userId}`)}>
+          <ListItem button onClick={() => handleListItemClick(`/user/homepage/${userId}`)}>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button onClick={handleListItemClick(`/user/dashboardGrid/${userId}`)}>
+          <ListItem button onClick={() => handleListItemClick(`/user/dashboardGrid/${userId}`)}>
             <ListItemText primary="Dashboard" />
           </ListItem>
-          <ListItem button onClick={handleListItemClick(`/user/appointment/${userId}`)}>
+          <ListItem button onClick={() => handleListItemClick(`/user/appointment/${userId}`)}>
             <ListItemText primary="My Bookings" />
           </ListItem>
         </List>

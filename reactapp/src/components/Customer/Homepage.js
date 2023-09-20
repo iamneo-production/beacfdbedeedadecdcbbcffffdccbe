@@ -46,7 +46,7 @@ function HomePage() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar userId={userId} />
        <Box
           sx={{
             bgcolor: 'background.paper',
