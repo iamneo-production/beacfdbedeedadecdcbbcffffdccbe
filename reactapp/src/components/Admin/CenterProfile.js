@@ -92,7 +92,7 @@ function CenterProfile() {
           Filter
         </Button>
       </Container>
-        <GridCardsAdmin searchTerm={searchTerm} sortOrder={sortOrder} serviceCenters={serviceCenters}/> {/* Use the modified GridCardsWithoutHero component */}
+        <GridCardsAdmin searchTerm={searchTerm} sortOrder={sortOrder} serviceCenters={serviceCenters} setServiceCenters={setServiceCenters}/> {/* Use the modified GridCardsWithoutHero component */}
       </Container>
       <Footer />
     </div>
