@@ -33,7 +33,9 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    color: "#fff",
     backgroundColor: "#3777FF",
+    fontSize:"3rem"
     // boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)",
   },
   number: {
