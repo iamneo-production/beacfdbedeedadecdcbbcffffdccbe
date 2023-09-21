@@ -81,35 +81,7 @@ function AdminHomePage() {
           >
             Welcome to the Admin Dashboard
           </Typography>
-          {numberOfCustomers !== 0 && numberOfServices !== 0 && numberOfAppointments !== 0 ? (
-            <div style={styles.boxContainer}>
-              <Paper elevation={3} style={styles.box}>
-                <Typography variant="h6">
-                  No. of proud customers we've had
-                </Typography>
-                <Typography variant="h4" style={styles.number}>
-                  {numberOfCustomers}
-                </Typography>
-              </Paper>
-              <Paper elevation={3} style={styles.box}>
-                <Typography variant="h6">No. of services we have</Typography>
-                <Typography variant="h4" style={styles.number}>
-                  {numberOfServices}
-                </Typography>
-              </Paper>
-              <Paper elevation={3} style={styles.box}>
-                <Typography variant="h6">No. of Successful Appointments</Typography>
-                <Typography variant="h4" style={styles.number}>
-                  {numberOfAppointments}
-                </Typography>
-              </Paper>
-            </div>
-          ) : (
-            // Optionally, you can show a loading message or spinner here while data is being fetched
-            <Typography variant="h6" align="center">
-              Loading...
-            </Typography>
-          )}
+          
         </Container>
         <Footer />
       </div>
