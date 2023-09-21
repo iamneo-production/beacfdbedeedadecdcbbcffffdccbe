@@ -91,7 +91,8 @@ function AdminHomePage() {
               No. of proud customers we've had
             </Typography>
             <Typography variant="h4" style={styles.number}>
-              {totalCustomers}
+            {console.log("Number Of Customers: " , numberOfCustomers)}
+            {numberOfCustomers}
             </Typography>
           </Paper>
           <Paper elevation={3} style={styles.box}>
