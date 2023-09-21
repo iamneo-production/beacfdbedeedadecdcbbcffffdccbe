@@ -16,7 +16,8 @@ const styles = {
     fontSize: "2rem",
     marginBottom: "20px",
     fontFamily: "Poppins, sans-serif",
-    marginTop: '5%', // Add margin-top
+    marginTop: '5%',
+    color: "#ffffff" // Add margin-top
   },
   boxContainer: {
     display: "flex",
@@ -32,11 +33,13 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)",
+    backgroundColor: "#3777FF",
+    // boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)",
   },
   number: {
-    fontSize: "3rem", // Increase the font size for the numbers
-    fontWeight: "bold", // Make the numbers bold
+    fontSize: "7rem", // Increase the font size for the numbers
+    fontWeight: "bold",
+    color: "#ffffff" // Make the numbers bold
     // Adjust the font size as needed
   },
 };
