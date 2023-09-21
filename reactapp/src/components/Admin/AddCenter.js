@@ -260,11 +260,10 @@ function AddCenter() {
             <Grid item xs={12}>
               <Link to="/admin/AdminHomePage" className="nav-link">
                 <Button
-                  type="submit"
+                  // type="submit"
                   id="addButton"
                   variant="contained"
                   fullWidth
-                  style={{ marginBottom: "50px", backgroundColor:"#0C1618", color:"whitesmoke" }}
                   onClick={handleFormSubmit}
                 >
                   Add
