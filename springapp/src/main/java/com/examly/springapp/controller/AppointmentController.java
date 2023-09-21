@@ -38,7 +38,7 @@ public class AppointmentController {
         return ResponseEntity.ok(totalCustomers);
     }
 
-    @GetMApping("/total-service-centers")
+    @GetMapping("/total-service-centers")
     public ResponseEntity<Long> getTotalServiceCenters(){
         long totalServiceCenters = serviceCenterRepository.count();
         return ResponseEntity.ok(totalServiceCenters);
