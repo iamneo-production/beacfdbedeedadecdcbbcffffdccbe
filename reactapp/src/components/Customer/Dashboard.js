@@ -284,7 +284,6 @@ export default function Dashboard() {
                       fullWidth
                       style={{ backgroundColor: "black" }}
                       onClick={handleFormSubmit}
-                      navigate(`/user/appointment/${userId}`);
                     >
                       Submit
                     </Button>
