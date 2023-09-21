@@ -83,30 +83,20 @@ const AdminAppointmentView = () => {
         </div>
         <Fab
           color="primary"
-          aria-label="Generate PDF"
+          aria-label="Generate Report"
           style={{
             position: 'fixed',
             backgroundColor: 'black',
             bottom: '20px',
             right: '20px',
-            width: '60px', // Increase the width for a larger button
-            height: '60px',
-            transition: 'transform 0.2s', // Add transition for a smooth hover effect
+            width: '100px',
+            height: '90px',
+            borderRadius: '10px',
+            transition: 'transform 0.2s',
           }}
           onClick={createPdf}
         >
-          <AddIcon
-            style={{
-              fontSize: '30px', // Increase the icon size
-              transition: 'transform 0.2s', // Add transition for a smooth hover effect
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'scale(1.3)'; // Enlarge the icon on hover
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'scale(1)'; // Restore the original size on hover out
-            }}
-          />
+          Generate Report
         </Fab>
       </div>
       {/* <Footer style={{ marginBottom: '30px' }} /> */}
