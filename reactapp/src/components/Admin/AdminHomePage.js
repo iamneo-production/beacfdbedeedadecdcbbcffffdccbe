@@ -47,7 +47,7 @@ function AdminHomePage() {
 
   const [numberOfCustomers, setNumberOfCustomers] = useState(0);
   const [numberOfServices, setNumberOfServices] = useState(0);
-  const [numberOfAppointments, setNumberOfAppointments] = useState(0);
+  const [totalProducts, setTotalProducts] = useState(0);
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -61,7 +61,10 @@ function AdminHomePage() {
 
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-products`)
       .then((response) => response.json())
-      .then((data) => setNumberOfAppointments(data.numberOfAppointments));
+      .then((data) => {
+        {console.log("number")}
+        setTotalProducts(data.totalProducts)
+      });
   }, []);
 
   return (
@@ -78,7 +81,7 @@ function AdminHomePage() {
         >
           Welcome to the Admin Dashboard
         </Typography>
-        {numberOfCustomers !== 0 && numberOfServices !== 0 && numberOfAppointments !== 0 ? (
+        {numberOfCustomers !== 0 && numberOfServices !== 0 && totalProducts !== 0 ? (
           <div style={styles.boxContainer}>
             <Paper elevation={3} style={styles.box}>
               <Typography variant="h6">
@@ -98,7 +101,7 @@ function AdminHomePage() {
             <Paper elevation={3} style={styles.box}>
               <Typography variant="h6">No. of Sucessful Appointments</Typography>
               <Typography variant="h4" style={styles.number}>
-                {numberOfAppointments}
+                {totalProducts}
               </Typography>
             </Paper>
           </div>
