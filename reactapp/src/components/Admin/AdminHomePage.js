@@ -34,7 +34,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     color: "#fff",
-    backgroundColor: "#0C1618",
+    backgroundColor: "#000",
     fontSize:"3rem"
     // boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)",
   },
