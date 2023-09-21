@@ -50,22 +50,22 @@ function AdminHomePage() {
   // Define state variables to store data
   const [numberOfCustomers, setNumberOfCustomers] = useState(0);
   const [numberOfServices, setNumberOfServices] = useState(0);
-  const [anotherMetric, setAnotherMetric] = useState(0);
+  const [numberOfAppointments, setNumberOfAppointments] = useState(0);
 
   // Fetch data when the component mounts
   useEffect(() => {
     // Replace with your actual API endpoints
-    fetch("/api/customers")
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-customers`)
       .then((response) => response.json())
       .then((data) => setNumberOfCustomers(data.numberOfCustomers));
 
-    fetch("/api/services")
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-service-centers`)
       .then((response) => response.json())
       .then((data) => setNumberOfServices(data.numberOfServices));
 
-    fetch("/api/metric")
+    fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-products`)
       .then((response) => response.json())
-      .then((data) => setAnotherMetric(data.anotherMetric));
+      .then((data) => setNumberOfAppointments(data.numberOfAppointments));
   }, []);
 
   return (
