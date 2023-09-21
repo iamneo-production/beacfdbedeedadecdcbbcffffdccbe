@@ -12,9 +12,11 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function Navbar({ userId }) {
+export default function Navbar() {
+  const { userId } = useParams();
+  console.log('User ID:', userId);
   const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
