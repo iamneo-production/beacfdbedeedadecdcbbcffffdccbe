@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Container, Typography, Box, Paper } from "@mui/material";
-import { useSpring, animated } from "react-spring";
 import AdminNavbar from "./AdminNavBar";
 import CenterCard from "./CenterProfile";
 import { Route, Routes } from "react-router-dom"; 
@@ -36,27 +35,10 @@ const styles = {
     boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)",
   },
   number: {
-    fontSize: "7rem", // Increase the font size for the numbers
+    fontSize: "3rem", // Increase the font size for the numbers
     fontWeight: "bold", // Make the numbers bold
     // Adjust the font size as needed
   },
-};
-
-const CountUpAnimation = ({ value }) => {
-  const { number } = useSpring({
-    from: { number: Math.random() * 100 }, // Start with a random number
-    number: value, // End at the real value
-    delay: 3000, // Delay for 3 seconds before showing the real value
-    config: { duration: 1000 }, // Animation duration
-  });
-
-  return (
-    <animated.div>
-      <Typography variant="h4" style={styles.number}>
-        {number.interpolate((num) => Math.floor(num))}
-      </Typography>
-    </animated.div>
-  );
 };
 
 function AdminHomePage() {
@@ -106,19 +88,19 @@ function AdminHomePage() {
                   No. of proud customers we've had
                 </Typography>
                 <Typography variant="h4" style={styles.number}>
-                  <CountUpAnimation value={numberOfCustomers} />
+                  {numberOfCustomers}
                 </Typography>
               </Paper>
               <Paper elevation={3} style={styles.box}>
                 <Typography variant="h6">No. of services we have</Typography>
                 <Typography variant="h4" style={styles.number}>
-                  <CountUpAnimation value={numberOfServices} />
+                  {numberOfServices}
                 </Typography>
               </Paper>
               <Paper elevation={3} style={styles.box}>
                 <Typography variant="h6">No. of Successful Appointments</Typography>
                 <Typography variant="h4" style={styles.number}>
-                  <CountUpAnimation value={numberOfAppointments} />
+                  {numberOfAppointments}
                 </Typography>
               </Paper>
             </div>
