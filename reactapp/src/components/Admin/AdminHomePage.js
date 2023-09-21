@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Container, Typography, Box, Paper } from "@mui/material";
 import AdminNavbar from "./AdminNavBar";
 import CenterCard from "./CenterProfile";
@@ -16,7 +16,7 @@ const styles = {
     fontSize: "2rem",
     marginBottom: "20px",
     fontFamily: "Poppins, sans-serif",
-    marginTop: "13%", // Apply Poppins font
+    marginTop: '5%', // Add margin-top
   },
   boxContainer: {
     display: "flex",
@@ -32,11 +32,12 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)"
+    boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)",
   },
   number: {
-      fontSize: "3rem", // Increase the font size for the numbers
-      fontWeight: "bold", // Make the numbers bold// Adjust the font size as needed
+    fontSize: "3rem", // Increase the font size for the numbers
+    fontWeight: "bold", // Make the numbers bold
+    // Adjust the font size as needed
   },
 };
 
@@ -45,8 +46,27 @@ function AdminHomePage() {
   console.log('Params:', params);
   const { userId } = params; // Use "id" instead of "userId"
   console.log('User ID:', userId);
-  const numberOfCustomers = 100; // Replace with your actual data
-  const numberOfServices = 50; // Replace with your actual data
+
+  // Define state variables to store data
+  const [numberOfCustomers, setNumberOfCustomers] = useState(0);
+  const [numberOfServices, setNumberOfServices] = useState(0);
+  const [anotherMetric, setAnotherMetric] = useState(0);
+
+  // Fetch data when the component mounts
+  useEffect(() => {
+    // Replace with your actual API endpoints
+    fetch("/api/customers")
+      .then((response) => response.json())
+      .then((data) => setNumberOfCustomers(data.numberOfCustomers));
+
+    fetch("/api/services")
+      .then((response) => response.json())
+      .then((data) => setNumberOfServices(data.numberOfServices));
+
+    fetch("/api/metric")
+      .then((response) => response.json())
+      .then((data) => setAnotherMetric(data.anotherMetric));
+  }, []);
 
   return (
     <div>
@@ -80,14 +100,11 @@ function AdminHomePage() {
           <Paper elevation={3} style={styles.box}>
             <Typography variant="h6">Another Metric</Typography>
             <Typography variant="h4" style={styles.number}>
-              {/* Replace with the data for the third box */}
-              {123} {/* Example data */}
+              {anotherMetric}
             </Typography>
           </Paper>
         </div>
       </Container>
-      <div></div>
-      <div></div>
       <Footer />
     </div>
   );
