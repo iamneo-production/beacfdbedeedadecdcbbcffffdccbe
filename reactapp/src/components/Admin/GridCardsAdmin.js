@@ -51,6 +51,9 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
       .then((response) => {
         if (response.ok) {
           console.log("Service Center Deleted Successfully");
+          setServiceCenters((prevServiceCenters) =>
+          prevServiceCenters.filter((center) => center.serviceCenterId !== serviceCenterId)
+        );
         } else {
           console.error("Error deleting service center");
         }
@@ -107,16 +110,16 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                     {serviceCenter.serviceCenterName}
                   </Typography>
                   <Typography>
+                    <strong>Description: </strong>
+                    {serviceCenter.serviceCenterDescription}
+                  </Typography>
+                  <Typography>
                     <strong>Place: </strong>
                     {serviceCenter.serviceCenterAddress}
                   </Typography>
                   <Typography>
                     <strong>Timing: </strong>
                     {serviceCenter.serviceCenterTimings}
-                  </Typography>
-                  <Typography>
-                    <strong>Description: </strong>
-                    {serviceCenter.serviceCenterDescription}
                   </Typography>
                 </CardContent>
                 <CardActions>
