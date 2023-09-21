@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useParams, useNavigation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { cards } from "../GridCards";
 import { useLocation } from "react-router-dom";
 import { CardMedia } from "@mui/material";
