@@ -57,7 +57,10 @@ function AdminHomePage() {
     // Replace with your actual API endpoints
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-customers`)
       .then((response) => response.json())
-      .then((data) => setNumberOfCustomers(data.numberOfCustomers));
+      .then((data) => { 
+        console.log(data);
+        setNumberOfCustomers(data.numberOfCustomers)
+      });
 
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-service-centers`)
       .then((response) => response.json())
