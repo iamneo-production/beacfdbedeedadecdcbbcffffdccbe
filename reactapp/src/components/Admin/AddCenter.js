@@ -263,9 +263,8 @@ function AddCenter() {
                   type="submit"
                   id="addButton"
                   variant="contained"
-                  color="#0C1618"
                   fullWidth
-                  style={{ marginBottom: "50px" }}
+                  style={{ marginBottom: "50px", backgroundColor:"#0C1618", color:"whitesmoke" }}
                   onClick={handleFormSubmit}
                 >
                   Add

@@ -221,7 +221,6 @@ export default function EditServiceCenter() {
                   <p><strong>Phone Number: </strong>{cardData ? cardData.serviceCenterPhone : ""}</p>
                   <p><strong>Email ID: </strong>{cardData ? cardData.serviceCenterEmailId : ""}</p>
                   <p><strong>Timings: </strong>{cardData ? cardData.serviceCenterTimings : ""}</p>
-                  <p><strong>Rating: </strong>{cardData ? cardData.rating : ""}</p>
                 </CardContent>
               </Card>
             </Grid>
@@ -334,7 +333,7 @@ export default function EditServiceCenter() {
                         color="primary"
                         size="large"
                         fullWidth
-                        style={{ backgroundColor: "black" }}
+                        style={{ backgroundColor: "black", backgroundColor:"#0C1618", color:"whitesmoke" }}
                         type="submit" /* Added type attribute */
                         // onClick={openConfirmationModal}
                       >
