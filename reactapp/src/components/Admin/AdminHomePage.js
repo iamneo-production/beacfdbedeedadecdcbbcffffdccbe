@@ -100,7 +100,7 @@ function AdminHomePage() {
           <Paper elevation={3} style={styles.box}>
             <Typography variant="h6">Another Metric</Typography>
             <Typography variant="h4" style={styles.number}>
-              {anotherMetric}
+              {numberOfAppointments}
             </Typography>
           </Paper>
         </div>
