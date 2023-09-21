@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Container, Typography, Box, Paper } from "@mui/material";
+import { useSpring, animated } from "react-spring";
 import AdminNavbar from "./AdminNavBar";
 import CenterCard from "./CenterProfile";
 import { Route, Routes } from "react-router-dom"; 
@@ -39,6 +40,23 @@ const styles = {
     fontWeight: "bold", // Make the numbers bold
     // Adjust the font size as needed
   },
+};
+
+const CountUpAnimation = ({ value }) => {
+  const { number } = useSpring({
+    from: { number: Math.random() * 100 }, // Start with a random number
+    number: value, // End at the real value
+    delay: 3000, // Delay for 3 seconds before showing the real value
+    config: { duration: 1000 }, // Animation duration
+  });
+
+  return (
+    <animated.div>
+      <Typography variant="h4" style={styles.number}>
+        {number.interpolate((num) => Math.floor(num))}
+      </Typography>
+    </animated.div>
+  );
 };
 
 function AdminHomePage() {
@@ -88,19 +106,19 @@ function AdminHomePage() {
                   No. of proud customers we've had
                 </Typography>
                 <Typography variant="h4" style={styles.number}>
-                  {numberOfCustomers}
+                  <CountUpAnimation value={numberOfCustomers} />
                 </Typography>
               </Paper>
               <Paper elevation={3} style={styles.box}>
                 <Typography variant="h6">No. of services we have</Typography>
                 <Typography variant="h4" style={styles.number}>
-                  {numberOfServices}
+                  <CountUpAnimation value={numberOfServices} />
                 </Typography>
               </Paper>
               <Paper elevation={3} style={styles.box}>
                 <Typography variant="h6">No. of Successful Appointments</Typography>
                 <Typography variant="h4" style={styles.number}>
-                  {numberOfAppointments}
+                  <CountUpAnimation value={numberOfAppointments} />
                 </Typography>
               </Paper>
             </div>
