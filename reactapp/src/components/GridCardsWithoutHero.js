@@ -8,12 +8,14 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import SearchBar from './Searchbar';
+import { useParams } from "react-router-dom";
 
 
 const defaultTheme = createTheme();
 
 export default function GridCardsWithoutHero({ searchTerm, sortOrder, serviceCenters, userId}) {
-  
+  //const { userId, serviceCenterId } = useParams();
+  console.log('User ID from GridCardsWithoutHero:', userId);
   console.log("Search Term in GridCards:", searchTerm); 
   const handleCardClick = (serviceCenters) => {
     console.log("Clicked Card:", serviceCenters);
