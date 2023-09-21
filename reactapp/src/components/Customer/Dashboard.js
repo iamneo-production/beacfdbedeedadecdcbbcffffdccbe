@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigation } from "react-router-dom";
 import { cards } from "../GridCards";
 import { useLocation } from "react-router-dom";
 import { CardMedia } from "@mui/material";
@@ -18,6 +18,7 @@ import Navbar from "../Navbar";
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const params= useParams();
   const { userId, serviceCenterId } = useParams();
   console.log('User ID:', userId);
@@ -283,7 +284,7 @@ export default function Dashboard() {
                       fullWidth
                       style={{ backgroundColor: "black" }}
                       onClick={handleFormSubmit}
-                      navigate('')
+                      navigate(`/user/appointment/${userId}`);
                     >
                       Submit
                     </Button>
