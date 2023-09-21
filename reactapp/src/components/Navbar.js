@@ -28,7 +28,7 @@ export default function Navbar({ userId }) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: "#000000" }}>
+      <AppBar position="static" style={{ background: "#0C1618" }}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <div>
             <Hidden smUp>

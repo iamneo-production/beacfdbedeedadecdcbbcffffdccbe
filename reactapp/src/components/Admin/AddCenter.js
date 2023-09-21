@@ -263,7 +263,7 @@ function AddCenter() {
                   type="submit"
                   id="addButton"
                   variant="contained"
-                  color="primary"
+                  color="#0C1618"
                   fullWidth
                   style={{ marginBottom: "50px" }}
                   onClick={handleFormSubmit}
@@ -284,7 +284,7 @@ function AddCenter() {
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseDialog} color="primary">
+          <Button onClick={handleCloseDialog} color="#0C1618">
             Close
           </Button>
         </DialogActions>
