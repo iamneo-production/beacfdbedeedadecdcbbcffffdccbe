@@ -92,9 +92,18 @@ const AdminAppointmentView = () => {
             width: '100px',
             height: '90px',
             borderRadius: '10px',
-            transition: 'transform 0.2s',
+            transition: 'transform 0.2s, font-size 0.2s',
+            boxShadow: '0px 0px 6px rgba(0, 0, 0, 0.8)', // Add drop shadow
           }}
           onClick={createPdf}
+          onMouseOver={(e) => {
+            e.currentTarget.style.transform = 'scale(1)'; // Enlarge the button on hover
+            e.currentTarget.style.fontSize = '14px'; // Enlarge the font size on hover
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.transform = 'scale(1.1)';
+            e.currentTarget.style.fontSize = '14px'; // Restore the original font size on hover out
+          }}
         >
           Generate Report
         </Fab>
