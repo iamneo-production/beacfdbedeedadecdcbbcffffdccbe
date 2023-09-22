@@ -36,9 +36,9 @@ public class AdminController {
         return ResponseEntity.ok(serviceCenters);
     }
 
-    @GetMapping("/appointment/{id}")
-    public ResponseEntity<?> getAppointmentById(@PathVariable Long id) {
-        Optional<Product> optionalProduct = productService.findById(id);
+    @GetMapping("/appointment/{productId}")
+    public ResponseEntity<?> getAppointmentById(@PathVariable Long productId) {
+        Optional<Product> optionalProduct = productService.findById(productId);
         
         if (optionalProduct.isPresent()) {
             Product product = optionalProduct.get();

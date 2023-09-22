@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -43,27 +43,28 @@ export default function EditBookingModal({
   const [fetchedData, setFetchedData] = useState(null);
 
   useEffect(() => {
-    //fetch appointment data when modal is open
-    if (open){
-      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/appointment/${productId}`)
+    //fetching data
+    if(open){
+      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/appointment/${productId}`)
       .then((response) => {
         if(response.ok){
           return response.json();
         } else {
-          throw new Error("Failed to fetch appointment data");
+          throw new Error("Failed to fetch form data");
         }
       })
-      .then((data) => {
+      .then((data) =>{
         setFetchedData(data);
+        //Populate the editData state with the fetched data
         setEditData({
           editProductName: data.productName,
-            editModelNo: data.productModelNo,
-            editDateOfPurchase: data.dateOfPurchase,
-            editContactNumber: data.mobileNumber,
-            editProblem: data.productDescription,
-            editAppointmentDate: data.availableSlots,
-            editProductId: productId,
-            editServiceCenterName: serviceCenterName,
+          editModelNo: data.productModelNo,
+          editDateOfPurchase: data.dateOfPurchase,
+          editContactNumber: data.mobileNumber,
+          editProblem: data.productDescription,
+          editAppointmentDate: data.availableSlots,
+          editProductId: productId,
+          editServiceCenterName: serviceCenterName,
         });
       })
       .catch((error) => {
