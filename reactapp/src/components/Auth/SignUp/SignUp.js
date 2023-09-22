@@ -376,16 +376,9 @@ export default function Register() {
         open={snackbarOpen}
         autoHideDuration={6000} // Adjust the duration as needed
         onClose={() => setSnackbarOpen(false)}
+        message="Note archived"
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
-        <MuiAlert
-          elevation={6}
-          variant="filled"
-          onClose={() => setSnackbarOpen(false)}
-          severity="error"
-        >
-          {snackbarMessage}
-        </MuiAlert>
       </Snackbar>
 
     </Container>
