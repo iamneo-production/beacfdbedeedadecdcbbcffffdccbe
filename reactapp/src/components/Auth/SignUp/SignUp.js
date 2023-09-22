@@ -8,7 +8,7 @@ import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Modal, MenuItem } from "@mui/material";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify/dist/ReactToastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Register() {
@@ -362,6 +362,7 @@ export default function Register() {
           </Box>
         </Modal>
       </Box>
+      <ToastContainer position="top-right" autoClose={5000} />
     </Container>
   );
 }
