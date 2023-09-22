@@ -6,7 +6,6 @@ import { Route, Routes } from "react-router-dom";
 import AddCenter from "./AddCenter";
 import { useParams } from "react-router-dom";
 import Footer from "../Footer";
-import { DotWave } from '@uiball/loaders';
 
 const styles = {
   container: {
