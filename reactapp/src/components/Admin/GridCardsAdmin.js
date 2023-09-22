@@ -76,13 +76,13 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, onSortOrderChang
   const sortedCards = [...filteredCards].sort((a, b) => {
     console.log('Service Centers:', serviceCenters);
     console.log('Before Parsing - Price A:', a.serviceCenterPrice);
-console.log('Before Parsing - Price B:', b.serviceCenterPrice);
+    console.log('Before Parsing - Price B:', b.serviceCenterPrice);
     const priceA = parseFloat(a.serviceCenterPrice);
-  const priceB = parseFloat(b.serviceCenterPrice);
+    const priceB = parseFloat(b.serviceCenterPrice);
 
     console.log('priceA:', priceA);
-  console.log('priceB:', priceB);
-  console.log('sortOrder:', sortOrder);
+    console.log('priceB:', priceB);
+    console.log('sortOrder:', sortOrder);
   
     if (sortOrder === "ascending") {
       return priceA - priceB;

@@ -62,8 +62,15 @@ console.log('User ID: ', userId);
   );
 
   const sortedCards = [...filteredCards].sort((a, b) => {
-    const priceA = parseInt(a.price);
-    const priceB = parseInt(b.price);
+    console.log('Service Centers:', serviceCenters);
+    console.log('Before Parsing - Price A:', a.serviceCenterPrice);
+    console.log('Before Parsing - Price B:', b.serviceCenterPrice);
+    const priceA = parseFloat(a.serviceCenterPrice);
+    const priceB = parseFloat(b.serviceCenterPrice);
+
+    console.log('priceA:', priceA);
+    console.log('priceB:', priceB);
+    console.log('sortOrder:', sortOrder);
 
     if (sortOrder === 'ascending') {
       return priceA - priceB;
@@ -109,6 +116,9 @@ console.log('User ID: ', userId);
                       </Typography>
                       <Typography>
                         <strong>Timing: </strong>{serviceCenters.serviceCenterTimings}
+                      </Typography>
+                      <Typography>
+                        <strong>Price: </strong> Rs. {serviceCenters.serviceCenterPrice}
                       </Typography>
                       <RatingComponent />
                     </CardContent>
