@@ -88,7 +88,7 @@ export default function Register() {
       //alert("Success: New User Added");
     } catch (error) {
       console.error("Error:", error);
-      alert("Error: Email Already Exists. Refresh Page");
+      alert("Error: Email Already Exists. Refresh Page and Sign Up again with different Email ID or Log In");
     }
   };
 
