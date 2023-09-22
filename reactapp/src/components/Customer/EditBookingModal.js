@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -51,33 +51,6 @@ export default function EditBookingModal({
       [name]: "",
     });
   };  
-
-  useEffect(() => {
-    if (open) {
-      console.log("Inside useEffect");
-      // Fetch product data for the specified productId
-      fetch(
-        `https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment/${productId}`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          // Populate the editData state with the fetched data
-          setEditData({
-            editProductName: data.productName,
-            editModelNo: data.productModelNo,
-            editDateOfPurchase: data.dateOfPurchase,
-            editContactNumber: data.mobileNumber,
-            editProblem: data.productDescription,
-            editAppointmentDate: data.availableSlots,
-            editProductId: productId,
-            editServiceCenterName: serviceCenterName,
-          });
-        })
-        .catch((error) =>
-          console.error("Error fetching product data:", error)
-        );
-    }
-  }, [open, productId, serviceCenterName]);
 
   const handleModalSubmit = (event) => {
     event.preventDefault();
