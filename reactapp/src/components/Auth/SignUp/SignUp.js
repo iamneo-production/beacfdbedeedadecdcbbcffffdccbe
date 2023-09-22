@@ -110,10 +110,9 @@ export default function Register() {
       isValid = false;
     }
     if (
-      formData.userRole !== "admin" &&
-      formData.userRole !== "user" &&
-      formData.userRole !== "Admin" &&
-      formData.userRole !== "User"
+      !formData.userRole ||
+      (!formData.userRole.toLowerCase().includes("admin") &&
+        !formData.userRole.toLowerCase().includes("user"))
     ) {
       setErrors((prevErrors) => ({
         ...prevErrors,
