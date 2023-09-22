@@ -55,7 +55,7 @@ public class ProductController {
         }
     }
 
-    @PutMapping("/editappointment/{id}")
+    @PutMapping("/editappointment/{productId}")
     public ResponseEntity<Product> editAppointment(@PathVariable Long id, @RequestBody Product updatedProduct) {
         Product existingProduct = productService.getProductById(id);
         if (existingProduct == null) {
