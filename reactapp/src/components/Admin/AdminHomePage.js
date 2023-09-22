@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Container, Typography, Box, Paper } from "@mui/material";
+import { Grid, Container, Typography, Box, Card, CardContent } from "@mui/material";
 import AdminNavbar from "./AdminNavBar";
 import CenterCard from "./CenterProfile";
 import { Route, Routes } from "react-router-dom"; 
@@ -19,25 +19,24 @@ const styles = {
     marginTop: '5%',
     color: "#ffffff"
   },
-  boxContainer: {
+  cardContainer: {
     display: "flex",
     justifyContent: "space-between",
-    flexWrap: "wrap", // Ensure boxes wrap to the next row on smaller screens
+    flexWrap: "wrap", // Ensure cards wrap to the next row on smaller screens
   },
-  box: {
+  card: {
     width: "30%",
-    padding: "20px",
-    textAlign: "center",
     margin: "10px",
     aspectRatio: "1/1",
+    color: "#fff",
+    backgroundColor: "#000",
+    fontSize: "3rem",
+  },
+  cardContent: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    color: "#fff",
-    backgroundColor: "#000",
-    fontSize: "3rem",
-    // boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)",
   },
   number: {
     fontSize: "7rem",
@@ -87,27 +86,33 @@ function AdminHomePage() {
           Welcome to the Admin Dashboard
         </Typography>
         {numberOfCustomers !== 0 && numberOfServices !== 0 && numberOfAppointments !== 0 ? (
-          <div style={styles.boxContainer}>
-            <Paper elevation={3} style={styles.box}>
-              <Typography variant="h6">
-                No. of proud customers we've had
-              </Typography>
-              <Typography variant="h4" style={styles.number}>
-                {numberOfCustomers}
-              </Typography>
-            </Paper>
-            <Paper elevation={3} style={styles.box}>
-              <Typography variant="h6">No. of services we have</Typography>
-              <Typography variant="h4" style={styles.number}>
-                {numberOfServices}
-              </Typography>
-            </Paper>
-            <Paper elevation={3} style={styles.box}>
-              <Typography variant="h6">No. of Successful Appointments</Typography>
-              <Typography variant="h4" style={styles.number}>
-                {numberOfAppointments}
-              </Typography>
-            </Paper>
+          <div style={styles.cardContainer}>
+            <Card elevation={3} style={styles.card}>
+              <CardContent style={styles.cardContent}>
+                <Typography variant="h6">
+                  No. of proud customers we've had
+                </Typography>
+                <Typography variant="h4" style={styles.number}>
+                  {numberOfCustomers}
+                </Typography>
+              </CardContent>
+            </Card>
+            <Card elevation={3} style={styles.card}>
+              <CardContent style={styles.cardContent}>
+                <Typography variant="h6">No. of services we have</Typography>
+                <Typography variant="h4" style={styles.number}>
+                  {numberOfServices}
+                </Typography>
+              </CardContent>
+            </Card>
+            <Card elevation={3} style={styles.card}>
+              <CardContent style={styles.cardContent}>
+                <Typography variant="h6">No. of Successful Appointments</Typography>
+                <Typography variant="h4" style={styles.number}>
+                  {numberOfAppointments}
+                </Typography>
+              </CardContent>
+            </Card>
           </div>
         ) : (
           <Typography variant="h6" align="center">
