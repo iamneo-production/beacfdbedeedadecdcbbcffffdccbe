@@ -45,7 +45,7 @@ export default function EditBookingModal({
   useEffect(() => {
     //fetching data
     if(open){
-      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/appointment/${productId}`)
+      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/appointment/${productId}`)
       .then((response) => {
         if(response.ok){
           return response.json();
