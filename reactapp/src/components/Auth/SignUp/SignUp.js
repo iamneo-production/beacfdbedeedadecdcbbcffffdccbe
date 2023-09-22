@@ -7,14 +7,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Modal, Snackbar } from "@mui/material";
-import MuiAlert from "@mui/lab/Alert";
+import { Modal } from "@mui/material";
 
 export default function Register() {
   const navigate = useNavigate();
   const [successModalOpen, setSuccessModalOpen] = useState(false);
-  const [snackbarOpen, setSnackbarOpen] = useState(false); // Snackbar state
-  const [snackbarMessage, setSnackbarMessage] = useState(""); // Snackbar message
 
   const [formData, setFormData] = useState({
     userRole: "",
@@ -33,14 +30,6 @@ export default function Register() {
     password: "",
     confirmPassword: "",
   });
-
-  const handleSnackbarClose = () => {
-    setSnackbarOpen(false);
-  };
-
-  const handleSnackBarOpen = () => {
-    setSnackbarOpen(true);
-  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -68,10 +57,10 @@ export default function Register() {
   const sendDataToDatabase = async () => {
     let apiUrl = "";
 
-    if (formData.userRole === "admin" || formData.userRole === "Admin" || formData.userRole === "ADMIN") {
+    if (formData.userRole === "admin") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/admin/signup";
-    } else if (formData.userRole === "user" || formData.userRole === "User" || formData.userRole === "USER") {
+    } else if (formData.userRole === "user") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup";
     }
@@ -87,23 +76,11 @@ export default function Register() {
         console.error(`HTTP error! Status: ${response.status}`);
         const responseText = await response.text();
         console.error("Response Text:", responseText);
-  
-        if (responseText.includes("Email already exists")) {
-          console.log("Email already exists. inside !response.ok");
-          setSnackbarMessage("Email already exists. Please use a different email.");
-          setSnackbarOpen(true);
-        } else {
-          console.log("Unhandled error response:", responseText);
-        }
         return;
       }
 
       const data = await response.json();
-      console.log("Response Data:", data);
       console.log("New User Added:", data);
-      console.log(responseText);
-      handleConfirmation();
-    
     } catch (error) {
       console.error("Error:", error);
     }
@@ -124,9 +101,10 @@ export default function Register() {
       isValid = false;
     }
     if (
-      !formData.userRole ||
-      (!formData.userRole.toLowerCase().includes("admin") &&
-        !formData.userRole.toLowerCase().includes("user"))
+      formData.userRole !== "admin" &&
+      formData.userRole !== "user" &&
+      formData.userRole !== "Admin" &&
+      formData.userRole !== "User"
     ) {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -204,6 +182,7 @@ export default function Register() {
       isValid = false;
     }
     if (isValid) {
+      handleConfirmation();
       sendDataToDatabase();
     }
   };
@@ -376,16 +355,6 @@ export default function Register() {
           </Box>
         </Modal>
       </Box>
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000} // Adjust the duration as needed
-        onClose={() => setSnackbarOpen(false)}
-        message="Email already Exists. Please Log In."
-        severity="error"
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      >
-      </Snackbar>
-
     </Container>
   );
 }
