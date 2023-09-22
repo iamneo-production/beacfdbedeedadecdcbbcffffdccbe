@@ -29,8 +29,8 @@ public class AuthController {
     public ResponseEntity<String> signup(@RequestBody User user) {
         //Check if the email already exists in the user table
         if (authService.getUserByEmail(user.getEmail()).isPresent()) {
-            return ResponseEntity.ok("Email already exists");
-            //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
+            //return ResponseEntity.ok("Email already exists");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
         }
         // If the email doesn't exist, proceed with user registration
         else{
@@ -43,8 +43,8 @@ public class AuthController {
     @PostMapping("/admin/signup")
     public ResponseEntity<String> adminSignup(@RequestBody User adminUser) {
         if (authService.getUserByEmail(adminUser.getEmail()).isPresent()) {
-            return ResponseEntity.ok("Email already exists");
-            //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
+            //return ResponseEntity.ok("Email already exists");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
         } else {
             authService.saveUser(adminUser);
             return ResponseEntity.ok("New Admin User has been added");
