@@ -89,6 +89,7 @@ export default function Register() {
         console.error("Response Text:", responseText);
   
         if (responseText.includes("Email already exists")) {
+          console.log("Email already exists. inside !response.ok");
           setSnackbarMessage("Email already exists. Please use a different email.");
           setSnackbarOpen(true);
         } else {
