@@ -63,7 +63,7 @@ function DashboardGrid() {
         <div style={{display: "inline", width:"100%"}}>
         <TextField
           select
-          label="Sort Order"
+          label="Sort Order By Price"
           variant="outlined"
           margin="normal"
           value={sortOrder}
