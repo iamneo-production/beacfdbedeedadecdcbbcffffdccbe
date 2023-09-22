@@ -57,7 +57,7 @@ export default function EditBookingModal({
       console.log("Inside useEffect");
       // Fetch product data for the specified productId
       fetch(
-        `https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/editappointment/${productId}`
+        `https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/user/appointment/${productId}`
       )
         .then((response) => response.json())
         .then((data) => {
