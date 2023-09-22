@@ -47,6 +47,7 @@ public class AdminController {
             return ResponseEntity.notFound().build();
         }
     }
+    
     @GetMapping("/service-center/{id}")
     public ResponseEntity<?> getServiceById(@PathVariable Long id){
         Optional<ServiceCenter> optionalServiceCenter = serviceCenterService.findById(id);
