@@ -88,10 +88,13 @@ export default function AdminNavbar() {
           <ListItem button  onClick={() => handleListItemClick(`/admin/AdminHomePage/${userId}`)}>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button  onClick={handleListItemClick}>
+          <ListItem button  onClick={() => handleListItemClick(`/admin/addServiceCenter/${userId}`)}>
             <ListItemText primary="Add Center" />
           </ListItem>
-          <ListItem button  onClick={handleListItemClick}>
+          <ListItem button  onClick={() => handleListItemClick(`/admin/CenterProfile/${userId}`)}>
+            <ListItemText primary="Center Profile" />
+          </ListItem>
+          <ListItem button  onClick={() => handleListItemClick(`/admin/AdminAppointmentView/${userId}`)}>
             <ListItemText primary="Center Profile" />
           </ListItem>
         </List>
