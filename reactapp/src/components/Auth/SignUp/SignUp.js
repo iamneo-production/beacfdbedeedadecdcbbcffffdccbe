@@ -184,7 +184,7 @@ export default function Register() {
       isValid = false;
     }
     if (isValid) {
-      handleConfirmation();
+      // handleConfirmation();
       sendDataToDatabase();
     }
   };
