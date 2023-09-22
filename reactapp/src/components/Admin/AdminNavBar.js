@@ -95,7 +95,7 @@ export default function AdminNavbar() {
             <ListItemText primary="Center Profile" />
           </ListItem>
           <ListItem button  onClick={() => handleListItemClick(`/admin/AdminAppointmentView/${userId}`)}>
-            <ListItemText primary="Center Profile" />
+            <ListItemText primary="Appointments" />
           </ListItem>
         </List>
       </Drawer>
