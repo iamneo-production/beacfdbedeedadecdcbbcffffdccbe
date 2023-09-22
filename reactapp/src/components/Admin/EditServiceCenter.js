@@ -15,6 +15,12 @@ import { CardMedia } from "@mui/material";
 import { useState } from "react";
 import AdminNavbar from "./AdminNavBar";
 import { useNavigate } from "react-router-dom";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
 
 const defaultTheme = createTheme();
 
@@ -27,14 +33,15 @@ export default function EditServiceCenter() {
     const location = useLocation();
     const cardData = location.state.cardData;
 
-  
-    const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+    const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] = useState(false);
 
-    const openConfirmationModal = () => { 
-      setIsConfirmationModalOpen(true);
-      console.log('Modal opened'); // Add this line
+    const openConfirmationModal = () => {
+      setIsConfirmationDialogOpen(true);
     };
-    const closeConfirmationModal = () => { setIsConfirmationModalOpen(false); };
+  
+    const closeConfirmationModal = () => {
+      setIsConfirmationDialogOpen(false);
+    };
   
     const [adminData, setAdminData] = useState({
       editCenterName: "",
@@ -339,76 +346,6 @@ export default function EditServiceCenter() {
                       >
                         Submit
                       </Button>
-                      {console.log('isConfirmationModalOpen:', isConfirmationModalOpen)}
-                      {isConfirmationModalOpen && (
-                        <div 
-                          className="confirmation-modal"
-                          style={{
-                            position: "fixed",
-                            top: "0",
-                            left: "0",
-                            width: "100%",
-                            height: "100%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            backgroundColor: "rgba(0, 0, 0, 0.5)",
-                            zIndex: "999",
-                          }}
-                        >
-                        <div 
-                          className="modal-content"
-                          style={{
-                            background: "#fff",
-                            padding: "20px",
-                            borderRadius: "5px",
-                            maxWidth: "400px",
-                            width: "100%",
-                          }}
-                        >
-                          <h2>Confirmation</h2>
-                          <p>Do you wish to update <strong>Service Center {serviceCenterId}, {adminData.editCenterName} </strong>details?</p>
-                          <h3>Updated Details:</h3>
-                          <p><strong>Name:</strong> {adminData.editCenterName}</p>
-                          <p><strong>Phone Number:</strong> {adminData.editCenterPhoneNumber}</p>
-                          <p><strong>Address:</strong> {adminData.editCenterAddress}</p>
-                          <p><strong>Image:</strong>{adminData.editCenterImageUrl}</p>
-                          <p><strong>Mail ID:</strong>{adminData.editCenterMailId}</p>
-                          <p><strong>Description:</strong>{adminData.editCenterDescription}</p>
-                          <p><strong>Timings:</strong>{adminData.editCenterTimings}</p>
-                          <p><strong>Price:</strong>{adminData.editCenterPrice}</p>
-                          {/* Add more details here as needed */}
-                          <div 
-                            className="modal-buttons"
-                            style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            marginTop: "20px",
-                            }}
-                          >
-                            <Button
-                              variant="contained"
-                              color="primary"
-                              onClick={() => {
-                                // Handle the confirmation action (e.g., send the update request)
-                                // Close the modal after confirmation
-                                closeConfirmationModal();
-                                navigate(`/admin/CenterProfile/${userId}`);
-                              }}
-                            >
-                              Confirm
-                            </Button>
-                            <Button
-                              variant="outlined"
-                              color="primary"
-                              onClick={closeConfirmationModal}
-                            >
-                              Cancel
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    )}                        
                     </form> {/* Closed the form */}
                   </CardContent>
                 </Card>
@@ -416,6 +353,47 @@ export default function EditServiceCenter() {
             </Grid>
           </Container>
         </main>
+        <Dialog
+        open={isConfirmationDialogOpen}
+        onClose={closeConfirmationModal}
+        fullWidth
+        maxWidth="md"
+      >
+        <DialogTitle>Confirmation</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Do you wish to update <strong>Service Center {serviceCenterId}, {adminData.editCenterName} </strong> details?
+          </DialogContentText>
+          <h3>Updated Details:</h3>
+          <p><strong>Name:</strong> {adminData.editCenterName}</p>
+          <p><strong>Phone Number:</strong> {adminData.editCenterPhoneNumber}</p>
+          <p><strong>Address:</strong> {adminData.editCenterAddress}</p>
+          <p><strong>Image:</strong>{adminData.editCenterImageUrl}</p>
+          <p><strong>Mail ID:</strong>{adminData.editCenterMailId}</p>
+          <p><strong>Description:</strong>{adminData.editCenterDescription}</p>
+          <p><strong>Timings:</strong>{adminData.editCenterTimings}</p>
+          <p><strong>Price:</strong>{adminData.editCenterPrice}</p>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              closeConfirmationModal();
+              navigate(`/admin/CenterProfile/${userId}`);
+            }}
+          >
+            Confirm
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={closeConfirmationModal}
+          >
+            Cancel
+          </Button>
+        </DialogActions>
+      </Dialog>
       </ThemeProvider>
     );
   }

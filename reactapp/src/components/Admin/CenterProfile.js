@@ -33,6 +33,7 @@ function CenterProfile() {
   };
 
 
+
   useEffect(() => {
     // Make an API request to fetch service center data
     fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/service-center`)
@@ -92,7 +93,7 @@ function CenterProfile() {
           Filter
         </Button>
       </Container>
-        <GridCardsAdmin searchTerm={searchTerm} sortOrder={sortOrder} serviceCenters={serviceCenters} setServiceCenters={setServiceCenters}/> {/* Use the modified GridCardsWithoutHero component */}
+        <GridCardsAdmin searchTerm={searchTerm} sortOrder={sortOrder} onSortOrderChange={setSortOrder}  serviceCenters={serviceCenters} setServiceCenters={setServiceCenters}/> {/* Use the modified GridCardsWithoutHero component */}
       </Container>
       <Footer />
     </div>

@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import DeleteCenterConfirmationModal from "./DeleteCenterConfirmationModal";
 
-export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }) {
+export default function GridCardsAdmin({ searchTerm, sortOrder, onSortOrderChange, serviceCenters }) {
   const navigate = useNavigate();
   const params = useParams();
   console.log('Params:', params);
@@ -65,18 +65,37 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
     center.serviceCenterName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleSortChange = (event) => {
+    const newSortOrder = event.target.value;
+    onSortOrderChange(newSortOrder); // Call the callback function to update sortOrder
+  };
+  
+  // ...
+  
+  // Sort the cards based on sortOrder
   const sortedCards = [...filteredCards].sort((a, b) => {
-    const priceA = parseInt(a.price);
-    const priceB = parseInt(b.price);
+    console.log('Service Centers:', serviceCenters);
+    console.log('Before Parsing - Price A:', a.serviceCenterPrice);
+console.log('Before Parsing - Price B:', b.serviceCenterPrice);
+    const priceA = parseFloat(a.serviceCenterPrice);
+  const priceB = parseFloat(b.serviceCenterPrice);
 
+    console.log('priceA:', priceA);
+  console.log('priceB:', priceB);
+  console.log('sortOrder:', sortOrder);
+  
     if (sortOrder === "ascending") {
       return priceA - priceB;
     } else if (sortOrder === "descending") {
       return priceB - priceA;
     }
-
+  
     return 0;
-  });
+  });  
+
+  console.log('searchTerm:', searchTerm);
+  console.log('sortOrder:', sortOrder);
+  console.log('serviceCenters:', serviceCenters);
 
   return (
     <main>
@@ -117,6 +136,10 @@ export default function GridCardsAdmin({ searchTerm, sortOrder, serviceCenters }
                   <Typography>
                     <strong>Timing: </strong>
                     {serviceCenter.serviceCenterTimings}
+                  </Typography>
+                  <Typography>
+                    <strong>Price: </strong> Rs. 
+                    {serviceCenter.serviceCenterPrice}
                   </Typography>
                 </CardContent>
                 <CardActions>
