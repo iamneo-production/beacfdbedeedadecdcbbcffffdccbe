@@ -60,10 +60,10 @@ export default function Register() {
   const sendDataToDatabase = async () => {
     let apiUrl = "";
 
-    if (formData.userRole === "admin") {
+    if (formData.userRole === "admin" || formData.userRole === "Admin" || formData.userRole === "ADMIN") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/admin/signup";
-    } else if (formData.userRole === "user") {
+    } else if (formData.userRole === "user" || formData.userRole === "User" || formData.userRole === "USER") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup";
     }
