@@ -34,6 +34,14 @@ export default function Register() {
     confirmPassword: "",
   });
 
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
+
+  const handleSnackBarOpen = () => {
+    setSnackbarOpen(true);
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
