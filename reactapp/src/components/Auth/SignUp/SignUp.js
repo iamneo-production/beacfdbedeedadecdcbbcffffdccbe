@@ -84,7 +84,7 @@ export default function Register() {
 
       const data = await response.json();
       console.log("New User Added:", data);
-      handleConfirmation();
+      // handleConfirmation();
       //alert("Success: New User Added");
     } catch (error) {
       console.error("Error:", error);
@@ -189,6 +189,7 @@ export default function Register() {
     }
     if (isValid) {
       sendDataToDatabase();
+      handleConfirmation();
     }
   };
 
