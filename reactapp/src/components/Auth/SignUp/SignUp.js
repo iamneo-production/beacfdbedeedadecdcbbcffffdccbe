@@ -33,6 +33,7 @@ export default function Register() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const userRole = name === "userRole" ? value.toLowerCase() : value;
     setFormData({
       ...formData,
       [name]: value,
