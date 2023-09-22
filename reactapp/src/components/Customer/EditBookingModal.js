@@ -40,6 +40,15 @@ export default function EditBookingModal({
     editAppointmentDate: "",
   });
 
+  const [fetchedData, setFetchedData] = useState(null);
+
+  useEffect(() => {
+    //fetch appointment data when modal is open
+    if (open){
+      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/appointment/
+    }
+  })
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditData((prevUserData) => ({
