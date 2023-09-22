@@ -81,16 +81,17 @@ export default function Register() {
         console.error("Response Text:", responseText);
 
         // Check if the response indicates a duplicate user
+        console.log("open the snackbar");
       if (responseText.includes("Email already exists")) {
         setSnackbarMessage("Email already exists. Please use a different email.");
         setSnackbarOpen(true);
       }
-
         return;
       }
 
       const data = await response.json();
       console.log("New User Added:", data);
+      handleConfirmation();
     } catch (error) {
       console.error("Error:", error);
     }
@@ -191,7 +192,6 @@ export default function Register() {
       isValid = false;
     }
     if (isValid) {
-      handleConfirmation();
       sendDataToDatabase();
     }
   };
