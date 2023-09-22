@@ -234,7 +234,10 @@ export default function Register() {
             onChange={handleChange}
             error={!!errors.userRole}
             helperText={errors.userRole}
-          />
+          >
+          <MenuItem value="admin">Admin</MenuItem>
+          <MenuItem value="user">User</MenuItem>
+          </TextField>
           <TextField
             margin="normal"
             required
