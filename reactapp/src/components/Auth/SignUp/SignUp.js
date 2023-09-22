@@ -57,10 +57,10 @@ export default function Register() {
   const sendDataToDatabase = async () => {
     let apiUrl = "";
 
-    if (formData.userRole === "admin" || formData.userRole === "Admin" || formData.userRole === "ADMIN") {
+    if (formData.userRole === "admin") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/admin/signup";
-    } else if (formData.userRole === "user" || formData.userRole === "User" || formData.userRole === "USER") {
+    } else if (formData.userRole === "user") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/user/signup";
     }
@@ -104,9 +104,7 @@ export default function Register() {
       formData.userRole !== "admin" &&
       formData.userRole !== "user" &&
       formData.userRole !== "Admin" &&
-      formData.userRole !== "User" &&
-      formData.userRole !== "ADMIN" &&
-      formData.userRole !== "USER"
+      formData.userRole !== "User"
     ) {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -184,7 +182,7 @@ export default function Register() {
       isValid = false;
     }
     if (isValid) {
-      // handleConfirmation();
+      handleConfirmation();
       sendDataToDatabase();
     }
   };
