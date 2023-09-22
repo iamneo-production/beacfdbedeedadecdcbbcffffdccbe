@@ -17,32 +17,32 @@ const styles = {
     marginBottom: "20px",
     fontFamily: "Poppins, sans-serif",
     marginTop: '5%',
-    color: "#ffffff" // Add margin-top
+    color: "#ffffff"
   },
   boxContainer: {
     display: "flex",
     justifyContent: "space-between",
+    flexWrap: "wrap", // Ensure boxes wrap to the next row on smaller screens
   },
   box: {
-    width: "30%", // Set the width to 30% to create three boxes in a row
+    width: "30%",
     padding: "20px",
     textAlign: "center",
     margin: "10px",
-    aspectRatio: "1/1", // Maintain a 1:1 aspect ratio to make them square
+    aspectRatio: "1/1",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     color: "#fff",
     backgroundColor: "#000",
-    fontSize:"3rem"
+    fontSize: "3rem",
     // boxShadow: "3px 3px 3px 3px rgba(0,0,0,0.35)",
   },
   number: {
-    fontSize: "7rem", // Increase the font size for the numbers
+    fontSize: "7rem",
     fontWeight: "bold",
-    color: "#ffffff" // Make the numbers bold
-    // Adjust the font size as needed
+    color: "#ffffff",
   },
 };
 
@@ -50,75 +50,74 @@ function AdminHomePage() {
   const params = useParams();
   const { userId } = params;
 
-    const [numberOfCustomers, setNumberOfCustomers] = useState(0);
-    const [numberOfServices, setNumberOfServices] = useState(0);
-    const [numberOfAppointments, setNumberOfAppointments] = useState(0);
-  
-    useEffect(() => {
-      // Fetch data when the component mounts
-      fetch("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-customers")
-        .then((response) => response.json())
-        .then((data) => setNumberOfCustomers(data))
-        .catch((error) => console.error("Error fetching customers:", error));
-  
-      fetch("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-service-centers")
-        .then((response) => response.json())
-        .then((data) => setNumberOfServices(data))
-        .catch((error) => console.error("Error fetching service centers:", error));
-  
-      fetch("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-products")
-        .then((response) => response.json())
-        .then((data) => setNumberOfAppointments(data))
-        .catch((error) => console.error("Error fetching appointments:", error));
-    }, []);
-  
-    return (
-      <div>
-        <AdminNavbar />
-        <Container maxWidth="lg" style={styles.container}>
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="text.primary"
-            gutterBottom
-            style={{ marginTop: '5%' }}
-          >
-            Welcome to the Admin Dashboard
+  const [numberOfCustomers, setNumberOfCustomers] = useState(0);
+  const [numberOfServices, setNumberOfServices] = useState(0);
+  const [numberOfAppointments, setNumberOfAppointments] = useState(0);
+
+  useEffect(() => {
+    // Fetch data when the component mounts
+    fetch("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-customers")
+      .then((response) => response.json())
+      .then((data) => setNumberOfCustomers(data))
+      .catch((error) => console.error("Error fetching customers:", error));
+
+    fetch("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-service-centers")
+      .then((response) => response.json())
+      .then((data) => setNumberOfServices(data))
+      .catch((error) => console.error("Error fetching service centers:", error));
+
+    fetch("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-products")
+      .then((response) => response.json())
+      .then((data) => setNumberOfAppointments(data))
+      .catch((error) => console.error("Error fetching appointments:", error));
+  }, []);
+
+  return (
+    <div>
+      <AdminNavbar />
+      <Container maxWidth="lg" style={styles.container}>
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          color="text.primary"
+          gutterBottom
+          style={{ marginTop: '5%' }}
+        >
+          Welcome to the Admin Dashboard
+        </Typography>
+        {numberOfCustomers !== 0 && numberOfServices !== 0 && numberOfAppointments !== 0 ? (
+          <div style={styles.boxContainer}>
+            <Paper elevation={3} style={styles.box}>
+              <Typography variant="h6">
+                No. of proud customers we've had
+              </Typography>
+              <Typography variant="h4" style={styles.number}>
+                {numberOfCustomers}
+              </Typography>
+            </Paper>
+            <Paper elevation={3} style={styles.box}>
+              <Typography variant="h6">No. of services we have</Typography>
+              <Typography variant="h4" style={styles.number}>
+                {numberOfServices}
+              </Typography>
+            </Paper>
+            <Paper elevation={3} style={styles.box}>
+              <Typography variant="h6">No. of Successful Appointments</Typography>
+              <Typography variant="h4" style={styles.number}>
+                {numberOfAppointments}
+              </Typography>
+            </Paper>
+          </div>
+        ) : (
+          <Typography variant="h6" align="center">
+            Loading...
           </Typography>
-          {numberOfCustomers !== 0 && numberOfServices !== 0 && numberOfAppointments !== 0 ? (
-            <div style={styles.boxContainer}>
-              <Paper elevation={3} style={styles.box}>
-                <Typography variant="h6">
-                  No. of proud customers we've had
-                </Typography>
-                <Typography variant="h4" style={styles.number}>
-                  {numberOfCustomers}
-                </Typography>
-              </Paper>
-              <Paper elevation={3} style={styles.box}>
-                <Typography variant="h6">No. of services we have</Typography>
-                <Typography variant="h4" style={styles.number}>
-                  {numberOfServices}
-                </Typography>
-              </Paper>
-              <Paper elevation={3} style={styles.box}>
-                <Typography variant="h6">No. of Successful Appointments</Typography>
-                <Typography variant="h4" style={styles.number}>
-                  {numberOfAppointments}
-                </Typography>
-              </Paper>
-            </div>
-          ) : (
-            // Optionally, you can show a loading message or spinner here while data is being fetched
-            <Typography variant="h6" align="center">
-              Loading...
-            </Typography>
-          )}
-        </Container>
-        <Footer />
-      </div>
-    );
-  }
-  
-  export default AdminHomePage;
+        )}
+      </Container>
+      <Footer />
+    </div>
+  );
+}
+
+export default AdminHomePage;
