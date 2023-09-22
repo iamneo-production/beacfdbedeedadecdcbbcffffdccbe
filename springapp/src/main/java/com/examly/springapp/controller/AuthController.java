@@ -1,5 +1,6 @@
 package com.examly.springapp.controller;
 
+import org.springframework.http.HttpStatus;
 import com.examly.springapp.model.User;
 import com.examly.springapp.repository.ServiceCenterRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,7 +29,8 @@ public class AuthController {
     public ResponseEntity<String> signup(@RequestBody User user) {
         //Check if the email already exists in the user table
         if (authService.getUserByEmail(user.getEmail()).isPresent()) {
-            return ResponseEntity.ok("Email already exists");
+            // return ResponseEntity.ok("Email already exists");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
         }
         // If the email doesn't exist, proceed with user registration
         else{
