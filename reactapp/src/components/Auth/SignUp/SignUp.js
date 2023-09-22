@@ -7,11 +7,13 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Modal } from "@mui/material";
+import { Modal, Snackbar, MuiAlert } from "@mui/material";
 
 export default function Register() {
   const navigate = useNavigate();
   const [successModalOpen, setSuccessModalOpen] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false); // Snackbar state
+  const [snackbarMessage, setSnackbarMessage] = useState(""); // Snackbar message
 
   const [formData, setFormData] = useState({
     userRole: "",
@@ -76,6 +78,13 @@ export default function Register() {
         console.error(`HTTP error! Status: ${response.status}`);
         const responseText = await response.text();
         console.error("Response Text:", responseText);
+
+        // Check if the response indicates a duplicate user
+      if (responseText.includes("Email already exists")) {
+        setSnackbarMessage("Email already exists. Please use a different email.");
+        setSnackbarOpen(true);
+      }
+
         return;
       }
 
@@ -354,6 +363,22 @@ export default function Register() {
           </Box>
         </Modal>
       </Box>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000} // Adjust the duration as needed
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <MuiAlert
+          elevation={6}
+          variant="filled"
+          onClose={() => setSnackbarOpen(false)}
+          severity="error"
+        >
+          {snackbarMessage}
+        </MuiAlert>
+      </Snackbar>
+
     </Container>
   );
 }
