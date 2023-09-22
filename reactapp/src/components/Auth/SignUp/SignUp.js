@@ -79,13 +79,13 @@ export default function Register() {
         console.error(`HTTP error! Status: ${response.status}`);
         const responseText = await response.text();
         console.error("Response Text:", responseText);
-
-        // Check if the response indicates a duplicate user
-        console.log("open the snackbar");
-      if (responseText.includes("Email already exists")) {
-        setSnackbarMessage("Email already exists. Please use a different email.");
-        setSnackbarOpen(true);
-      }
+  
+        if (responseText.includes("Email already exists")) {
+          setSnackbarMessage("Email already exists. Please use a different email.");
+          setSnackbarOpen(true);
+        } else {
+          console.log("Unhandled error response:", responseText);
+        }
         return;
       }
 
