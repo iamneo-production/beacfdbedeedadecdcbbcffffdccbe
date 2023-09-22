@@ -102,6 +102,7 @@ export default function Register() {
 
     // Basic Validation Rules
     let isValid = true;
+    const userRoleLower = formData.userRole.toLowerCase();
     if (formData.userRole.trim() === "") {
       setErrors((prevErrors) => ({
         ...prevErrors,
