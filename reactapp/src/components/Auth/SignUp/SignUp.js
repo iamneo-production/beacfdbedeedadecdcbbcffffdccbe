@@ -8,8 +8,6 @@ import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Modal, MenuItem } from "@mui/material";
-import { ToastContainer, toast } from 'react-toastify/dist/ReactToastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -80,13 +78,16 @@ export default function Register() {
         console.error(`HTTP error! Status: ${response.status}`);
         const responseText = await response.text();
         console.error("Response Text:", responseText);
+        alert("Error: " + responseText);
         return;
       }
 
       const data = await response.json();
       console.log("New User Added:", data);
+      alert("Success: New User Added");
     } catch (error) {
       console.error("Error:", error);
+      alert("Error: " + error.message);
     }
   };
 
@@ -362,7 +363,6 @@ export default function Register() {
           </Box>
         </Modal>
       </Box>
-      <ToastContainer position="top-right" autoClose={5000} />
     </Container>
   );
 }
