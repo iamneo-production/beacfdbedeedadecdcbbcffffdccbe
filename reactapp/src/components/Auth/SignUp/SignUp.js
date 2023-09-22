@@ -97,10 +97,13 @@ export default function Register() {
         }
         return;
       }
+
       const data = await response.json();
+      console.log("Response Data:", data);
       console.log("New User Added:", data);
       console.log(responseText);
       handleConfirmation();
+    
     } catch (error) {
       console.error("Error:", error);
     }
