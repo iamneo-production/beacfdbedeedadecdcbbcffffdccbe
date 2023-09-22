@@ -45,9 +45,32 @@ export default function EditBookingModal({
   useEffect(() => {
     //fetch appointment data when modal is open
     if (open){
-      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/appointment/
+      fetch(`https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/appointment/${productId}`)
+      .then((response) => {
+        if(response.ok){
+          return response.json();
+        } else {
+          throw new Error("Failed to fetch appointment data");
+        }
+      })
+      .then((data) => {
+        setFetchedData(data);
+        setEditData({
+          editProductName: data.productName,
+            editModelNo: data.productModelNo,
+            editDateOfPurchase: data.dateOfPurchase,
+            editContactNumber: data.mobileNumber,
+            editProblem: data.productDescription,
+            editAppointmentDate: data.availableSlots,
+            editProductId: productId,
+            editServiceCenterName: serviceCenterName,
+        });
+      })
+      .catch((error) => {
+        console.log("Error fetching appointment data: ", error);
+      });
     }
-  })
+  }, [open, productId, serviceCenterName]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
