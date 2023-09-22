@@ -43,7 +43,8 @@ public class AuthController {
     @PostMapping("/admin/signup")
     public ResponseEntity<String> adminSignup(@RequestBody User adminUser) {
         if (authService.getUserByEmail(adminUser.getEmail()).isPresent()) {
-            return ResponseEntity.ok("Email already exists");
+            //return ResponseEntity.ok("Email already exists");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
         } else {
             authService.saveUser(adminUser);
             return ResponseEntity.ok("New Admin User has been added");

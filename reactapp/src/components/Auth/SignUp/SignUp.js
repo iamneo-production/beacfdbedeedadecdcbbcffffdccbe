@@ -377,7 +377,8 @@ export default function Register() {
         open={snackbarOpen}
         autoHideDuration={6000} // Adjust the duration as needed
         onClose={() => setSnackbarOpen(false)}
-        message="Note archived"
+        message="Email already Exists. Please Log In."
+        severity="error"
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
       </Snackbar>
