@@ -85,7 +85,7 @@ export default function AdminNavbar() {
         variant="temporary"
       >
         <List>
-          <ListItem button  onClick={handleListItemClick}>
+          <ListItem button  onClick={() => handleListItemClick(`/admin/AdminHomePage/${userId}`)}>
             <ListItemText primary="Home" />
           </ListItem>
           <ListItem button  onClick={handleListItemClick}>
