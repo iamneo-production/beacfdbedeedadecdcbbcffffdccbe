@@ -84,10 +84,11 @@ export default function Register() {
 
       const data = await response.json();
       console.log("New User Added:", data);
-      alert("Success: New User Added");
+      handleConfirmation();
+      //alert("Success: New User Added");
     } catch (error) {
       console.error("Error:", error);
-      alert("Error: " + error.message);
+      alert("Error: Email Already Exists. Refresh Page");
     }
   };
 
@@ -187,7 +188,6 @@ export default function Register() {
       isValid = false;
     }
     if (isValid) {
-      handleConfirmation();
       sendDataToDatabase();
     }
   };
