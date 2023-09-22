@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Modal } from "@mui/material";
+import { Modal, MenuItem } from "@mui/material";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -33,10 +33,11 @@ export default function Register() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const userRole = name === "userRole" ? value.toLowerCase() : value;
+    // const userRole = name === "userRole" ? value.toLowerCase() : value;
     setFormData({
       ...formData,
-      [name]: value,
+      // [name]: value,
+      [name]: value.toLowerCase(),
     });
 
     // To clear the error message when the user starts to type
