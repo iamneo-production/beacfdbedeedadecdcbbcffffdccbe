@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import AddCenter from "./AddCenter";
 import { useParams } from "react-router-dom";
 import Footer from "../Footer";
+import { DotWave } from '@uiball/loaders';
 
 const styles = {
   container: {
@@ -52,7 +53,8 @@ function AdminHomePage() {
   const [numberOfCustomers, setNumberOfCustomers] = useState(0);
   const [numberOfServices, setNumberOfServices] = useState(0);
   const [numberOfAppointments, setNumberOfAppointments] = useState(0);
-
+  const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     // Fetch data when the component mounts
     fetch("https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/admin/total-customers")
