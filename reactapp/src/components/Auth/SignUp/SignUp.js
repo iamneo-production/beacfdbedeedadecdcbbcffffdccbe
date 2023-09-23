@@ -9,8 +9,9 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Modal, MenuItem } from "@mui/material";
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function Register() {
+export default function SignUp() {
   const navigate = useNavigate();
   const [successModalOpen, setSuccessModalOpen] = useState(false);
 
@@ -367,6 +368,7 @@ export default function Register() {
           </Box>
         </Modal>
       </Box>
+      <ToastContainer />
     </Container>
   );
 }
