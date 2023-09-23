@@ -58,8 +58,8 @@ export default function Register() {
   };
 
   const sendDataToDatabase = async () => {
+    console.log("sendDataToDatabase called");
     let apiUrl = "";
-
     if (formData.userRole === "admin") {
       apiUrl =
         "https://8080-beacfdbedeedadecdcbbcffffdccbe.premiumproject.examly.io/auth/admin/signup";
