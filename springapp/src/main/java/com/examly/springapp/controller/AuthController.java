@@ -30,7 +30,10 @@ public class AuthController {
         //Check if the email already exists in the user table
         if (authService.getUserByEmail(user.getEmail()).isPresent()) {
             //return ResponseEntity.ok("Email already exists");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
+            //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Email already exists. Please use a different email.");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
         // If the email doesn't exist, proceed with user registration
         else{
