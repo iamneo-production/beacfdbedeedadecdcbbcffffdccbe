@@ -26,33 +26,49 @@ public class AuthController {
     private ServiceCenterRepository serviceCenterRepository;
 
     @PostMapping("/user/signup")
-    public ResponseEntity<String> signup(@RequestBody User user) {
-        //Check if the email already exists in the user table
-        if (authService.getUserByEmail(user.getEmail()).isPresent()) {
-            //return ResponseEntity.ok("Email already exists");
-            //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
-            Map<String, String> response = new HashMap<>();
-            response.put("message", "Email already exists. Please use a different email.");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
-        }
-        // If the email doesn't exist, proceed with user registration
-        else{
-            authService.saveUser(user);
-            return ResponseEntity.ok("New User has been added");
-        }
+public ResponseEntity<Map<String, String>> signup(@RequestBody User user) {
+    // Check if the email already exists in the user table
+    if (authService.getUserByEmail(user.getEmail()).isPresent()) {
+        // Return an error message as JSON
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Email already exists. Please use a different email.");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    } else {
+        authService.saveUser(user);
+        // Return a success message as JSON
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "New User has been added");
+        return ResponseEntity.ok(response);
     }
+}
 
-
-    @PostMapping("/admin/signup")
-    public ResponseEntity<String> adminSignup(@RequestBody User adminUser) {
-        if (authService.getUserByEmail(adminUser.getEmail()).isPresent()) {
-            //return ResponseEntity.ok("Email already exists");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
-        } else {
-            authService.saveUser(adminUser);
-            return ResponseEntity.ok("New Admin User has been added");
-        }
+@PostMapping("/admin/signup")
+public ResponseEntity<Map<String, String>> adminSignup(@RequestBody User adminUser) {
+    // Check if the email already exists in the user table
+    if (authService.getUserByEmail(adminUser.getEmail()).isPresent()) {
+        // Return an error message as JSON
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Email already exists. Please use a different email.");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    } else {
+        authService.saveUser(adminUser);
+        // Return a success message as JSON
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "New Admin User has been added");
+        return ResponseEntity.ok(response);
     }
+}
+
+    // @PostMapping("/admin/signup")
+    // public ResponseEntity<String> adminSignup(@RequestBody User adminUser) {
+    //     if (authService.getUserByEmail(adminUser.getEmail()).isPresent()) {
+    //         //return ResponseEntity.ok("Email already exists");
+    //         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists. Please use a different email.");
+    //     } else {
+    //         authService.saveUser(adminUser);
+    //         return ResponseEntity.ok("New Admin User has been added");
+    //     }
+    // }
 
 
 
