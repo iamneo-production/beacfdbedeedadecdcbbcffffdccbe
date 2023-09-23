@@ -84,8 +84,10 @@ export default function Register() {
 
       const data = await response.json();
       console.log("New User Added:", data);
-      // handleConfirmation();
-      //alert("Success: New User Added");
+      toast.success("Successful Registration, Redirecting to the login page", {
+        onClose: () => navigate("/login"),
+      });
+
     } catch (error) {
       console.error("Error:", error);
       alert("Error: Email Already Exists. Refresh Page and Sign Up again with different Email ID or Log In");
