@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Modal, MenuItem } from "@mui/material";
+import { Modal, MenuItem, toast } from "@mui/material";
 
 export default function Register() {
   const navigate = useNavigate();
