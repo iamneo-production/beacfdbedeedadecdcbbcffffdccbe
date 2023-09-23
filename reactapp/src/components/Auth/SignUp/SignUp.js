@@ -91,7 +91,7 @@ export default function SignUp() {
       });
 
     } catch (error) {
-      console.error("Error:", error);
+      // console.error("Error:", error);
       toast.error("Email already exists, please Log In or Sign Up with another account");
     }
   };
