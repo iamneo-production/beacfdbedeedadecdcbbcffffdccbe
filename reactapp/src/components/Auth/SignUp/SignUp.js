@@ -7,7 +7,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Modal, MenuItem, toast } from "@mui/material";
+import { Modal, MenuItem } from "@mui/material";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -90,7 +91,7 @@ export default function Register() {
 
     } catch (error) {
       console.error("Error:", error);
-      alert("Error: Email Already Exists. Refresh Page and Sign Up again with different Email ID or Log In");
+      toast.error("Email already exists, please Log In or Sign Up with another account");
     }
   };
 
@@ -191,7 +192,7 @@ export default function Register() {
     }
     if (isValid) {
       sendDataToDatabase();
-      handleConfirmation();
+      //handleConfirmation();
     }
   };
 
